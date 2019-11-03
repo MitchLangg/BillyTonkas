@@ -16,7 +16,6 @@ public class ConnectPage extends Application{
 		launch(args);
 	}
 
-	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
 		//Possibly find new pane for t
@@ -67,3 +66,5 @@ public class ConnectPage extends Application{
 	}
 
 }
+
+
