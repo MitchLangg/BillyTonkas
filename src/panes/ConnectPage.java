@@ -33,16 +33,19 @@ public class ConnectPage extends Application{
 		//Area to fill out the form
 		TextArea textA1 = new TextArea();
 		textA1.setMaxWidth(100);
-		textA1.setMaxHeight(10);
+		textA1.setMinHeight(25);
+		textA1.setMaxHeight(25);
 		TextArea textA2 = new TextArea();
 		textA2.setMaxWidth(100);
-		textA2.setMaxHeight(10);
+		textA2.setMinHeight(25);
+		textA2.setMaxHeight(25);
 		TextArea textA3 = new TextArea();
 		textA3.setMaxWidth(100);
-		textA3.setMaxHeight(10);
-		
+		textA3.setMinHeight(25);
+		textA3.setMaxHeight(25);
 		//Submit button
 		Button submitButton = new Button("Button");
+		submitButton.setMinWidth(100);
 		
 		gpane.getChildren().addAll(text1, text2, text3, textA1, textA2, textA3, submitButton);
 		GridPane.setRowIndex(text1, 0);
