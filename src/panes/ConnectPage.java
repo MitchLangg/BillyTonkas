@@ -24,42 +24,43 @@ public class ConnectPage extends BorderPane{
 		
 		
 		//Text for the form
-		Text text1 = new Text("UserID:");
+		Text text1 = new Text("EmployeeID:");
 		Text text2 = new Text("Password:");
 		Text text3 = new Text("Database:");
 		
 		//Area to fill out the form
-		TextArea textA1 = new TextArea();
-		textA1.setMaxWidth(100);
-		textA1.setMinHeight(25);
-		textA1.setMaxHeight(25);
-		TextArea textA2 = new TextArea();
-		textA2.setMaxWidth(100);
-		textA2.setMinHeight(25);
-		textA2.setMaxHeight(25);
-		TextArea textA3 = new TextArea();
-		textA3.setMaxWidth(100);
-		textA3.setMinHeight(25);
-		textA3.setMaxHeight(25);
+		TextArea employeeId = new TextArea();
+		employeeId.setMaxWidth(100);
+		employeeId.setMinHeight(25);
+		employeeId.setMaxHeight(25);
+		TextArea password = new TextArea();
+		password.setMaxWidth(100);
+		password.setMinHeight(25);
+		password.setMaxHeight(25);
+		TextArea database = new TextArea();
+		database.setMaxWidth(100);
+		database.setMinHeight(25);
+		database.setMaxHeight(25);
 		//Submit button
-		Button submitButton = new Button("Button");
+		Button submitButton = new Button("Connect Now");
 		submitButton.setMinWidth(100);
+		submitButton.setAlignment(Pos.CENTER);
 		
-		gpane.getChildren().addAll(text1, text2, text3, textA1, textA2, textA3, submitButton);
+		gpane.getChildren().addAll(text1, text2, text3, employeeId, password, database, submitButton);
 		GridPane.setRowIndex(text1, 0);
 		GridPane.setRowIndex(text2, 1);
 		GridPane.setRowIndex(text3, 2);
-		GridPane.setRowIndex(textA1, 0);
-		GridPane.setRowIndex(textA2, 1);
-		GridPane.setRowIndex(textA3, 2);
-		GridPane.setColumnIndex(textA1, 1);
-		GridPane.setColumnIndex(textA2, 1);
-		GridPane.setColumnIndex(textA3, 1);
+		GridPane.setRowIndex(employeeId, 0);
+		GridPane.setRowIndex(password, 1);
+		GridPane.setRowIndex(database, 2);
+		GridPane.setColumnIndex(employeeId, 1);
+		GridPane.setColumnIndex(password, 1);
+		GridPane.setColumnIndex(database, 1);
 		GridPane.setRowIndex(submitButton, 3);
 		GridPane.setColumnSpan(submitButton, 1);
 		
 		this.setCenter(gpane);
-		
+
 	}
 	
 
