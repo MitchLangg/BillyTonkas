@@ -1,7 +1,5 @@
 package Database;
 
 public class Database {
-
-	
-// test
+//Database page
 }
