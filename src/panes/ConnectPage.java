@@ -1,6 +1,9 @@
 package panes;
 
+import java.awt.Insets;
+
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -18,7 +21,7 @@ public class ConnectPage extends Application{
 
 	public void start(Stage primaryStage) throws Exception {
 		
-		//Possibly find new pane for t
+		//Possibly find new pane for this
 		GridPane gpane = new GridPane();
 		
 		
@@ -46,6 +49,7 @@ public class ConnectPage extends Application{
 		//Submit button
 		Button submitButton = new Button("Button");
 		submitButton.setMinWidth(100);
+		gpane.setGridLinesVisible(true);
 		
 		gpane.getChildren().addAll(text1, text2, text3, textA1, textA2, textA3, submitButton);
 		GridPane.setRowIndex(text1, 0);
@@ -58,6 +62,7 @@ public class ConnectPage extends Application{
 		GridPane.setColumnIndex(textA2, 1);
 		GridPane.setColumnIndex(textA3, 1);
 		GridPane.setRowIndex(submitButton, 3);
+		GridPane.setColumnSpan(submitButton, 1);
 		
 		borderpane.setCenter(gpane);
 		Scene Connectscene = new Scene(borderpane,1280,720);
