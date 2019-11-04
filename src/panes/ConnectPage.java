@@ -19,7 +19,8 @@ import javafx.scene.layout.Priority;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Window;
-
+import main.MainRun;
+import scenes.HomeScene;
 
 
 public class ConnectPage extends GridPane{
@@ -57,11 +58,11 @@ public class ConnectPage extends GridPane{
         GridPane.setHalignment(logo, HPos.CENTER);
         GridPane.setMargin(logo, new Insets(20, 0,20,0));
         //Header
-        Label headerLabel = new Label("Billy Tonkas Connection Login");
-        headerLabel.setFont(Font.font("Arial", FontWeight.BOLD, 24));
-        gridPane.add(headerLabel, 0,0,2,1);
-        GridPane.setHalignment(headerLabel, HPos.CENTER);
-        GridPane.setMargin(headerLabel, new Insets(20, 0,20,0));
+      //  Label headerLabel = new Label("Billy Tonkas Connection Login");
+       // headerLabel.setFont(Font.font("Arial", FontWeight.BOLD, 24));
+      //  gridPane.add(headerLabel, 0,0,2,1);
+      //  GridPane.setHalignment(headerLabel, HPos.CENTER);
+     //   GridPane.setMargin(headerLabel, new Insets(20, 0,20,0));
 
         //Name Label
         Label employeeID = new Label("Employee ID : ");
@@ -95,7 +96,7 @@ public class ConnectPage extends GridPane{
         Button submitButton = new Button("Make Connection");
         submitButton.setPrefHeight(40);
         submitButton.setDefaultButton(true);
-        submitButton.setPrefWidth(100);
+        submitButton.setPrefWidth(130);
         gridPane.add(submitButton, 0, 4, 2, 1);
         GridPane.setHalignment(submitButton, HPos.CENTER);
         GridPane.setMargin(submitButton, new Insets(20, 0,20,0));
@@ -118,6 +119,7 @@ public class ConnectPage extends GridPane{
                 }
                 		//Image [Check]
                 showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Credentials Successful!", "Welcome " + employeeIDfield.getText());
+                MainRun.mainStage.setScene(new HomeScene());
             }
         });
     }

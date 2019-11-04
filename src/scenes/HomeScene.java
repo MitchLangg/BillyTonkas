@@ -6,9 +6,8 @@ import panes.HomePage;
 
 public class HomeScene extends Scene {
 
-	public HomeScene(Parent root) {
+	public HomeScene() {
 		super(new HomePage(), 1280, 720);
-		// TODO Auto-generated constructor stub
 	}
 
 }
