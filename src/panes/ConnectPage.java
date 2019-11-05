@@ -13,9 +13,13 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Window;
@@ -49,6 +53,9 @@ public class ConnectPage extends GridPane{
     }
 
     private void addUIControls(GridPane gridPane) {
+    	//Colourway
+    	Background rootBackground = new Background(
+				new BackgroundFill(Color.GREY, new CornerRadii(0), new Insets(0, 0, 0, 0)));
     	//Image view
     	Image image = new Image("Images/logo.png");
     	ImageView logo = new ImageView();
