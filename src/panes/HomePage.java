@@ -23,13 +23,19 @@ public class HomePage extends BorderPane{
 		
 		//MENU BAR ITEMS -------------------------------------------
 		
+		MenuItem homePage = new MenuItem("Home");
+		MenuItem addPage = new MenuItem("Add Items");
+		MenuItem deletePage = new MenuItem("Delete Items");
+		MenuItem updatePage = new MenuItem("Update Items");
+		
+		
 		//Creates the menu item "Exit"
 		MenuItem fileMenu1 = new MenuItem("Exit");
 		
 		
-		
 		//Adds the exit menu item to File
-		fileMenu.getItems().add(fileMenu1);
+		fileMenu.getItems().addAll(fileMenu1);
+		toolsMenu.getItems().addAll(homePage, addPage, deletePage, updatePage);
 		
 		//Adds all menubar pages and their children to the menubar
 		menuBar.getMenus().addAll(fileMenu, toolsMenu);
