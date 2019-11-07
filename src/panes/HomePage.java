@@ -5,6 +5,8 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import main.MainRun;
+import scenes.HomeScene;
 
 public class HomePage extends BorderPane{
 	public HomePage() {
@@ -48,6 +50,23 @@ public class HomePage extends BorderPane{
 		//When the exit button is clicked the program is closed
 		fileMenu1.setOnAction(e->{
 			System.exit(0);
+		});
+		homePage.setOnAction(e->{
+			//This works, figure out how to get it to work with external scenes
+			if (MainRun.mainStage.getScene() != this.getScene()) {
+				MainRun.mainStage.setScene(new HomeScene());
+			}else {
+				
+			}
+		});
+		addPage.setOnAction(e->{
+			
+		});
+		deletePage.setOnAction(e->{
+			
+		});
+		updatePage.setOnAction(e->{
+			
 		});
 		
 		
