@@ -21,7 +21,47 @@ public class Database {
 			catch(Exception e) {
 				e.printStackTrace();
 			}
+			try {
+				createTable(Const.TABLE_CHOCOLATE,
+							Const.CREATE_TABLE_CHOCOLATE,
+							connection);
+				createTable(Const.TABLE_CHOCOLATE_STATS,
+						Const.CREATE_TABLE_CHOCOLATE_STATS,
+						connection);
+				createTable(Const.TABLE_CANDY,
+						Const.CREATE_TABLE_CANDY,
+						connection);
+				createTable(Const.TABLE_CANDY_STATS,
+						Const.CREATE_TABLE_CANDY_STATS,
+						connection);
+				createTable(Const.TABLE_INVENTORY,
+						Const.CREATE_TABLE_INVENTORY,
+						connection);
+				createTable(Const.TABLE_LOGIN,
+						Const.CREATE_TABLE_LOGIN,
+						connection);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			}
+		
 		}
+	
+	public static Database getInstance() {
+		if(instance == null) {
+			instance = new Database();
+		}
+		return instance;
+	}
+	
+	public Connection getConnection() {
+		return connection;	
+	}
+	
+	public void createTable(String tableName, String tableQuery, 
+			Connection connection) throws SQLException {
+		
 	}
 
 }
