@@ -21,8 +21,12 @@ public class HomePage extends BorderPane{
     	Background rootBackground = new Background(
 				new BackgroundFill(Color.TAN, new CornerRadii(0), new Insets(0, 0, 0, 0)));
     	this.setBackground(rootBackground);
-    	
-    	 MainMenuBar menuBar = new MainMenuBar();
+    	if (MainMenuBar.isPopulated() == false){
+    		MainMenuBar menuBar = new MainMenuBar();
+    	}else {
+    		
+    	}
+    	 
  		
  		//MENU BAR FUNCTIONS ----------------------------------
  		
