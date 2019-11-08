@@ -1,6 +1,11 @@
 package panes;
 
 
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+import database.Const;
+import database.Database;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
@@ -192,6 +197,17 @@ public class ConnectPage extends GridPane{
          return;
      }
      		//Image [Check]
+     if(databaseField.getText() == Const.DB_USER && passwordField.getText() == Const.DB_PASS) {
+    	 try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Database.connection = DriverManager.getConnection("jdbc:mysql://php.scweb.ca/" + Const.DB_NAME, 
+					Const.DB_USER, Const.DB_PASS);
+			System.out.println("Created Connection");
+		} catch (ClassNotFoundException | SQLException e1) {
+			
+			e1.printStackTrace();
+		}
+     }
      showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Credentials Successful!", "Welcome Employee #" + employeeIDfield.getText());
      MainRun.mainStage.setScene(new HomeScene()); 
      
