@@ -1,15 +1,23 @@
 package panes;
 
+import javafx.geometry.Insets;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import main.MainRun;
 import scenes.HomeScene;
 
 public class HomePage extends BorderPane{
 	public HomePage() {
+    	Background rootBackground = new Background(
+				new BackgroundFill(Color.TAN, new CornerRadii(0), new Insets(0, 0, 0, 0)));
+    	this.setBackground(rootBackground);
 		//Creates the Menu bar
 		MenuBar menuBar = new MenuBar();
 		
@@ -19,12 +27,13 @@ public class HomePage extends BorderPane{
 		//Creates the drop down menu "File" in the menu bar
 		Menu fileMenu = new Menu("File");
 		Menu toolsMenu = new Menu("Tools");
+		Menu settingMenu = new Menu("Settings");
 		
 		
 		//----------------------------------------------------------
 		
 		//MENU BAR ITEMS -------------------------------------------
-		
+		MenuItem account = new MenuItem("Account");
 		MenuItem homePage = new MenuItem("Home");
 		MenuItem addPage = new MenuItem("Add Items");
 		MenuItem deletePage = new MenuItem("Delete Items");
@@ -38,9 +47,9 @@ public class HomePage extends BorderPane{
 		//Adds the exit menu item to File
 		fileMenu.getItems().addAll(fileMenu1);
 		toolsMenu.getItems().addAll(homePage, addPage, deletePage, updatePage);
-		
+		settingMenu.getItems().addAll(account);	
 		//Adds all menubar pages and their children to the menubar
-		menuBar.getMenus().addAll(fileMenu, toolsMenu);
+		menuBar.getMenus().addAll(fileMenu, toolsMenu, settingMenu);
 		
 		//----------------------------------------------------------
 		
