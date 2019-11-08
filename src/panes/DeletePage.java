@@ -6,6 +6,7 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import main.MainRun;
 import scenes.AddScene;
 import scenes.HomeScene;
@@ -18,9 +19,14 @@ public class DeletePage extends BorderPane {
     	this.setBackground(rootBackground);
     	
  		
+    	//TO:DO Temporary Delete Later
+    	Text testText = new Text("This is the DeletePage");
+    	
  		//MENU BAR FUNCTIONS ----------------------------------
  		
  		//When the exit button is clicked the program is closed
+    	
+    	
  		MainMenuBar.getFileMenu1().setOnAction(e->{
  			System.exit(0);
  		});
@@ -39,6 +45,8 @@ public class DeletePage extends BorderPane {
  		//-----------------------------------------------------
  		//Sets the menu bar  to top (displays it to screen)
  		this.setTop(MainMenuBar.getMenuBar());
+ 		//TO:DO Temporary Delete Later
+ 		this.setCenter(testText);
 		
 		
 	}

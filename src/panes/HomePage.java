@@ -10,6 +10,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import main.MainRun;
 import scenes.AddScene;
 import scenes.DeleteScene;
@@ -27,8 +28,11 @@ public class HomePage extends BorderPane{
     	}else {
     		
     	}
-    	 
- 		
+    	
+    	//TO:DO Temporary Delete Later
+    	Text testText = new Text("This is the HomePage");
+    	
+    	
  		//MENU BAR FUNCTIONS ----------------------------------
  		
  		//When the exit button is clicked the program is closed
@@ -50,6 +54,8 @@ public class HomePage extends BorderPane{
  		//-----------------------------------------------------
  		//Sets the menu bar  to top (displays it to screen)
  		this.setTop(MainMenuBar.getMenuBar());
+ 		//TO:DO Temporary Delete Later
+ 		this.setCenter(testText);
 		
 		
 	}

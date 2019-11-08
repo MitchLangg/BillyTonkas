@@ -6,6 +6,7 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import main.MainRun;
 import scenes.AddScene;
 import scenes.DeleteScene;
@@ -18,7 +19,8 @@ public class UpdatePage extends BorderPane{
 				new BackgroundFill(Color.TAN, new CornerRadii(0), new Insets(0, 0, 0, 0)));
     	this.setBackground(rootBackground);
     	
- 		
+    	//TO:DO Temporary Delete Later
+    	Text testText = new Text("This is the UpdatePage");
  		//MENU BAR FUNCTIONS ----------------------------------
  		
  		//When the exit button is clicked the program is closed
@@ -40,6 +42,8 @@ public class UpdatePage extends BorderPane{
  		//-----------------------------------------------------
  		//Sets the menu bar  to top (displays it to screen)
  		this.setTop(MainMenuBar.getMenuBar());
+ 		//TO:DO Temporary Delete Later
+ 		this.setCenter(testText);
 		
 		
 	}
