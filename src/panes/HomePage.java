@@ -60,14 +60,7 @@ public class HomePage extends BorderPane{
 		fileMenu1.setOnAction(e->{
 			System.exit(0);
 		});
-		homePage.setOnAction(e->{
-			//This works, figure out how to get it to work with external scenes
-			if (MainRun.mainStage.getScene() != this.getScene()) {
-				MainRun.mainStage.setScene(new HomeScene());
-			}else {
-				
-			}
-		});
+		
 		addPage.setOnAction(e->{
 			
 		});
