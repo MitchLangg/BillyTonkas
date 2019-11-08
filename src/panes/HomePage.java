@@ -11,7 +11,10 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import main.MainRun;
+import scenes.AddScene;
+import scenes.DeleteScene;
 import scenes.HomeScene;
+import scenes.UpdateScene;
 
 public class HomePage extends BorderPane{
 	public HomePage() {
@@ -20,27 +23,5 @@ public class HomePage extends BorderPane{
     	this.setBackground(rootBackground);
 		
 		
-		
-		//MENU BAR FUNCTIONS ----------------------------------
-		
-		//When the exit button is clicked the program is closed
-		MainMenuBar.fileMenu1.setOnAction(e->{
-			System.exit(0);
-		});
-		
-		addPage.setOnAction(e->{
-			
-		});
-		deletePage.setOnAction(e->{
-			
-		});
-		updatePage.setOnAction(e->{
-			
-		});
-		
-		
-		//-----------------------------------------------------
-		//Sets the menu bar  to top (displays it to screen)
-		this.setTop(MainMenuBar.getMenuBar());
 	}
 }

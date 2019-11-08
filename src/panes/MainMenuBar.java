@@ -5,15 +5,17 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 
 public class MainMenuBar{
-	//Creates the Menu bar
-	private static MenuBar menuBar = new MenuBar();
+		//Creates the Menu bar
+		private static MenuBar menuBar = new MenuBar();
 	
-	//MENU BAR PAGES -------------------------------------------
-	//Creates the drop down menu "File" in the menu bar
+		//MENU BAR PAGES -------------------------------------------
+		//Creates the drop down menu "File" in the menu bar
 		private static Menu fileMenu = new Menu("File");
 		private static Menu toolsMenu = new Menu("Tools");
 		private static Menu settingMenu = new Menu("Settings");
 	
+		
+		//-----------------------------------------------------------
 		
 		
 		//MENU BAR ITEMS -------------------------------------------
@@ -27,7 +29,7 @@ public class MainMenuBar{
 		//Creates the menu item "Exit"
 		private static MenuItem fileMenu1 = new MenuItem("Exit");
 	
-	//----------------------------------------------------------
+		//----------------------------------------------------------
 	
 
 	public MainMenuBar() {
@@ -37,8 +39,6 @@ public class MainMenuBar{
 				settingMenu.getItems().addAll(account);	
 				//Adds all menubar pages and their children to the menubar
 				menuBar.getMenus().addAll(fileMenu, toolsMenu, settingMenu);
-				
-				//----------------------------------------------------------
 	}
 
 	public static MenuItem getAccount() {

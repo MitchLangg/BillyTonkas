@@ -6,7 +6,7 @@ import panes.UpdatePage;
 
 public class UpdateScene extends Scene{
 
-	public UpdateScene(Parent root) {
+	public UpdateScene() {
 		super(new UpdatePage(), 1280, 720);
 	}
 
