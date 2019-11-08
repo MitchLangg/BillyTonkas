@@ -17,15 +17,15 @@ public class MainMenuBar{
 		
 		
 		//MENU BAR ITEMS -------------------------------------------
-		private MenuItem account = new MenuItem("Account");
-		private MenuItem homePage = new MenuItem("Home");
-		private MenuItem addPage = new MenuItem("Add Items");
-		private MenuItem deletePage = new MenuItem("Delete Items");
-		private MenuItem updatePage = new MenuItem("Update Items");
+		private static MenuItem account = new MenuItem("Account");
+		private static MenuItem homePage = new MenuItem("Home");
+		private static MenuItem addPage = new MenuItem("Add Items");
+		private static MenuItem deletePage = new MenuItem("Delete Items");
+		private static  MenuItem updatePage = new MenuItem("Update Items");
 		
 		
 		//Creates the menu item "Exit"
-		private MenuItem fileMenu1 = new MenuItem("Exit");
+		private static MenuItem fileMenu1 = new MenuItem("Exit");
 	
 	//----------------------------------------------------------
 	
@@ -41,5 +41,32 @@ public class MainMenuBar{
 				//----------------------------------------------------------
 	}
 
+	public static MenuItem getAccount() {
+		return account;
+	}
+
+	public static  MenuItem getHomePage() {
+		return homePage;
+	}
+
+	public static MenuItem getAddPage() {
+		return addPage;
+	}
+
+	public static MenuItem getDeletePage() {
+		return deletePage;
+	}
+
+	public static MenuItem getUpdatePage() {
+		return updatePage;
+	}
+
+	public static MenuItem getFileMenu1() {
+		return fileMenu1;
+	}
+
+	public static MenuBar getMenuBar() {
+		return menuBar;
+	}
 	
 }
