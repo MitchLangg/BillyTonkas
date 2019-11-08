@@ -1,8 +1,11 @@
 package database;
 
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Database {
 
@@ -61,6 +64,19 @@ public class Database {
 	
 	public void createTable(String tableName, String tableQuery, 
 			Connection connection) throws SQLException {
+		
+		Statement sqlStatement;
+		DatabaseMetaData md = connection.getMetaData();
+		ResultSet result = md.getTables(null, null, tableName, null);
+		if(result.next()) {
+			System.out.println(tableName + " table already exists");
+		}
+		else {
+			sqlStatement = connection.createStatement();
+			sqlStatement.execute(tableQuery);
+			System.out.println("The "
+					+ tableName + " table has been created");
+		}
 		
 	}
 
