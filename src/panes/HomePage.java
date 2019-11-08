@@ -21,6 +21,30 @@ public class HomePage extends BorderPane{
     	Background rootBackground = new Background(
 				new BackgroundFill(Color.TAN, new CornerRadii(0), new Insets(0, 0, 0, 0)));
     	this.setBackground(rootBackground);
+    	
+    	 MainMenuBar menuBar = new MainMenuBar();
+ 		
+ 		//MENU BAR FUNCTIONS ----------------------------------
+ 		
+ 		//When the exit button is clicked the program is closed
+ 		MainMenuBar.getFileMenu1().setOnAction(e->{
+ 			System.exit(0);
+ 		});
+ 		
+ 		MainMenuBar.getAddPage().setOnAction(e->{
+ 			MainRun.mainStage.setScene(new AddScene());
+ 		});
+ 		MainMenuBar.getDeletePage().setOnAction(e->{
+ 			MainRun.mainStage.setScene(new DeleteScene());
+ 		});
+ 		MainMenuBar.getUpdatePage().setOnAction(e->{
+ 			MainRun.mainStage.setScene(new UpdateScene());
+ 		});
+ 		
+ 		
+ 		//-----------------------------------------------------
+ 		//Sets the menu bar  to top (displays it to screen)
+ 		this.setTop(MainMenuBar.getMenuBar());
 		
 		
 	}
