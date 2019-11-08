@@ -41,6 +41,7 @@ public class MainMenuBar{
 				settingMenu.getItems().addAll(account);	
 				//Adds all menubar pages and their children to the menubar
 				menuBar.getMenus().addAll(fileMenu, toolsMenu, settingMenu);
+				populated = true;
 	}
 
 	public static MenuItem getAccount() {
