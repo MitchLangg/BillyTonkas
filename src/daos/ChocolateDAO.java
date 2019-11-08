@@ -7,7 +7,7 @@ import javabeans.Chocolate;
 
 public interface ChocolateDAO {
 
-	public ArrayList<Chocolate> getAllCondition();
+	public ArrayList<Chocolate> getAllChocolate();
 	public Chocolate getChocolate(int chocolateID);
 	
 }
