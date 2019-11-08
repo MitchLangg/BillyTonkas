@@ -5,6 +5,8 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 
 public class MainMenuBar{
+	
+		private static boolean populated = false;
 		//Creates the Menu bar
 		private static MenuBar menuBar = new MenuBar();
 	
@@ -67,6 +69,14 @@ public class MainMenuBar{
 
 	public static MenuBar getMenuBar() {
 		return menuBar;
+	}
+
+	public static boolean isPopulated() {
+		return populated;
+	}
+
+	public static void setPopulated(boolean populated) {
+		MainMenuBar.populated = populated;
 	}
 	
 }
