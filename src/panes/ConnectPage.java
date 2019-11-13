@@ -70,7 +70,7 @@ public class ConnectPage extends GridPane{
 				new BackgroundFill(Color.TAN, new CornerRadii(0), new Insets(0, 0, 0, 0)));
     	this.setBackground(rootBackground);
     	//Image view
-    	Image image = new Image("Images/logo.png");
+    	Image image = new Image("Images/newlogo.png");
     	ImageView logo = new ImageView();
     	logo.setImage(image);
     	gridPane.add(logo,0,0,2,1);
