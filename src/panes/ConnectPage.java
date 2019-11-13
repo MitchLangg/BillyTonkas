@@ -85,23 +85,23 @@ public class ConnectPage extends GridPane{
         //GridPane.setMargin(headerLabel, new Insets(20, 0,20,0));
 
         //Name Label
-        Label employeeID = new Label("Employee ID : ");
-        gridPane.add(employeeID, 0,1);
+        Label database = new Label("Database : ");
+        gridPane.add(database, 0,1);
 
         //Name Text Field
-        TextField employeeIDfield = new TextField();
-        employeeIDfield.setPrefHeight(40);
-        gridPane.add(employeeIDfield, 1,1);
+        TextField dataBaseField = new TextField();
+        dataBaseField.setPrefHeight(40);
+        gridPane.add(dataBaseField, 1,1);
 
 
         //Email Label
-        Label database = new Label("Database : ");
-        gridPane.add(database, 0, 2);
+        Label userName = new Label("Username : ");
+        gridPane.add(userName, 0, 2);
 
         //Email Text Field
-        TextField databaseField = new TextField();
-        databaseField.setPrefHeight(40);
-        gridPane.add(databaseField, 1, 2);
+        TextField usernameField = new TextField();
+        usernameField.setPrefHeight(40);
+        gridPane.add(usernameField, 1, 2);
 
         //Password Label
         Label password = new Label("Password : ");
@@ -182,26 +182,27 @@ public class ConnectPage extends GridPane{
 		});
 
 		submitButtonBox.setOnMouseClicked(e -> {
-			 if(employeeIDfield.getText().isEmpty()) {
+			 if(dataBaseField.getText().isEmpty()) {
 				 
      			//Images [x]
          showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter your ID");
          return;
      }
-     if(databaseField.getText().isEmpty()) {
+     if(usernameField.getText().isEmpty()) {
          showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter a Database");
          return;
      }
      if(passwordField.getText().isEmpty()) {
          showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter a password");
          return;
+     }else {
+    	 Credentials.DB_NAME = dataBaseField.getText();
+    	 Credentials.DB_USER = usernameField.getText();
+    	 Credentials.DB_PASS = passwordField.getText();
+    	 Database.getInstance();
      }
-     		//Image [Check]
-    
-    if(databaseField.getText() == Credentials.DB_USER && passwordField.getText() == Credentials.DB_PASS) {
-    		 Database.getInstance();
-		}
-     showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Credentials Successful!", "Welcome Employee #" + employeeIDfield.getText());
+     		
+     showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Credentials Successful!", "Welcome " + usernameField.getText());
      MainRun.mainStage.setScene(new HomeScene()); 
      
 		});
