@@ -63,7 +63,6 @@ public class ConnectPage extends GridPane{
 
         return this;
     }
-
     private void addUIControls(GridPane gridPane) {
     	//Colourway
     	Background rootBackground = new Background(
@@ -197,17 +196,16 @@ public class ConnectPage extends GridPane{
          return;
      }
      		//Image [Check]
-     if(databaseField.getText() == Const.DB_USER && passwordField.getText() == Const.DB_PASS) {
-    	 try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Database.connection = DriverManager.getConnection("jdbc:mysql://php.scweb.ca/" + Const.DB_NAME, 
-					Const.DB_USER, Const.DB_PASS);
-			System.out.println("Created Connection");
-		} catch (ClassNotFoundException | SQLException e1) {
-			
-			e1.printStackTrace();
-		}
-     }
+     System.out.println(databaseField.getText());
+     System.out.println(passwordField.getText());
+    // if(databaseField.getText() == Const.DB_USER && passwordField.getText() == Const.DB_PASS) {
+    		 Database.getInstance();
+//			Class.forName("com.mysql.jdbc.Driver");
+//			Database.connection = DriverManager.getConnection("jdbc:mysql://php.scweb.ca/" + Const.DB_NAME, 
+//					Const.DB_USER, Const.DB_PASS);
+//			System.out.println("Created Connection");
+		
+   //  }
      showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Credentials Successful!", "Welcome Employee #" + employeeIDfield.getText());
      MainRun.mainStage.setScene(new HomeScene()); 
      
