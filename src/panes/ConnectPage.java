@@ -70,7 +70,7 @@ public class ConnectPage extends GridPane{
 				new BackgroundFill(Color.TAN, new CornerRadii(0), new Insets(0, 0, 0, 0)));
     	this.setBackground(rootBackground);
     	//Image view
-    	Image image = new Image("Images/logo.png");
+    	Image image = new Image("Images/newlogo.png");
     	ImageView logo = new ImageView();
     	logo.setImage(image);
     	gridPane.add(logo,0,0,2,1);
@@ -126,8 +126,9 @@ public class ConnectPage extends GridPane{
 				new BorderStroke(Color.CHOCOLATE, BorderStrokeStyle.SOLID, new CornerRadii(10), new BorderWidths(2)));
 		
 		 Font submitFont = Font.font("Ariel", 18);
+		 Font exitFont = Font.font("Ariel", 18);
 		 
-        //Submit Button (remade)
+        //Connect Button (remade)
         Text submitButton = new Text("Connect");
 
 		submitButton.setFont(submitFont);
@@ -154,17 +155,50 @@ public class ConnectPage extends GridPane{
 		
 		GridPane.setHalignment(submitButtonBox, HPos.CENTER);
 		
+		//Exit Button
+        Text exitButton = new Text("Exit");
+
+        exitButton.setFont(exitFont);
+
+        exitButton.setFill(Color.WHITE);
+
+		VBox exitButtonBox = new VBox();
+
+		exitButtonBox.getChildren().add(exitButton);
+
+		exitButtonBox.setMaxHeight(40);
+
+		exitButtonBox.setMaxWidth(130);
+
+		exitButtonBox.setAlignment(Pos.CENTER);
+
+		exitButtonBox.setSpacing(25);
+
+		exitButtonBox.setBackground(submitBackground);
+
+		exitButtonBox.setBorder(submitBorder);
 		
-		/**
-        //Submit Button
-        Button submitButton = new Button("Make Connection");
-        submitButton.setPrefHeight(40);
-        submitButton.setDefaultButton(true);
-        submitButton.setPrefWidth(130);
-        gridPane.add(submitButton, 0, 4, 2, 1);
-        GridPane.setHalignment(submitButton, HPos.CENTER);
-        GridPane.setMargin(submitButton, new Insets(20, 0,20,0));
-**/
+		gridPane.add(exitButtonBox, 0, 6, 2, 1);
+		
+		GridPane.setHalignment(exitButtonBox, HPos.CENTER);
+		
+		//Exit button functionality
+		exitButtonBox.setOnMouseEntered(e -> {
+			exitButtonBox.setBackground(submitBackgroundHover);
+			submitButtonBox.setBorder(submitBorderHover);
+		});
+		exitButtonBox.setOnMouseExited(e -> {
+
+			exitButtonBox.setBackground(submitBackground);
+
+			exitButtonBox.setBorder(submitBorder);
+
+		});
+
+		exitButtonBox.setOnMouseClicked(e -> {
+		System.exit(0);
+		});
+		//Submit button functionality 
 		submitButtonBox.setOnMouseEntered(e -> {
 
 			submitButtonBox.setBackground(submitBackgroundHover);

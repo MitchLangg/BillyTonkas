@@ -2,6 +2,12 @@ package database;
 
 public class Const {
 
+/*------------------CREATING DB CREDENTIAL CONSTANTS---------------------*/
+public static final String DB_NAME = "testdb";
+public static final String DB_USER = "test";
+public static final String DB_PASS = "testpassword";
+
+
 /*--------------CREATING CONSTANTS FOR CHOCOLATE TABLE----------------*/
 public static final String TABLE_CHOCOLATE = "chocolate";
 public static final String CHOCOLATE_COLUMN_ID = "id";
@@ -39,7 +45,7 @@ public static final String LOGIN_COLUMN_USER_PASSWORD = "user_password";
 /*---------------CREATING CHOCOLATE TABLE----------------*/
 public static final String CREATE_TABLE_CHOCOLATE = 
 		"CREATE TABLE " + TABLE_CHOCOLATE + "(" +
-		CHOCOLATE_COLUMN_ID + " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
+		CHOCOLATE_COLUMN_ID+ " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
 		CHOCOLATE_COLUMN_NAME + " VARCHAR(50) NOT NULL" +
 		");";
 
@@ -62,7 +68,7 @@ public static final String CREATE_TABLE_CANDY =
 public static final String CREATE_TABLE_CANDY_STATS =
 		"CREATE TABLE " + TABLE_CANDY_STATS + "(" +
 		CANDY_STATS_COLUMN_ID + " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
-		CANDY_STATS_COLUMN_PRICE + " VARCHAR(50) NOT NULL, " +
+		CANDY_STATS_COLUMN_PRICE + " VARCHAR(50) NOT NULL " +
 		CANDY_STATS_COLUMN_QUANTITY + " VARCHAR(50) NOT NULL" +
 				");";
 
