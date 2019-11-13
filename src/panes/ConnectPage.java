@@ -219,15 +219,17 @@ public class ConnectPage extends GridPane{
 			 if(dataBaseField.getText().isEmpty()) {
 				 
      			//Images [x]
-         showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter your ID");
+         showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter your Database");
          return;
      }
+
      if(usernameField.getText().isEmpty()) {
-         showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter a Database");
+         showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter a Username");
+
          return;
      }
      if(passwordField.getText().isEmpty()) {
-         showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter a password");
+         showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter a Password");
          return;
      }else {
     	 Credentials.DB_NAME = dataBaseField.getText();
