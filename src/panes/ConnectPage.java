@@ -233,10 +233,7 @@ public class ConnectPage extends GridPane{
     	 Credentials.DB_NAME = dataBaseField.getText();
     	 Credentials.DB_USER = usernameField.getText();
     	 Credentials.DB_PASS = passwordField.getText();
-    	 if(Database.databaseFailure == true) {
-    		 showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Invalid Credentials", "Please Try Again!");
-    		 Database.databaseFailure = false;
-    	 }
+    	 
     	 Database.getInstance();
      }
      		
