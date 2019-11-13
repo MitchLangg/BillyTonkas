@@ -7,11 +7,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javafx.scene.control.Alert;
+import panes.ConnectPage;
+
 public class Database {
 
 	private static Database instance = null;
 	public static Connection connection = null;
 	public static boolean databaseFailure = false;
+	
 	
 	private Database() {
 		if(connection == null) {
@@ -22,7 +26,8 @@ public class Database {
 				System.out.println("Created Connection");
 			}
 			catch(Exception e) {
-				databaseFailure = true;
+				
+				ConnectPage.showAlert(Alert.AlertType.ERROR, main.MainRun.mainStage.getScene().getWindow(), "Invalid Credentials", "Please Try Again!");
 			}
 			try {
 				createTable(Const.TABLE_CHOCOLATE,
