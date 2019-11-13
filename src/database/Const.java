@@ -1,10 +1,6 @@
 package database;
 
 public class Const {
-/*------------------CREATING DB CREDENTIAL CONSTANTS---------------------*/
-public static final String DB_NAME = "ilucas249ecommerce";
-public static final String DB_USER = "ilucas249";
-public static final String DB_PASS = "3z0qd3z0qdzrls4zrls4";
 
 /*--------------CREATING CONSTANTS FOR CHOCOLATE TABLE----------------*/
 public static final String TABLE_CHOCOLATE = "chocolate";

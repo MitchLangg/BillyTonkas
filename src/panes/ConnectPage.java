@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 import database.Const;
+import database.Credentials;
 import database.Database;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -197,7 +198,7 @@ public class ConnectPage extends GridPane{
      }
      		//Image [Check]
     
-    if(databaseField.getText() == Const.DB_USER && passwordField.getText() == Const.DB_PASS) {
+    if(databaseField.getText() == Credentials.DB_USER && passwordField.getText() == Credentials.DB_PASS) {
     		 Database.getInstance();
 		}
      showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Credentials Successful!", "Welcome Employee #" + employeeIDfield.getText());
