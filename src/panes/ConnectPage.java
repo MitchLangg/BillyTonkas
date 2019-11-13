@@ -196,16 +196,10 @@ public class ConnectPage extends GridPane{
          return;
      }
      		//Image [Check]
-     System.out.println(databaseField.getText());
-     System.out.println(passwordField.getText());
-    // if(databaseField.getText() == Const.DB_USER && passwordField.getText() == Const.DB_PASS) {
+    
+    if(databaseField.getText() == Const.DB_USER && passwordField.getText() == Const.DB_PASS) {
     		 Database.getInstance();
-//			Class.forName("com.mysql.jdbc.Driver");
-//			Database.connection = DriverManager.getConnection("jdbc:mysql://php.scweb.ca/" + Const.DB_NAME, 
-//					Const.DB_USER, Const.DB_PASS);
-//			System.out.println("Created Connection");
-		
-   //  }
+		}
      showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Credentials Successful!", "Welcome Employee #" + employeeIDfield.getText());
      MainRun.mainStage.setScene(new HomeScene()); 
      
