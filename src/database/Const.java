@@ -2,11 +2,6 @@ package database;
 
 public class Const {
 
-/*------------------CREATING DB CREDENTIAL CONSTANTS---------------------*/
-public static final String DB_NAME = "testdb";
-public static final String DB_USER = "test";
-public static final String DB_PASS = "testpassword";
-
 
 
 /*--------------CREATING CONSTANTS FOR CHOCOLATE TABLE----------------*/
@@ -61,6 +56,34 @@ public static final String CREATE_TABLE_CANDY_STATS =
 		CANDY_STATS_COLUMN_ID + " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
 		CANDY_STATS_COLUMN_PRICE + " VARCHAR(50) NOT NULL " +
 		CANDY_STATS_COLUMN_QUANTITY + " VARCHAR(50) NOT NULL" +
+				");";
+
+
+
+/*--------------CREATING GUMMY FOR CHOCOLATE TABLE----------------*/
+public static final String TABLE_GUMMY = "gummy";
+public static final String GUMMY_COLUMN_ID = "id";
+public static final String GUMMY_COLUMN_NAME = "name";
+
+/*--------------CREATING GUMMY FOR GUMMY STATS TABLE------------*/
+public static final String TABLE_GUMMY_STATS = "gummy_stats";
+public static final String GUMMY_STATS_COLUMN_ID = "id";
+public static final String GUMMY_STATS_COLUMN_PRICE = "price";
+public static final String GUMMY_STATS_COLUMN_QUANTITY = "quantity";
+
+/*---------------CREATING GUMMY TABLE----------------*/
+public static final String CREATE_TABLE_GUMMY = 
+		"CREATE TABLE " + TABLE_GUMMY + "(" +
+		GUMMY_COLUMN_ID+ " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
+		GUMMY_COLUMN_NAME + " VARCHAR(50) NOT NULL" +
+		");";
+
+/*---------------CREATING GUMMY STATS TABLE----------------*/
+public static final String CREATE_TABLE_GUMMY_STATS = 
+		"CREATE TABLE " + TABLE_GUMMY_STATS + "(" +
+		GUMMY_STATS_COLUMN_ID + " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
+		GUMMY_STATS_COLUMN_PRICE + " VARCHAR(50) NOT NULL, " +
+		GUMMY_STATS_COLUMN_QUANTITY + " VARCHAR(50) NOT NULL" +
 				");";
 
 
