@@ -25,6 +25,7 @@ public class Database {
 						Credentials.DB_USER, Credentials.DB_PASS);
 				System.out.println("Created Connection");
 			}
+			
 			catch(Exception e) {
 				
 				ConnectPage.showAlert(Alert.AlertType.ERROR, main.MainRun.mainStage.getScene().getWindow(), "Invalid Credentials", "Please Try Again!");
