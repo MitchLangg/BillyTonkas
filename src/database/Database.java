@@ -21,6 +21,7 @@ public class Database {
 						Credentials.DB_USER, Credentials.DB_PASS);
 				System.out.println("Created Connection");
 			}
+			
 			catch(Exception e) {
 				e.printStackTrace();
 			}
