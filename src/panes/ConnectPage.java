@@ -241,6 +241,7 @@ public class ConnectPage extends GridPane{
 				Credentials.SERVER = serverField.getText();
 	 
      			Database.getInstance();
+     			main.MainRun.mainStage.setScene( new HomeScene());
      }
 		});
     }

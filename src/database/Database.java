@@ -21,7 +21,7 @@ public class Database {
 		if(connection == null) {
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
-				connection = DriverManager.getConnection("jdbc:mysql://php.scweb.ca/" + Credentials.DB_NAME, 
+				connection = DriverManager.getConnection("jdbc:mysql://" + Credentials.SERVER + "/" + Credentials.DB_NAME + "?useSSL=false", 
 						Credentials.DB_USER, Credentials.DB_PASS);
 				System.out.println("Created Connection");
 			}
@@ -42,12 +42,12 @@ public class Database {
 				createTable(Const.TABLE_CANDY_STATS,
 						Const.CREATE_TABLE_CANDY_STATS,
 						connection);
-			//	createTable(Const.TABLE_GUMMY,
-					//	Const.CREATE_TABLE_GUMMY,
-				//		connection);
-		//	createTable(Const.TABLE_GUMMY_STATS,
-			//		Const.CREATE_TABLE_GUMMY_STATS,
-				//	connection);
+				createTable(Const.TABLE_GUMMY,
+						Const.CREATE_TABLE_GUMMY,
+						connection);
+			createTable(Const.TABLE_GUMMY_STATS,
+					Const.CREATE_TABLE_GUMMY_STATS,
+					connection);
 				createTable(Const.TABLE_INVENTORY,
 						Const.CREATE_TABLE_INVENTORY,
 						connection);
