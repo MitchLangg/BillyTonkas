@@ -21,7 +21,7 @@ public class MainMenuBar{
 		
 		
 		//MENU BAR ITEMS -------------------------------------------
-		private static MenuItem account = new MenuItem("Account");
+		private static MenuItem account = new MenuItem("New account");
 		private static MenuItem homePage = new MenuItem("Home");
 		private static MenuItem addPage = new MenuItem("Add Items");
 		private static MenuItem deletePage = new MenuItem("Delete Items");

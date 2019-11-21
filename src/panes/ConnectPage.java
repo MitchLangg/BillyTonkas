@@ -52,6 +52,8 @@ import scenes.HomeScene;
 public class ConnectPage extends GridPane{
 	File incrementer = new File("incrementer.txt");
 	int fileIncrementer;
+	public static String connectButtonText = "Connect";
+	public static CheckBox checkbox;
 	
 	private GridPane createRegistrationFormPane() {
         // Instantiate a new Grid Pane
@@ -160,7 +162,7 @@ public class ConnectPage extends GridPane{
 		 Font exitFont = Font.font("Ariel", 18);
 		 
         //Connect Button (remade)
-        Text submitButton = new Text("Connect");
+        Text submitButton = new Text(connectButtonText);
 
 		submitButton.setFont(submitFont);
 
@@ -188,7 +190,7 @@ public class ConnectPage extends GridPane{
 		
 		//CheckBox
 		
-		CheckBox checkbox = new CheckBox("Save Credentials?");
+		checkbox = new CheckBox("Save Credentials?");
 		
 		GridPane.setHalignment(checkbox, HPos.LEFT);
 		
@@ -331,11 +333,6 @@ public class ConnectPage extends GridPane{
 			GridPane gridPane = createRegistrationFormPane();
 			addUIControls(gridPane);
 		
-		
-		
-		  
-		
-
 	}
 }
 
