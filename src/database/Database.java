@@ -21,10 +21,11 @@ public class Database {
 		if(connection == null) {
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
-				connection = DriverManager.getConnection("jdbc:mysql://php.scweb.ca/" + Credentials.DB_NAME, 
+				connection = DriverManager.getConnection("jdbc:mysql://" + Credentials.SERVER + "/" + Credentials.DB_NAME + "?useSSL=false", 
 						Credentials.DB_USER, Credentials.DB_PASS);
 				System.out.println("Created Connection");
 			}
+			
 			catch(Exception e) {
 				
 				ConnectPage.showAlert(Alert.AlertType.ERROR, main.MainRun.mainStage.getScene().getWindow(), "Invalid Credentials", "Please Try Again!");

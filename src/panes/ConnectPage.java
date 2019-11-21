@@ -77,40 +77,42 @@ public class ConnectPage extends GridPane{
         GridPane.setHalignment(logo, HPos.CENTER);
         GridPane.setMargin(logo, new Insets(20, 0,20,0));
         
-        //Old font header
-        //Label headerLabel = new Label("Billy Tonkas Connection Login");
-        //headerLabel.setFont(Font.font("Arial", FontWeight.BOLD, 24));
-        //gridPane.add(headerLabel, 0,0,2,1);
-        //GridPane.setHalignment(headerLabel, HPos.CENTER);
-        //GridPane.setMargin(headerLabel, new Insets(20, 0,20,0));
+        //Server Label
+        Label serverName = new Label("Server : ");
+        gridPane.add(serverName, 0,1);
 
-        //Name Label
+        //Server Text Field
+        TextField serverField = new TextField();
+        serverField.setPrefHeight(40);
+        gridPane.add(serverField, 1,1);
+        
+        //Database Label
         Label database = new Label("Database : ");
-        gridPane.add(database, 0,1);
+        gridPane.add(database, 0,2);
 
-        //Name Text Field
+        //Database Text Field
         TextField dataBaseField = new TextField();
         dataBaseField.setPrefHeight(40);
-        gridPane.add(dataBaseField, 1,1);
+        gridPane.add(dataBaseField, 1,2);
 
 
-        //Email Label
-        Label userName = new Label("Username : ");
-        gridPane.add(userName, 0, 2);
+        //Username Label
+        Label username = new Label("Username : ");
+        gridPane.add(username, 0, 3);
 
-        //Email Text Field
+        //Username Text Field
         TextField usernameField = new TextField();
         usernameField.setPrefHeight(40);
-        gridPane.add(usernameField, 1, 2);
+        gridPane.add(usernameField, 1, 3);
 
         //Password Label
         Label password = new Label("Password : ");
-        gridPane.add(password, 0, 3);
+        gridPane.add(password, 0, 4);
 
         //Password Field
         PasswordField passwordField = new PasswordField();
         passwordField.setPrefHeight(40);
-        gridPane.add(passwordField, 1, 3);
+        gridPane.add(passwordField, 1, 4);
 
         //Submit Button Borders/Backgrounds/Font
         Background submitBackground = new Background(
@@ -151,7 +153,7 @@ public class ConnectPage extends GridPane{
 
 		submitButtonBox.setBorder(submitBorder);
 		
-		gridPane.add(submitButtonBox, 0, 4, 2, 1);
+		gridPane.add(submitButtonBox, 0, 6, 2, 1);
 		
 		GridPane.setHalignment(submitButtonBox, HPos.CENTER);
 		
@@ -178,7 +180,7 @@ public class ConnectPage extends GridPane{
 
 		exitButtonBox.setBorder(submitBorder);
 		
-		gridPane.add(exitButtonBox, 0, 6, 2, 1);
+		gridPane.add(exitButtonBox, 0, 7, 2, 1);
 		
 		GridPane.setHalignment(exitButtonBox, HPos.CENTER);
 		
@@ -216,35 +218,36 @@ public class ConnectPage extends GridPane{
 		});
 
 		submitButtonBox.setOnMouseClicked(e -> {
+
+			if(serverField.getText().isEmpty()) {
+		    	showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter a Server");
+		    	return;
+			}
 			 if(dataBaseField.getText().isEmpty()) {
-				 
-     			//Images [x]
-         showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter your Database");
-         return;
-     }
+				 showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter your Database");
+				 return;
+			 	}
+			 if(usernameField.getText().isEmpty()) {
+			     showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter a Username");
+			     return;
+			 }
+			 if(passwordField.getText().isEmpty()) {
+			     showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter a Password");
+			     return;
+			 }else {
+				 Credentials.DB_NAME = dataBaseField.getText();
+		    	 Credentials.DB_USER = usernameField.getText();
+		    	 Credentials.DB_PASS = passwordField.getText();
+		    	 Credentials.SERVER = serverField.getText();
+		    	 Database.getInstance();
+		     }
 
-     if(usernameField.getText().isEmpty()) {
-         showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter a Username");
-
-         return;
-     }
-     if(passwordField.getText().isEmpty()) {
-         showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter a Password");
-         return;
-     }else {
-    	 Credentials.DB_NAME = dataBaseField.getText();
-    	 Credentials.DB_USER = usernameField.getText();
-    	 Credentials.DB_PASS = passwordField.getText();
-    	 
-    	 Database.getInstance();
-     }
-     		
-     showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Credentials Successful!", "Welcome " + usernameField.getText());
-     MainRun.mainStage.setScene(new HomeScene()); 
-     
-		});
-    }
-   
+			     showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Credentials Successful!", "Welcome " + usernameField.getText());
+			     MainRun.mainStage.setScene(new HomeScene()); 
+				
+				});
+		    }
+     			
 
     public static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
         Alert alert = new Alert(alertType);
@@ -260,10 +263,8 @@ public class ConnectPage extends GridPane{
 		//Possibly find new pane for this
 		 addUIControls(gridPane);
 		
-		  
-		
-
 	}
 }
+    
 
 
