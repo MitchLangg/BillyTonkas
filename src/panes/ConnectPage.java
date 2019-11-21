@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 import database.Const;
+import database.Credentials;
 import database.Database;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -76,40 +77,43 @@ public class ConnectPage extends GridPane{
         GridPane.setHalignment(logo, HPos.CENTER);
         GridPane.setMargin(logo, new Insets(20, 0,20,0));
         
-        //Old font header
-        //Label headerLabel = new Label("Billy Tonkas Connection Login");
-        //headerLabel.setFont(Font.font("Arial", FontWeight.BOLD, 24));
-        //gridPane.add(headerLabel, 0,0,2,1);
-        //GridPane.setHalignment(headerLabel, HPos.CENTER);
-        //GridPane.setMargin(headerLabel, new Insets(20, 0,20,0));
+        
+        //Server Label
+        Label serverName = new Label("Server : ");
+        gridPane.add(serverName, 0,1);
 
-        //Name Label
-        Label employeeID = new Label("Employee ID : ");
-        gridPane.add(employeeID, 0,1);
-
-        //Name Text Field
-        TextField employeeIDfield = new TextField();
-        employeeIDfield.setPrefHeight(40);
-        gridPane.add(employeeIDfield, 1,1);
-
-
-        //Email Label
+        //Server Text Field
+        TextField serverField = new TextField();
+        serverField.setPrefHeight(40);
+        gridPane.add(serverField, 1,1);
+        
+        //Database Label
         Label database = new Label("Database : ");
-        gridPane.add(database, 0, 2);
+        gridPane.add(database, 0,2);
 
-        //Email Text Field
-        TextField databaseField = new TextField();
-        databaseField.setPrefHeight(40);
-        gridPane.add(databaseField, 1, 2);
+        //Database Text Field
+        TextField dataBaseField = new TextField();
+        dataBaseField.setPrefHeight(40);
+        gridPane.add(dataBaseField, 1,2);
+
+
+        //Username Label
+        Label username = new Label("Username : ");
+        gridPane.add(username, 0, 3);
+
+        //Username Text Field
+        TextField usernameField = new TextField();
+        usernameField.setPrefHeight(40);
+        gridPane.add(usernameField, 1, 3);
 
         //Password Label
         Label password = new Label("Password : ");
-        gridPane.add(password, 0, 3);
+        gridPane.add(password, 0, 4);
 
         //Password Field
         PasswordField passwordField = new PasswordField();
         passwordField.setPrefHeight(40);
-        gridPane.add(passwordField, 1, 3);
+        gridPane.add(passwordField, 1, 4);
 
         //Submit Button Borders/Backgrounds/Font
         Background submitBackground = new Background(
@@ -150,7 +154,7 @@ public class ConnectPage extends GridPane{
 
 		submitButtonBox.setBorder(submitBorder);
 		
-		gridPane.add(submitButtonBox, 0, 4, 2, 1);
+		gridPane.add(submitButtonBox, 0, 6, 2, 1);
 		
 		GridPane.setHalignment(submitButtonBox, HPos.CENTER);
 		
@@ -177,7 +181,7 @@ public class ConnectPage extends GridPane{
 
 		exitButtonBox.setBorder(submitBorder);
 		
-		gridPane.add(exitButtonBox, 0, 6, 2, 1);
+		gridPane.add(exitButtonBox, 0, 7, 2, 1);
 		
 		GridPane.setHalignment(exitButtonBox, HPos.CENTER);
 		
@@ -214,65 +218,36 @@ public class ConnectPage extends GridPane{
 
 		});
 
-		submitButtonBox.setOnMouseClicked(e -> {
-			 if(employeeIDfield.getText().isEmpty()) {
-				 
-     			//Images [x]
-         showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter your Database");
-         return;
+	submitButtonBox.setOnMouseClicked(e -> {
+			if(serverField.getText().isEmpty()) {
+		    	showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter a Server");
+		    	return;
+			}
+			if(dataBaseField.getText().isEmpty()) {	 
+				showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter your Database");
+				return;
+			}
+			if(usernameField.getText().isEmpty()) {
+				showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter a Username");
+				return;
+			}
+			if(passwordField.getText().isEmpty()) {
+				showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter a Password");
+				return;
+			} else {
+				Credentials.DB_NAME = dataBaseField.getText();
+				Credentials.DB_USER = usernameField.getText();
+				Credentials.DB_PASS = passwordField.getText();
+				Credentials.SERVER = serverField.getText();
+	 
+     			Database.getInstance();
      }
-     if(databaseField.getText().isEmpty()) {
-         showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter a Username");
-         return;
-     }
-     if(passwordField.getText().isEmpty()) {
-         showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter a password");
-         return;
-     }
-     		//Image [Check]
-     System.out.println(databaseField.getText());
-     System.out.println(passwordField.getText());
-    // if(databaseField.getText() == Const.DB_USER && passwordField.getText() == Const.DB_PASS) {
-    		 Database.getInstance();
-//			Class.forName("com.mysql.jdbc.Driver");
-//			Database.connection = DriverManager.getConnection("jdbc:mysql://php.scweb.ca/" + Const.DB_NAME, 
-//					Const.DB_USER, Const.DB_PASS);
-//			System.out.println("Created Connection");
-		
-   //  }
-     showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Credentials Successful!", "Welcome Employee #" + employeeIDfield.getText());
-     MainRun.mainStage.setScene(new HomeScene()); 
-     
 		});
     }
    
 
 		
-		/**
-        submitButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                if(employeeIDfield.getText().isEmpty()) {
-                			//Images [x]
-                    showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Form Error!", "Please enter your ID");
-                    return;
-                }
-                if(databaseField.getText().isEmpty()) {
-                    showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Form Error!", "Please enter a Database");
-                    return;
-                }
-                if(passwordField.getText().isEmpty()) {
-                    showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Form Error!", "Please enter a password");
-                    return;
-                }
-                		//Image [Check]
-                showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Credentials Successful!", "Welcome " + employeeIDfield.getText());
-                MainRun.mainStage.setScene(new HomeScene());
-            }
-        });
-    }
-**/
-    private void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
+    public static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
         alert.setHeaderText(null);
