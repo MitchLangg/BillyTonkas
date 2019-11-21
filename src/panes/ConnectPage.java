@@ -311,7 +311,7 @@ public class ConnectPage extends GridPane{
 				}
 	 
      			Database.getInstance();
-     			main.MainRun.mainStage.setScene( new HomeScene());
+     			MainRun.mainStage.setScene(new HomeScene());
      }
 		});
     }
@@ -328,24 +328,9 @@ public class ConnectPage extends GridPane{
     }
 	
 	public ConnectPage() {
-		try {
-			if(Files.exists(Paths.get("userAccount0.txt"))) {
-				Scanner scanner = new Scanner(Paths.get("userAccount0.txt"));
-				Credentials.SERVER = scanner.next();
-				Credentials.DB_NAME = scanner.next();
-				Credentials.DB_USER = scanner.next();
-				Credentials.DB_PASS = scanner.next();
-				scanner.close();
-				
-				Database.getInstance();
-     			main.MainRun.mainStage.setScene( new HomeScene());
-			}else {
-				GridPane gridPane = createRegistrationFormPane();
-				 addUIControls(gridPane);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+			GridPane gridPane = createRegistrationFormPane();
+			addUIControls(gridPane);
+		
 		
 		
 		  
