@@ -1,9 +1,21 @@
 package panes;
 
 
+<<<<<<< HEAD
 import java.awt.event.KeyAdapter;
+=======
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+>>>>>>> 58ed2f9768eca7ab8c59840c5a7aafcb05bc3306
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Scanner;
 
 import database.Const;
 import database.Credentials;
@@ -15,6 +27,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -43,6 +56,8 @@ import scenes.HomeScene;
 
 
 public class ConnectPage extends GridPane{
+	File incrementer = new File("incrementer.txt");
+	int fileIncrementer;
 	
 	private GridPane createRegistrationFormPane() {
         // Instantiate a new Grid Pane
@@ -67,6 +82,22 @@ public class ConnectPage extends GridPane{
 
         return this;
     }
+	
+	public void FileAccountCreator(int incrementer) {
+		File file = new File("userAccount" + incrementer + ".txt");
+		try {
+			file.createNewFile();
+			PrintWriter printer = new PrintWriter(new FileWriter(file,true));
+			printer.print(Credentials.SERVER + " ");
+			printer.print(Credentials.DB_NAME + " ");
+			printer.print(Credentials.DB_USER + " ");
+			printer.print(Credentials.DB_PASS + " ");
+			printer.close();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		
+	}
     private void addUIControls(GridPane gridPane) {
     	//Colourway
     	Background rootBackground = new Background(
@@ -160,6 +191,15 @@ public class ConnectPage extends GridPane{
 		
 		GridPane.setHalignment(submitButtonBox, HPos.CENTER);
 		
+		//CheckBox
+		
+		CheckBox checkbox = new CheckBox("Save Credentials?");
+		
+		GridPane.setHalignment(checkbox, HPos.LEFT);
+		
+		gridPane.add(checkbox, 1, 6);
+		
+		
 		//Exit Button
         Text exitButton = new Text("Exit");
 
@@ -227,6 +267,7 @@ public class ConnectPage extends GridPane{
 		    	showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter a Server");
 		    	return;
 			}
+
 			 if(dataBaseField.getText().isEmpty()) {
 				 showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter your Database");
 				 return;
@@ -254,6 +295,61 @@ public class ConnectPage extends GridPane{
 		//When the enter key is pressed, call the enterButton Function
 		gridPane.addEventHandler(KeyEvent.KEY_PRESSED, ev -> {
 			enterButtonFunc(gridPane, usernameField, serverField, dataBaseField, passwordField);
+
+			if(dataBaseField.getText().isEmpty()) {	 
+				showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter your Database");
+				return;
+			}
+			if(usernameField.getText().isEmpty()) {
+				showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter a Username");
+				return;
+			}
+			if(passwordField.getText().isEmpty()) {
+				showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter a Password");
+				return;
+			} else {
+				Credentials.DB_NAME = dataBaseField.getText();
+				Credentials.DB_USER = usernameField.getText();
+				Credentials.DB_PASS = passwordField.getText();
+				Credentials.SERVER = serverField.getText();
+				
+				
+				
+				if (checkbox.isSelected() == true) {
+					
+					if(!incrementer.exists()) {
+						try {
+							incrementer.createNewFile();
+							PrintWriter printer = new PrintWriter(incrementer);
+							printer.print(1);
+							printer.close();
+						} catch (IOException e1) {
+							e1.printStackTrace();
+						}
+						
+					}else {
+						Scanner scanner;
+						try {
+							PrintWriter printer = new PrintWriter(incrementer);
+							printer.print(fileIncrementer += 1);
+							printer.close();
+							scanner = new Scanner(incrementer);
+							fileIncrementer = scanner.nextInt();
+							scanner.close();
+						} catch (FileNotFoundException e1) {
+							e1.printStackTrace();
+						}
+						
+						
+					}
+					FileAccountCreator(fileIncrementer);
+					
+				}
+	 
+     			Database.getInstance();
+     			main.MainRun.mainStage.setScene( new HomeScene());
+     }
+
 		});
     }
     	//enterButtonFunc checks if each textfield is filled and with the correct info, if yes then create the connection.
@@ -297,9 +393,25 @@ public class ConnectPage extends GridPane{
     }
 	
 	public ConnectPage() {
-		GridPane gridPane = createRegistrationFormPane();
-		//Possibly find new pane for this
-		 addUIControls(gridPane);
+		try {
+			if(Files.exists(Paths.get("userAccount0.txt"))) {
+				Scanner scanner = new Scanner(Paths.get("userAccount0.txt"));
+				Credentials.SERVER = scanner.next();
+				Credentials.DB_NAME = scanner.next();
+				Credentials.DB_USER = scanner.next();
+				Credentials.DB_PASS = scanner.next();
+				scanner.close();
+				
+				Database.getInstance();
+     			main.MainRun.mainStage.setScene( new HomeScene());
+			}else {
+				GridPane gridPane = createRegistrationFormPane();
+				 addUIControls(gridPane);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		
 	}
 }
