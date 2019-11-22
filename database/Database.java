@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import javafx.scene.control.Alert;
-import panes.ConnectPage;
+import panesw.ConnectPage;
 
 public class Database {
 
