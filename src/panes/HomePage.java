@@ -13,6 +13,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import main.MainRun;
 import scenes.AddScene;
+import scenes.ConnnectScene;
 import scenes.DeleteScene;
 import scenes.HomeScene;
 import scenes.UpdateScene;
@@ -48,6 +49,12 @@ public class HomePage extends BorderPane{
  		});
  		MainMenuBar.getUpdatePage().setOnAction(e->{
  			MainRun.mainStage.setScene(new UpdateScene());
+ 		});
+ 		MainMenuBar.getAccount().setOnAction(e->{
+ 			ConnectPage.connectButtonText = "Add Account";
+ 			MainRun.mainStage.setScene(new ConnnectScene());
+ 			ConnectPage.checkbox.setSelected(true);
+ 			ConnectPage.checkbox.setDisable(true);
  		});
  		
  		
