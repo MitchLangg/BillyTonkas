@@ -286,18 +286,22 @@ public class ConnectPage extends GridPane{
 		gridPane.addEventHandler(KeyEvent.KEY_PRESSED, ev -> {
 			enterButtonFunc(gridPane, usernameField, serverField, dataBaseField, passwordField);
 
-			if(dataBaseField.getText().isEmpty()) {	 
-				showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter your Database");
-				return;
-			}
-			if(usernameField.getText().isEmpty()) {
-				showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter a Username");
-				return;
-			}
-			if(passwordField.getText().isEmpty()) {
-				showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter a Password");
-				return;
-			} else {
+			 if(serverField.getText().isEmpty()) {
+			    	showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please check Server entry");
+			    	return;
+				}
+				 if(dataBaseField.getText().isEmpty()) {
+					 showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please check Database entry");
+					 return;
+				 	}
+				 if(usernameField.getText().isEmpty()) {
+				     showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please check Username entry");
+				     return;
+				 }
+				 if(passwordField.getText().isEmpty()) {
+				     showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please check Password entry");
+				     return;
+				 }else {
 				Credentials.DB_NAME = dataBaseField.getText();
 				Credentials.DB_USER = usernameField.getText();
 				Credentials.DB_PASS = passwordField.getText();
