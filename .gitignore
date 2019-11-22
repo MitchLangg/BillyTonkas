@@ -93,4 +93,7 @@ local.properties
 
 #ignore credentials constants file
 src/Database/Const.java
- 
+src/incrementer.txt
+src/currentAccount.txt
+src/userAccount0.txt
+

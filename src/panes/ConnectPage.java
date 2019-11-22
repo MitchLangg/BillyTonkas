@@ -311,22 +311,6 @@ public class ConnectPage extends GridPane{
 		gridPane.addEventHandler(KeyEvent.KEY_PRESSED, ev -> {
 			enterButtonFunc(gridPane, usernameField, serverField, dataBaseField, passwordField);
 
-			if(dataBaseField.getText().isEmpty()) {	 
-				showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter your Database");
-				return;
-			}
-			if(usernameField.getText().isEmpty()) {
-				showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter a Username");
-				return;
-			}
-			if(passwordField.getText().isEmpty()) {
-				showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter a Password");
-				return;
-			} else {
-				Credentials.DB_NAME = dataBaseField.getText();
-				Credentials.DB_USER = usernameField.getText();
-				Credentials.DB_PASS = passwordField.getText();
-				Credentials.SERVER = serverField.getText();
 				
 				
 				
@@ -366,9 +350,9 @@ public class ConnectPage extends GridPane{
 	 
      			Database.getInstance();
      			MainRun.mainStage.setScene(new HomeScene());
-     }
+     });
 
-		});
+		
     }
     	//enterButtonFunc checks if each textfield is filled and with the correct info, if yes then create the connection.
 		public static void enterButtonFunc(GridPane gridPane, TextField usernameField, TextField serverField, TextField dataBaseField, TextField passwordField) {
