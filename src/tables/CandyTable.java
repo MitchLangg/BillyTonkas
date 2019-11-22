@@ -19,8 +19,8 @@ public ArrayList<Candy> getAllCandy() {
 	String query = "SELECT * FROM " + Const.TABLE_CANDY;
 	candy = new ArrayList<>();
 try {
-	Statement getCoins = db.getConnection().createStatement();
-	ResultSet data = getCoins.executeQuery(query);
+	Statement getCandy = db.getConnection().createStatement();
+	ResultSet data = getCandy.executeQuery(query);
 	while (data.next()) {
 	candy.add(new Candy(data.getInt(Const.CANDY_COLUMN_ID), data.getString(Const.CANDY_COLUMN_NAME)));
 	}
