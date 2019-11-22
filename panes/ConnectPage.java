@@ -1,4 +1,6 @@
 package panes;
+
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
@@ -18,6 +20,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -220,19 +223,19 @@ public class ConnectPage extends GridPane{
 
 		submitButtonBox.setOnMouseClicked(e -> {
 			if(serverField.getText().isEmpty()) {
-		    	showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter a Server");
+		    	showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please check Server entry");
 		    	return;
 			}
 			 if(dataBaseField.getText().isEmpty()) {
-				 showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter your Database");
+				 showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please check Database entry");
 				 return;
 			 	}
 			 if(usernameField.getText().isEmpty()) {
-			     showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter a Username");
+			     showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please check Username entry");
 			     return;
 			 }
 			 if(passwordField.getText().isEmpty()) {
-			     showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter a Password");
+			     showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please check Password entry");
 			     return;
 			 }else {
 				 Credentials.DB_NAME = dataBaseField.getText();
@@ -278,14 +281,12 @@ public class ConnectPage extends GridPane{
 	  			showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Credentials Successful!", "Welcome " + usernameField.getText());
 	  			MainRun.mainStage.setScene(new HomeScene());
 			 }	
-			});	
-		     
-
+			});
 		
 		//When the enter key is pressed, call the enterButton Function
-		gridPane.addEventHandler(KeyEvent.KEY_PRESSED, ev -> {
+	    gridPane.addEventHandler(KeyEvent.KEY_PRESSED, ev -> {
+			if (ev.getCode() == KeyCode.ENTER) {
 			enterButtonFunc(gridPane, usernameField, serverField, dataBaseField, passwordField);
-
 			 if(serverField.getText().isEmpty()) {
 			    	showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please check Server entry");
 			    	return;
@@ -306,7 +307,7 @@ public class ConnectPage extends GridPane{
 				Credentials.DB_USER = usernameField.getText();
 				Credentials.DB_PASS = passwordField.getText();
 				Credentials.SERVER = serverField.getText();
-				
+
 				
 					if (checkbox.isSelected() == true) {
 
@@ -337,13 +338,22 @@ public class ConnectPage extends GridPane{
 					}
 					FileAccountCreator(fileIncrementer);
 				}
-     			Database.getInstance();
-     			showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Credentials Successful!", "Welcome " + usernameField.getText());
-     			MainRun.mainStage.setScene(new HomeScene());
-     }
+	 			Database.getInstance();
+	 			showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Credentials Successful!", "Welcome " + usernameField.getText());
+	 			MainRun.mainStage.setScene(new HomeScene());
+				 }
+			}
 	});
-   }
-    	//enterButtonFunc checks if each textfield is filled and with the correct info, if yes then create the connection.
+		     
+
+  }
+		
+	
+
+
+
+    
+ 		//enterButtonFunc checks if each textfield is filled and with the correct info, if yes then create the connection.
     	//based on the conditions user recieves specific output
 		public static void enterButtonFunc(GridPane gridPane, TextField usernameField, TextField serverField, TextField dataBaseField, TextField passwordField) {
 				//Enter functionality for connecting
@@ -367,10 +377,10 @@ public class ConnectPage extends GridPane{
 					    	 Credentials.DB_USER = usernameField.getText();
 					    	 Credentials.DB_PASS = passwordField.getText();
 					    	 Credentials.SERVER = serverField.getText();
-					    	 Database.getInstance();
 					     }
-						     MainRun.mainStage.setScene(new HomeScene()); 
+
 				   }
+
     public static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);

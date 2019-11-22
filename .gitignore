@@ -93,6 +93,7 @@ local.properties
 
 #ignore credentials constants file
 src/Database/Const.java
+<<<<<<< HEAD
  src/incrementer.txt
  src/currentAccount.txt
  src/userAccount0.txt
@@ -106,3 +107,9 @@ src/Database/Const.java
  src/userAccount8.txt
  src/userAccount9.txt
  src/userAccount10.txt
+=======
+src/incrementer.txt
+src/currentAccount.txt
+src/userAccount0.txt
+
+>>>>>>> ConnectPage
