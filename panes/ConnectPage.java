@@ -1,5 +1,6 @@
 package panes;
 
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
@@ -280,13 +281,10 @@ public class ConnectPage extends GridPane{
 	  			showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Credentials Successful!", "Welcome " + usernameField.getText());
 	  			MainRun.mainStage.setScene(new HomeScene());
 			 }	
-			});	
-		     
-
-  }
+			});
 		
 		//When the enter key is pressed, call the enterButton Function
-		gridPane.addEventHandler(KeyEvent.KEY_PRESSED, ev -> {
+	    gridPane.addEventHandler(KeyEvent.KEY_PRESSED, ev -> {
 			if (ev.getCode() == KeyCode.ENTER) {
 			enterButtonFunc(gridPane, usernameField, serverField, dataBaseField, passwordField);
 			 if(serverField.getText().isEmpty()) {
@@ -340,12 +338,18 @@ public class ConnectPage extends GridPane{
 					}
 					FileAccountCreator(fileIncrementer);
 				}
-     			Database.getInstance();
-     			showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Credentials Successful!", "Welcome " + usernameField.getText());
-     			MainRun.mainStage.setScene(new HomeScene());
-     }
+	 			Database.getInstance();
+	 			showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Credentials Successful!", "Welcome " + usernameField.getText());
+	 			MainRun.mainStage.setScene(new HomeScene());
+				 }
+			}
 	});
-   }
+		     
+
+  }
+		
+	
+
 
 
     
