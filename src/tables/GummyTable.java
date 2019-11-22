@@ -32,14 +32,14 @@ return gummy;
 }
 
 @Override
-public Candy getGummy(int gummyID) {
+public Gummy getGummy(int gummyID) {
 	String query = "SELECT * FROM " + Const.TABLE_GUMMY + " WHERE " + Const.GUMMY_COLUMN_ID + " = " + gummyID;
 try {
 	Statement getGummy = db.getConnection().createStatement();
 	ResultSet data = getGummy.executeQuery(query);
 	if (data.next()) {
-		Gummy candy = new Gummy(data.getInt(Const.CANDY_COLUMN_ID), data.getString(Const.CANDY_COLUMN_NAME));
-return candy;
+		Gummy gummy = new Gummy(data.getInt(Const.GUMMY_COLUMN_ID), data.getString(Const.GUMMY_COLUMN_NAME));
+return gummy;
 }
 } catch (SQLException e) {
 // TODO Auto-generated catch block

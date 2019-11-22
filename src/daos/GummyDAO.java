@@ -9,5 +9,5 @@ import javabeans.Gummy;
 public interface GummyDAO {
 
 	public ArrayList<Gummy> getAllGummy();
-	public Candy getGummy(int gummyID);
+	public Gummy getGummy(int gummyID);
 }
