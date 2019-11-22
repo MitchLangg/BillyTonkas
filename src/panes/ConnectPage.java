@@ -302,8 +302,43 @@ public class ConnectPage extends GridPane{
 		    	 Database.getInstance();
 		     }
 
-			     showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Credentials Successful!", "Welcome " + usernameField.getText());
-			     MainRun.mainStage.setScene(new HomeScene()); 
+			 if (checkbox.isSelected() == true) {
+					
+					if(!incrementer.exists()) {
+						try {
+							incrementer.createNewFile();
+							PrintWriter printer = new PrintWriter(new FileOutputStream(incrementer,false));
+							printer.print(1);
+							printer.close();
+							Scanner scanner = new Scanner(incrementer);
+							fileIncrementer = scanner.nextInt();
+							scanner.close();
+						} catch (IOException e1) {
+							e1.printStackTrace();
+						}
+						
+					}else {
+						try {
+							Scanner scanner = new Scanner(incrementer);
+							fileIncrementer = scanner.nextInt();
+							scanner.close();
+							PrintWriter printer = new PrintWriter(new FileOutputStream(incrementer,false));
+							fileIncrementer += 1;
+							printer.print(fileIncrementer);
+							printer.close();
+						}catch(Exception e1) {
+							e1.printStackTrace();
+						}
+						
+						
+					}
+					FileAccountCreator(fileIncrementer);
+					
+				}
+	 
+  			Database.getInstance();
+  			showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Credentials Successful!", "Welcome " + usernameField.getText());
+  			MainRun.mainStage.setScene(new HomeScene());
 				
 				});	
 		
@@ -330,7 +365,7 @@ public class ConnectPage extends GridPane{
 				
 				
 				
-				if (checkbox.isSelected() == true) {
+					if (checkbox.isSelected() == true) {
 					
 					if(!incrementer.exists()) {
 						try {
@@ -365,6 +400,7 @@ public class ConnectPage extends GridPane{
 				}
 	 
      			Database.getInstance();
+     			showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Credentials Successful!", "Welcome " + usernameField.getText());
      			MainRun.mainStage.setScene(new HomeScene());
      }
 
@@ -396,7 +432,6 @@ public class ConnectPage extends GridPane{
 					    	 Database.getInstance();
 					     }
 
-						     showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Credentials Successful!", "Welcome " + usernameField.getText());
 						     MainRun.mainStage.setScene(new HomeScene()); 
 				   }
 			  
