@@ -3,6 +3,7 @@ package panes;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -52,7 +53,8 @@ import scenes.HomeScene;
 
 public class ConnectPage extends GridPane{
 	File incrementer = new File("incrementer.txt");
-	int fileIncrementer;
+	File currentAccount = new File("currentAccount.txt");
+	int fileIncrementer = 0;
 	public static String connectButtonText = "Connect";
 	public static CheckBox checkbox;
 	
@@ -84,6 +86,13 @@ public class ConnectPage extends GridPane{
 		File file = new File("userAccount" + incrementer + ".txt");
 		try {
 			file.createNewFile();
+			System.out.println(file.getPath());
+			if (file.getPath().equals("userAccount1.txt")) {
+				currentAccount.createNewFile();
+				PrintWriter printer = new PrintWriter(new FileOutputStream(currentAccount,false));
+				printer.print(file.getPath());
+				printer.close();
+			}
 			PrintWriter printer = new PrintWriter(new FileWriter(file,true));
 			printer.print(Credentials.SERVER + " ");
 			printer.print(Credentials.DB_NAME + " ");
@@ -91,8 +100,8 @@ public class ConnectPage extends GridPane{
 			printer.print(Credentials.DB_PASS + " ");
 			printer.close();
 			MenuItem account = new MenuItem("Account " + Credentials.DB_NAME );
-			//Idk how the fuck im gonna add an onclick listener to this
 			MainMenuBar.getSettingMenu().getItems().add(account);
+			
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
@@ -290,23 +299,26 @@ public class ConnectPage extends GridPane{
 					if(!incrementer.exists()) {
 						try {
 							incrementer.createNewFile();
-							PrintWriter printer = new PrintWriter(incrementer);
+							PrintWriter printer = new PrintWriter(new FileOutputStream(incrementer,false));
 							printer.print(1);
 							printer.close();
+							Scanner scanner = new Scanner(incrementer);
+							fileIncrementer = scanner.nextInt();
+							scanner.close();
 						} catch (IOException e1) {
 							e1.printStackTrace();
 						}
 						
 					}else {
-						Scanner scanner;
 						try {
-							PrintWriter printer = new PrintWriter(incrementer);
-							printer.print(fileIncrementer += 1);
-							printer.close();
-							scanner = new Scanner(incrementer);
+							Scanner scanner = new Scanner(incrementer);
 							fileIncrementer = scanner.nextInt();
 							scanner.close();
-						} catch (FileNotFoundException e1) {
+							PrintWriter printer = new PrintWriter(new FileOutputStream(incrementer,false));
+							fileIncrementer += 1;
+							printer.print(fileIncrementer);
+							printer.close();
+						}catch(Exception e1) {
 							e1.printStackTrace();
 						}
 						

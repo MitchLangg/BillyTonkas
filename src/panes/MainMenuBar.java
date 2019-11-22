@@ -69,6 +69,7 @@ public class MainMenuBar{
 						menuBarLoader = false;
 					}
 				}
+				//DO NO DELETE THIS, REFERENCE CODE FOR ME settingMenu.getItems().get(1).setOnAction(e->{});
 	}
 	
 	
