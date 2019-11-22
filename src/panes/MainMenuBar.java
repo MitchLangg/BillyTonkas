@@ -1,5 +1,11 @@
 package panes;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Scanner;
+
+import database.Credentials;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -21,11 +27,13 @@ public class MainMenuBar{
 		
 		
 		//MENU BAR ITEMS -------------------------------------------
-		private static MenuItem account = new MenuItem("Account");
+		private static MenuItem account = new MenuItem("New account");
 		private static MenuItem homePage = new MenuItem("Home");
 		private static MenuItem addPage = new MenuItem("Add Items");
 		private static MenuItem deletePage = new MenuItem("Delete Items");
 		private static  MenuItem updatePage = new MenuItem("Update Items");
+		
+		public boolean menuBarLoader = true;
 		
 		
 		//Creates the menu item "Exit"
@@ -42,7 +50,33 @@ public class MainMenuBar{
 				//Adds all menubar pages and their children to the menubar
 				menuBar.getMenus().addAll(fileMenu, toolsMenu, settingMenu);
 				populated = true;
+				
+				for(int i = 0; menuBarLoader; i++) {
+					if (Files.exists(Paths.get("userAccount"+ i +".txt"))){
+						Scanner scanner;
+						try {
+							scanner = new Scanner(Paths.get("userAccount"+ i +".txt"));
+							scanner.next();
+							MenuItem account = new MenuItem("Account " + scanner.next());
+							MainMenuBar.getSettingMenu().getItems().add(account);
+							scanner.close();
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						
+					}else {
+						menuBarLoader = false;
+					}
+				}
+				//DO NO DELETE THIS, REFERENCE CODE FOR ME settingMenu.getItems().get(1).setOnAction(e->{});
 	}
+	
+	
+	public static Menu getSettingMenu() {
+		return settingMenu;
+	}
+
 
 	public static MenuItem getAccount() {
 		return account;
