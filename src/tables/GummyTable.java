@@ -12,7 +12,7 @@ import javabeans.Gummy;
 
 public class GummyTable implements GummyDAO {
 Database db = Database.getInstance();
-ArrayList<Gummy> candy;
+ArrayList<Gummy> gummy;
 
 @Override
 public ArrayList<Gummy> getAllGummy() {
