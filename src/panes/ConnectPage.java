@@ -239,13 +239,48 @@ public class ConnectPage extends GridPane{
 		    	 Credentials.DB_USER = usernameField.getText();
 		    	 Credentials.DB_PASS = passwordField.getText();
 		    	 Credentials.SERVER = serverField.getText();
-		    	 Database.getInstance();
-		     }
+		    	 
+		    	 if (checkbox.isSelected() == true) {
+						
+						if(!incrementer.exists()) {
+							try {
+								incrementer.createNewFile();
+								PrintWriter printer = new PrintWriter(new FileOutputStream(incrementer,false));
+								printer.print(1);
+								printer.close();
+								Scanner scanner = new Scanner(incrementer);
+								fileIncrementer = scanner.nextInt();
+								scanner.close();
+							} catch (IOException e1) {
+								e1.printStackTrace();
+							}
+							
+						}else {
+							try {
+								Scanner scanner = new Scanner(incrementer);
+								fileIncrementer = scanner.nextInt();
+								scanner.close();
+								PrintWriter printer = new PrintWriter(new FileOutputStream(incrementer,false));
+								fileIncrementer += 1;
+								printer.print(fileIncrementer);
+								printer.close();
+							}catch(Exception e1) {
+								e1.printStackTrace();
+							}
+							
+							
+						}
+						FileAccountCreator(fileIncrementer);
+						
+					}
+		 
+	  			Database.getInstance();
+	  			showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Credentials Successful!", "Welcome " + usernameField.getText());
+	  			MainRun.mainStage.setScene(new HomeScene());
+			 }	
+			});	
+		     
 
-			     showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Sucessfull Login to Database", "Welcome " + usernameField.getText());
-			     MainRun.mainStage.setScene(new HomeScene()); 
-				
-				});	
 		
 		//When the enter key is pressed, call the enterButton Function
 		gridPane.addEventHandler(KeyEvent.KEY_PRESSED, ev -> {
@@ -268,7 +303,9 @@ public class ConnectPage extends GridPane{
 				Credentials.DB_PASS = passwordField.getText();
 				Credentials.SERVER = serverField.getText();
 				
-				if (checkbox.isSelected() == true) {
+				
+					if (checkbox.isSelected() == true) {
+
 					if(!incrementer.exists()) {
 						try {
 							incrementer.createNewFile();
@@ -297,10 +334,11 @@ public class ConnectPage extends GridPane{
 					FileAccountCreator(fileIncrementer);
 				}
      			Database.getInstance();
+     			showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Credentials Successful!", "Welcome " + usernameField.getText());
      			MainRun.mainStage.setScene(new HomeScene());
      }
 	});
-    }
+   }
     	//enterButtonFunc checks if each textfield is filled and with the correct info, if yes then create the connection.
     	//based on the conditions user recieves specific output
 		public static void enterButtonFunc(GridPane gridPane, TextField usernameField, TextField serverField, TextField dataBaseField, TextField passwordField) {
@@ -327,7 +365,6 @@ public class ConnectPage extends GridPane{
 					    	 Credentials.SERVER = serverField.getText();
 					    	 Database.getInstance();
 					     }
-						     showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Sucessfull Login to Database", "Welcome " + usernameField.getText());
 						     MainRun.mainStage.setScene(new HomeScene()); 
 				   }
     public static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
