@@ -249,11 +249,16 @@ public class ConnectPage extends GridPane{
 			     showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Credentials Successful!", "Welcome " + usernameField.getText());
 			     MainRun.mainStage.setScene(new HomeScene()); 
 				
-				});		
+				});	
 		
+		//When the enter key is pressed, call the enterButton Function
+		gridPane.addEventHandler(KeyEvent.KEY_PRESSED, ev -> {
+			enterButtonFunc(gridPane, usernameField, serverField, dataBaseField, passwordField);
+		});
+    }
+    	//enterButtonFunc checks if each textfield is filled and with the correct info, if yes then create the connection.
+		public static void enterButtonFunc(GridPane gridPane, TextField usernameField, TextField serverField, TextField dataBaseField, TextField passwordField) {
 				//Enter functionality for connecting
-			   gridPane.addEventHandler(KeyEvent.KEY_PRESSED, ev -> {
-				   if(ev.getCode() == KeyCode.ENTER) {
 					   if(serverField.getText().isEmpty()) {
 					    	showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter a Server");
 					    	return;
@@ -280,8 +285,7 @@ public class ConnectPage extends GridPane{
 						     showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Credentials Successful!", "Welcome " + usernameField.getText());
 						     MainRun.mainStage.setScene(new HomeScene()); 
 				   }
-			   });
-    }
+			  
 
     public static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
         Alert alert = new Alert(alertType);
