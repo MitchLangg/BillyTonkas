@@ -25,6 +25,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -89,6 +90,9 @@ public class ConnectPage extends GridPane{
 			printer.print(Credentials.DB_USER + " ");
 			printer.print(Credentials.DB_PASS + " ");
 			printer.close();
+			MenuItem account = new MenuItem("Account " + Credentials.DB_NAME );
+			//Idk how the fuck im gonna add an onclick listener to this
+			MainMenuBar.getSettingMenu().getItems().add(account);
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
