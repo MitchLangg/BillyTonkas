@@ -19,9 +19,9 @@ public class MainRun extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		mainStage = primaryStage;
-		if(Files.exists(Paths.get("userAccount0.txt"))) {
+		if(Files.exists(Paths.get("userAccount1.txt"))) {
 			try {
-				Scanner scanner = new Scanner(Paths.get("userAccount0.txt"));
+				Scanner scanner = new Scanner(Paths.get("userAccount1.txt"));
 				Credentials.SERVER = scanner.next();
 				Credentials.DB_NAME = scanner.next();
 				Credentials.DB_USER = scanner.next();

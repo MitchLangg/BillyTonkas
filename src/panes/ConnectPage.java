@@ -18,6 +18,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -220,36 +221,64 @@ public class ConnectPage extends GridPane{
 
 		submitButtonBox.setOnMouseClicked(e -> {
 			if(serverField.getText().isEmpty()) {
-		    	showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter a Server");
+		    	showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please check Server entry");
 		    	return;
 			}
 			 if(dataBaseField.getText().isEmpty()) {
-				 showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter your Database");
+				 showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please check Database entry");
 				 return;
 			 	}
 			 if(usernameField.getText().isEmpty()) {
-			     showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter a Username");
+			     showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please check Username entry");
 			     return;
 			 }
 			 if(passwordField.getText().isEmpty()) {
-			     showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please enter a Password");
+			     showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Login Error!", "Please check Password entry");
 			     return;
 			 }else {
 				 Credentials.DB_NAME = dataBaseField.getText();
 		    	 Credentials.DB_USER = usernameField.getText();
 		    	 Credentials.DB_PASS = passwordField.getText();
 		    	 Credentials.SERVER = serverField.getText();
-		    	 Database.getInstance();
 		     }
 
-			     showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Sucessfull Login to Database", "Welcome " + usernameField.getText());
-			     MainRun.mainStage.setScene(new HomeScene()); 
+			 if (checkbox.isSelected() == true) {
+					if(!incrementer.exists()) {
+						try {
+							incrementer.createNewFile();
+							PrintWriter printer = new PrintWriter(new FileOutputStream(incrementer,false));
+							printer.print(1);
+							printer.close();
+							Scanner scanner = new Scanner(incrementer);
+							fileIncrementer = scanner.nextInt();
+							scanner.close();
+						} catch (IOException e1) {
+							e1.printStackTrace();
+						}
+					}else {
+						try {
+							Scanner scanner = new Scanner(incrementer);
+							fileIncrementer = scanner.nextInt();
+							scanner.close();
+							PrintWriter printer = new PrintWriter(new FileOutputStream(incrementer,false));
+							fileIncrementer += 1;
+							printer.print(fileIncrementer);
+							printer.close();
+						}catch(Exception e1) {
+							e1.printStackTrace();
+						}
+					}
+					FileAccountCreator(fileIncrementer);
+				}
+  				Database.getInstance();
+  				MainRun.mainStage.setScene(new HomeScene());
 				
-				});	
+			});	
 		
 		//When the enter key is pressed, call the enterButton Function
 		gridPane.addEventHandler(KeyEvent.KEY_PRESSED, ev -> {
-			enterButtonFunc(gridPane, usernameField, serverField, dataBaseField, passwordField);
+			if (ev.getCode() == KeyCode.ENTER) {
+				enterButtonFunc(gridPane, usernameField, serverField, dataBaseField, passwordField);
 
 				
 				if (checkbox.isSelected() == true) {
@@ -282,12 +311,12 @@ public class ConnectPage extends GridPane{
 				}
      			Database.getInstance();
      			MainRun.mainStage.setScene(new HomeScene());
+			}
 
      });
 
 		
-
-     }
+ }
 
     
     //enterButtonFunc checks if each textfield is filled and with the correct info, if yes then create the connection.
@@ -314,10 +343,7 @@ public class ConnectPage extends GridPane{
 					    	 Credentials.DB_USER = usernameField.getText();
 					    	 Credentials.DB_PASS = passwordField.getText();
 					    	 Credentials.SERVER = serverField.getText();
-					    	 Database.getInstance();
 					     }
-						     showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Sucessfull Login to Database", "Welcome " + usernameField.getText());
-						     MainRun.mainStage.setScene(new HomeScene()); 
 				   }
     public static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
         Alert alert = new Alert(alertType);
