@@ -1,9 +1,9 @@
 package panes;
 
 
-<<<<<<< HEAD
+
 import java.awt.event.KeyAdapter;
-=======
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -12,7 +12,7 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
->>>>>>> 58ed2f9768eca7ab8c59840c5a7aafcb05bc3306
+
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -98,6 +98,7 @@ public class ConnectPage extends GridPane{
 		}
 		
 	}
+	
     private void addUIControls(GridPane gridPane) {
     	//Colourway
     	Background rootBackground = new Background(
