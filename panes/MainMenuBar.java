@@ -44,6 +44,7 @@ public class MainMenuBar{
 	
 		//----------------------------------------------------------
 	public void AccountSwapper(int i) {
+		if (settingMenu.getItems().size() > i) {
 		settingMenu.getItems().get(i).setOnAction(e->{
 			try {
 				PrintWriter printer = new PrintWriter(new FileOutputStream(ConnectPage.currentAccount, false));
@@ -55,6 +56,7 @@ public class MainMenuBar{
 			}
 		});
 	}
+}
 
 	public MainMenuBar() {
 				//Adds the exit menu item to File
@@ -84,8 +86,21 @@ public class MainMenuBar{
 						menuBarLoader = false;
 					}
 				}
+				
+				//This is dumb, find a way to replace this
 				AccountSwapper(1);
 				AccountSwapper(2);
+				AccountSwapper(3);
+				AccountSwapper(4);
+				AccountSwapper(5);
+				AccountSwapper(6);
+				AccountSwapper(7);
+				AccountSwapper(8);
+				AccountSwapper(9);
+				AccountSwapper(10);
+				AccountSwapper(11);
+				AccountSwapper(12);
+				
 	}
 	
 	

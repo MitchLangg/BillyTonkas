@@ -40,11 +40,14 @@ public class MainRun extends Application {
 				scanner.close();
 			}catch(Exception e) {
 				e.printStackTrace();
-			}	
+			}
+			
 			Database.getInstance();
-			primaryStage.setScene(new HomeScene());
-			primaryStage.setTitle("BillyTonkas Database");
-			primaryStage.show();
+			if (!Database.databaseFailure) {
+				primaryStage.setScene(new HomeScene());
+				primaryStage.setTitle("BillyTonkas Database");
+				primaryStage.show();
+			}
 		}else {
 			primaryStage.setScene(new ConnnectScene());
 			primaryStage.setTitle("BillyTonkas Database");

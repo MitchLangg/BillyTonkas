@@ -8,7 +8,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import javafx.scene.control.Alert;
+import main.MainRun;
 import panes.ConnectPage;
+import panes.MainMenuBar;
+import scenes.ConnnectScene;
 
 public class Database {
 
@@ -27,37 +30,44 @@ public class Database {
 			}
 			
 			catch(Exception e) {
+				databaseFailure = true;
+				MainRun.mainStage.setScene(new ConnnectScene());
+				MainRun.mainStage.setTitle("BillyTonkas Database");
 				
+				MainRun.mainStage.show();
 				ConnectPage.showAlert(Alert.AlertType.ERROR, main.MainRun.mainStage.getScene().getWindow(), "Invalid Credentials", "Please Try Again!");
+				
 			}
-			try {
-				createTable(Const.TABLE_CHOCOLATE,
-							Const.CREATE_TABLE_CHOCOLATE,
+			if(!databaseFailure) {
+				try {
+					createTable(Const.TABLE_CHOCOLATE,
+								Const.CREATE_TABLE_CHOCOLATE,
+								connection);
+					createTable(Const.TABLE_CHOCOLATE_STATS,
+							Const.CREATE_TABLE_CHOCOLATE_STATS,
 							connection);
-				createTable(Const.TABLE_CHOCOLATE_STATS,
-						Const.CREATE_TABLE_CHOCOLATE_STATS,
+					createTable(Const.TABLE_CANDY,
+							Const.CREATE_TABLE_CANDY,
+							connection);
+					createTable(Const.TABLE_CANDY_STATS,
+							Const.CREATE_TABLE_CANDY_STATS,
+							connection);
+					createTable(Const.TABLE_GUMMY,
+							Const.CREATE_TABLE_GUMMY,
+							connection);
+				createTable(Const.TABLE_GUMMY_STATS,
+						Const.CREATE_TABLE_GUMMY_STATS,
 						connection);
-				createTable(Const.TABLE_CANDY,
-						Const.CREATE_TABLE_CANDY,
-						connection);
-				createTable(Const.TABLE_CANDY_STATS,
-						Const.CREATE_TABLE_CANDY_STATS,
-						connection);
-				createTable(Const.TABLE_GUMMY,
-						Const.CREATE_TABLE_GUMMY,
-						connection);
-			createTable(Const.TABLE_GUMMY_STATS,
-					Const.CREATE_TABLE_GUMMY_STATS,
-					connection);
-				createTable(Const.TABLE_INVENTORY,
-						Const.CREATE_TABLE_INVENTORY,
-						connection);
-				createTable(Const.TABLE_LOGIN,
-						Const.CREATE_TABLE_LOGIN,
-						connection);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+					createTable(Const.TABLE_INVENTORY,
+							Const.CREATE_TABLE_INVENTORY,
+							connection);
+					createTable(Const.TABLE_LOGIN,
+							Const.CREATE_TABLE_LOGIN,
+							connection);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 			}
 		

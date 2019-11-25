@@ -23,6 +23,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.BorderStroke;
 import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.layout.BorderWidths;
@@ -36,6 +37,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Window;
 import main.MainRun;
+import scenes.ConnnectScene;
 import scenes.HomeScene;
 
 
@@ -88,6 +90,7 @@ public class ConnectPage extends GridPane{
 			if(connectButtonText.equals("Add Account")) {
 				MenuItem account = new MenuItem("Account " + Credentials.DB_NAME );
 				MainMenuBar.getSettingMenu().getItems().add(account);
+				System.out.println(MainMenuBar.getSettingMenu().getItems());
 			}
 		} catch (IOException e1) {
 			e1.printStackTrace();
@@ -99,6 +102,24 @@ public class ConnectPage extends GridPane{
     	Background rootBackground = new Background(
 				new BackgroundFill(Color.TAN, new CornerRadii(0), new Insets(0, 0, 0, 0)));
     	this.setBackground(rootBackground);
+    	
+    	if (Database.databaseFailure) {
+    		if (MainMenuBar.isPopulated() == false){
+	    		MainMenuBar menuBar = new MainMenuBar();
+	    		BorderPane border = new BorderPane();
+	    		border.setTop(MainMenuBar.getMenuBar());
+	    		gridPane.add(border, 1 ,0);
+	    		
+	    	}else {
+	    		
+	    	}
+			MainMenuBar.getAccount().setOnAction(e->{
+	 			ConnectPage.connectButtonText = "Add Account";
+	 			MainRun.mainStage.setScene(new ConnnectScene());
+	 			ConnectPage.checkbox.setSelected(true);
+	 			ConnectPage.checkbox.setDisable(true);
+	 		});
+    	}
     	//Image view
     	Image image = new Image("Images/newlogo.png");
     	ImageView logo = new ImageView();
