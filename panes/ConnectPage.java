@@ -42,7 +42,7 @@ import scenes.HomeScene;
 public class ConnectPage extends GridPane{
 	//File.io
 	File incrementer = new File("incrementer.txt");
-	File currentAccount = new File("currentAccount.txt");
+	public static File currentAccount = new File("currentAccount.txt");
 	int fileIncrementer = 0;
 	public static String connectButtonText = "Connect";
 	public static CheckBox checkbox;

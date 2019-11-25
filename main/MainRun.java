@@ -9,6 +9,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import scenes.ConnnectScene;
 import scenes.HomeScene;
+import panes.ConnectPage;
 
 public class MainRun extends Application {
 	public static Stage mainStage;
@@ -16,12 +17,16 @@ public class MainRun extends Application {
 		launch(args);
 	}
 
-	@Override
+	
 	public void start(Stage primaryStage) throws Exception {
+		String userAccount;
+		Scanner scanner2 = new Scanner(ConnectPage.currentAccount);
+		userAccount = scanner2.next();
+		scanner2.close();
 		mainStage = primaryStage;
-		if(Files.exists(Paths.get("userAccount1.txt"))) {
+		if(Files.exists(Paths.get(userAccount))) {
 			try {
-				Scanner scanner = new Scanner(Paths.get("userAccount1.txt"));
+				Scanner scanner = new Scanner(Paths.get(userAccount));
 				Credentials.SERVER = scanner.next();
 				Credentials.DB_NAME = scanner.next();
 				Credentials.DB_USER = scanner.next();
