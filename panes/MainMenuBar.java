@@ -1,6 +1,9 @@
 package panes;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Scanner;
@@ -40,7 +43,18 @@ public class MainMenuBar{
 		private static MenuItem fileMenu1 = new MenuItem("Exit");
 	
 		//----------------------------------------------------------
-	
+	public void AccountSwapper(int i) {
+		settingMenu.getItems().get(i).setOnAction(e->{
+			try {
+				PrintWriter printer = new PrintWriter(new FileOutputStream(ConnectPage.currentAccount, false));
+				printer.print("userAccount" + i +".txt");
+				printer.close();
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		});
+	}
 
 	public MainMenuBar() {
 				//Adds the exit menu item to File
@@ -51,12 +65,13 @@ public class MainMenuBar{
 				menuBar.getMenus().addAll(fileMenu, toolsMenu, settingMenu);
 				populated = true;
 				
-				for(int i = 0; menuBarLoader; i++) {
+				for(int i = 1; menuBarLoader; i++) {
 					if (Files.exists(Paths.get("userAccount"+ i +".txt"))){
 						Scanner scanner;
 						try {
 							scanner = new Scanner(Paths.get("userAccount"+ i +".txt"));
 							scanner.next();
+							
 							MenuItem account = new MenuItem("Account " + scanner.next());
 							MainMenuBar.getSettingMenu().getItems().add(account);
 							scanner.close();
@@ -69,7 +84,8 @@ public class MainMenuBar{
 						menuBarLoader = false;
 					}
 				}
-				//DO NO DELETE THIS, REFERENCE CODE FOR ME settingMenu.getItems().get(1).setOnAction(e->{});
+				AccountSwapper(1);
+				AccountSwapper(2);
 	}
 	
 	

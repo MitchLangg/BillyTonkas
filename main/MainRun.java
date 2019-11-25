@@ -17,12 +17,17 @@ public class MainRun extends Application {
 		launch(args);
 	}
 
-	
+	String userAccount = "Default";
 	public void start(Stage primaryStage) throws Exception {
-		String userAccount;
-		Scanner scanner2 = new Scanner(ConnectPage.currentAccount);
-		userAccount = scanner2.next();
-		scanner2.close();
+	if(ConnectPage.currentAccount.exists()) {
+		try {
+			Scanner scanner2 = new Scanner(ConnectPage.currentAccount);
+			userAccount = scanner2.next();
+			scanner2.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 		mainStage = primaryStage;
 		if(Files.exists(Paths.get(userAccount))) {
 			try {

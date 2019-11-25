@@ -85,8 +85,10 @@ public class ConnectPage extends GridPane{
 			printer.print(Credentials.DB_USER + " ");
 			printer.print(Credentials.DB_PASS + " ");
 			printer.close();
-			MenuItem account = new MenuItem("Account " + Credentials.DB_NAME );
-			MainMenuBar.getSettingMenu().getItems().add(account);
+			if(connectButtonText.equals("Add Account")) {
+				MenuItem account = new MenuItem("Account " + Credentials.DB_NAME );
+				MainMenuBar.getSettingMenu().getItems().add(account);
+			}
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
