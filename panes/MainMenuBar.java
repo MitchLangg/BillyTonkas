@@ -35,7 +35,7 @@ public class MainMenuBar{
 		private static MenuItem addPage = new MenuItem("Add Items");
 		private static MenuItem deletePage = new MenuItem("Delete Items");
 		private static  MenuItem updatePage = new MenuItem("Update Items");
-		private static  MenuItem tablePage = new MenuItem("Display All Tables");
+		private static  MenuItem displayPage = new MenuItem("Display All Tables");
 		public boolean menuBarLoader = true;
 		
 		
@@ -48,7 +48,7 @@ public class MainMenuBar{
 	public MainMenuBar() {
 				//Adds the exit menu item to File
 				fileMenu.getItems().addAll(fileMenu1);
-				toolsMenu.getItems().addAll(homePage, addPage, deletePage, updatePage, tablePage);
+				toolsMenu.getItems().addAll(homePage, addPage, deletePage, updatePage, displayPage);
 				settingMenu.getItems().addAll(account);	
 				//Adds all menubar pages and their children to the menubar
 				menuBar.getMenus().addAll(fileMenu, toolsMenu, settingMenu);
@@ -93,8 +93,8 @@ public class MainMenuBar{
 		return addPage;
 	}
 	
-	public static MenuItem getTablePage() {
-		return tablePage;
+	public static MenuItem getDisplayPage() {
+		return displayPage;
 	}
 
 	public static MenuItem getDeletePage() {

@@ -11,6 +11,7 @@ import main.MainRun;
 import scenes.AddScene;
 import scenes.ConnnectScene;
 import scenes.DeleteScene;
+import scenes.DisplayScene;
 import scenes.HomeScene;
 
 
@@ -37,6 +38,9 @@ public class UpdatePage extends BorderPane{
  		});
  		MainMenuBar.getDeletePage().setOnAction(e->{
  			MainRun.mainStage.setScene(new DeleteScene());
+ 		});
+ 		MainMenuBar.getDisplayPage().setOnAction(e->{
+ 			MainRun.mainStage.setScene(new DisplayScene());
  		});
  		MainMenuBar.getAccount().setOnAction(e->{
  			ConnectPage.connectButtonText = "Add Account";
