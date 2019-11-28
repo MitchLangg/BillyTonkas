@@ -9,21 +9,26 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import main.MainRun;
 import scenes.AddScene;
-import scenes.DeleteScene;
+import scenes.ConnnectScene;
+import scenes.DisplayScene;
 import scenes.HomeScene;
+import scenes.UpdateScene;
 
-
-public class UpdatePage extends BorderPane{
-	public UpdatePage() {
+public class DeletePage extends BorderPane {
+	public DeletePage() {
     	Background rootBackground = new Background(
 				new BackgroundFill(Color.TAN, new CornerRadii(0), new Insets(0, 0, 0, 0)));
     	this.setBackground(rootBackground);
     	
+ 		
     	//TO:DO Temporary Delete Later
-    	Text testText = new Text("This is the UpdatePage");
+    	Text testText = new Text("This is the DeletePage");
+    	
  		//MENU BAR FUNCTIONS ----------------------------------
  		
  		//When the exit button is clicked the program is closed
+    	
+    	
  		MainMenuBar.getFileMenu1().setOnAction(e->{
  			System.exit(0);
  		});
@@ -34,8 +39,17 @@ public class UpdatePage extends BorderPane{
  		MainMenuBar.getHomePage().setOnAction(e->{
  			MainRun.mainStage.setScene(new HomeScene());
  		});
- 		MainMenuBar.getDeletePage().setOnAction(e->{
- 			MainRun.mainStage.setScene(new DeleteScene());
+ 		MainMenuBar.getUpdatePage().setOnAction(e->{
+ 			MainRun.mainStage.setScene(new UpdateScene());
+ 		});
+ 		MainMenuBar.getDisplayPage().setOnAction(e->{
+ 			MainRun.mainStage.setScene(new DisplayScene());
+ 		});
+ 		MainMenuBar.getAccount().setOnAction(e->{
+ 			ConnectPage.connectButtonText = "Add Account";
+ 			MainRun.mainStage.setScene(new ConnnectScene());
+ 			ConnectPage.checkbox.setSelected(true);
+ 			ConnectPage.checkbox.setDisable(true);
  		});
  		
  		

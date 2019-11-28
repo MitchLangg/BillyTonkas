@@ -7,22 +7,28 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javafx.scene.control.Alert;
+import panes.ConnectPage;
+
 public class Database {
 
 	private static Database instance = null;
 	public static Connection connection = null;
+	public static boolean databaseFailure = false;
 	
 	
 	private Database() {
 		if(connection == null) {
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
-				connection = DriverManager.getConnection("jdbc:mysql://php.scweb.ca/" + Const.DB_NAME, 
-						Const.DB_USER, Const.DB_PASS);
+				connection = DriverManager.getConnection("jdbc:mysql://" + Credentials.SERVER + "/" + Credentials.DB_NAME + "?useSSL=false", 
+						Credentials.DB_USER, Credentials.DB_PASS);
 				System.out.println("Created Connection");
 			}
+			
 			catch(Exception e) {
-				e.printStackTrace();
+				
+				ConnectPage.showAlert(Alert.AlertType.ERROR, main.MainRun.mainStage.getScene().getWindow(), "Invalid Credentials", "Please Try Again!");
 			}
 			try {
 				createTable(Const.TABLE_CHOCOLATE,
@@ -37,6 +43,12 @@ public class Database {
 				createTable(Const.TABLE_CANDY_STATS,
 						Const.CREATE_TABLE_CANDY_STATS,
 						connection);
+				createTable(Const.TABLE_GUMMY,
+						Const.CREATE_TABLE_GUMMY,
+						connection);
+			createTable(Const.TABLE_GUMMY_STATS,
+					Const.CREATE_TABLE_GUMMY_STATS,
+					connection);
 				createTable(Const.TABLE_INVENTORY,
 						Const.CREATE_TABLE_INVENTORY,
 						connection);
