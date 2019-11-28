@@ -11,7 +11,10 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 
 public class MainMenuBar{
-	
+	/**
+	 * @author mitch todd
+	 * Creation of menus. 
+	 */
 		private static boolean populated = false;
 		//Creates the Menu bar
 		private static MenuBar menuBar = new MenuBar();
@@ -32,7 +35,7 @@ public class MainMenuBar{
 		private static MenuItem addPage = new MenuItem("Add Items");
 		private static MenuItem deletePage = new MenuItem("Delete Items");
 		private static  MenuItem updatePage = new MenuItem("Update Items");
-		
+		private static  MenuItem displayPage = new MenuItem("Display All Tables");
 		public boolean menuBarLoader = true;
 		
 		
@@ -45,7 +48,7 @@ public class MainMenuBar{
 	public MainMenuBar() {
 				//Adds the exit menu item to File
 				fileMenu.getItems().addAll(fileMenu1);
-				toolsMenu.getItems().addAll(homePage, addPage, deletePage, updatePage);
+				toolsMenu.getItems().addAll(homePage, addPage, deletePage, updatePage, displayPage);
 				settingMenu.getItems().addAll(account);	
 				//Adds all menubar pages and their children to the menubar
 				menuBar.getMenus().addAll(fileMenu, toolsMenu, settingMenu);
@@ -88,6 +91,10 @@ public class MainMenuBar{
 
 	public static MenuItem getAddPage() {
 		return addPage;
+	}
+	
+	public static MenuItem getDisplayPage() {
+		return displayPage;
 	}
 
 	public static MenuItem getDeletePage() {
