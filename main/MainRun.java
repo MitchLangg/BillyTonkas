@@ -2,7 +2,6 @@ package main;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Scanner;
-
 import database.Credentials;
 import database.Database;
 import javafx.application.Application;
