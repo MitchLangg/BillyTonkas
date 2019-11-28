@@ -40,7 +40,7 @@ public class HomePage extends BorderPane{
     	//Layout of nodes
     	Text title = new Text("Welcome To Billy Tonkas");
     	HBox titleBox = new HBox(title);
-    	titleBox.setAlignment(Pos.CENTER);
+    	titleBox.setAlignment(Pos.TOP_CENTER);
     	
     	Image gummy = new Image("Images/gummy.jpg");
     	ImageView gummyView = new ImageView();
@@ -69,7 +69,7 @@ public class HomePage extends BorderPane{
     	chocolateBox.setAlignment(Pos.CENTER);
     	
     	
-    	Text coders = new Text("Created by: Mitch, Izacc, and Mitch - Billy Tonkas");
+    	Text coders = new Text("                  Billy Tonkas Software 2019\nCreated by: Mitch, Izacc, and Mitch - Billy Tonkas");
     	HBox codersBox = new HBox(coders);
     	codersBox.setAlignment(Pos.CENTER);
  		//MENU BAR FUNCTIONS ----------------------------------
@@ -103,6 +103,7 @@ public class HomePage extends BorderPane{
  		//Sets the menu bar  to top (displays it to screen)
  		this.setTop(MainMenuBar.getMenuBar());
  		//TO:DO Temporary Delete Later
+ 	
  		this.setRight(candyBox);
  		this.setCenter(chocolateBox);
  		this.setLeft(gummyBox);
