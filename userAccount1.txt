@@ -1,1 +1,1 @@
-php.scweb.ca mtodddb mtodd hxhb6hxhb627nsx27nsx 
+localhost testdb root incorrect 

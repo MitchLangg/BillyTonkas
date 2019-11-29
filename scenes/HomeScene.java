@@ -7,7 +7,7 @@ import panes.HomePage;
 public class HomeScene extends Scene {
 
 	public HomeScene() {
-		super(new HomePage(), 1280, 720);
+		super(new HomePage(), 1400, 720);
 	}
 
 }
