@@ -30,10 +30,10 @@ public class MainMenuBar{
 		//MENU BAR ITEMS -------------------------------------------
 		private static MenuItem account = new MenuItem("New account");
 		private static MenuItem homePage = new MenuItem("Home");
-		private static MenuItem addPage = new MenuItem("Add Items");
-		private static MenuItem deletePage = new MenuItem("Delete Items");
-		private static  MenuItem updatePage = new MenuItem("Update Items");
-		private static  MenuItem displayPage = new MenuItem("Display All Tables");
+		private static MenuItem addPage = new MenuItem("Add New Items");
+		private static MenuItem deletePage = new MenuItem("Delete Old Items");
+		private static  MenuItem updatePage = new MenuItem("Update Existing Items");
+		private static  MenuItem displayPage = new MenuItem("Display All The Tables");
 		public boolean menuBarLoader = true;
 		
 		
