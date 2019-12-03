@@ -36,6 +36,8 @@ public static final String CREATE_TABLE_CHOCOLATE_STATS =
 public static final String TABLE_CANDY = "candy";
 public static final String CANDY_COLUMN_ID = "id";
 public static final String CANDY_COLUMN_NAME = "name";
+public static final String CANDY_COLUMN_PRICE = "price";
+public static final String CANDY_COLUMN_QUANTITY = "quantity";
 
 /*---------------CREATING CONSTANTS FOR CANDY STATS TABLE-------------*/
 public static final String TABLE_CANDY_STATS = "candy_stats";
@@ -47,8 +49,10 @@ public static final String CANDY_STATS_COLUMN_QUANTITY = "quantity";
 public static final String CREATE_TABLE_CANDY = 
 		"CREATE TABLE " + TABLE_CANDY + "(" +
 		CANDY_COLUMN_ID + " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
-		CANDY_COLUMN_NAME + " VARCHAR(50) NOT NULL" +
-				");";
+		CANDY_COLUMN_NAME + " VARCHAR(50) NOT NULL, " +
+		CANDY_COLUMN_PRICE + " VARCHAR(50) NOT NULL, " +
+		CANDY_COLUMN_QUANTITY + " VARCHAR(50) NOT NULL" +
+				");"; 
 
 /*-----------------CREATING CANDY STATS TABLE--------------*/
 public static final String CREATE_TABLE_CANDY_STATS =

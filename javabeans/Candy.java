@@ -7,11 +7,15 @@ public class Candy {
  */
 	private int id;
 	private String name;
+	private double price;
+	private int quantity;
 	
-	public Candy(int id, String name) {
+	public Candy(int id, String name, double price, int quantity) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.price = price;
+		this.quantity = quantity;
 	}
 	
 	public Candy() {
@@ -29,6 +33,21 @@ public class Candy {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 	
 	

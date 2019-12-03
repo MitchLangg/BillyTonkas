@@ -3,6 +3,7 @@ package panes;
 import javabeans.Candy;
 import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Background;
@@ -27,6 +28,7 @@ import tables.GummyStatsTable;
 import tables.GummyTable;
 import tables.InventoryTable;
 import tables.LoginTable;
+
 
 public class AddPage extends BorderPane{
 	public AddPage() {
@@ -95,6 +97,31 @@ public class AddPage extends BorderPane{
 		
 		TextField candyNameTF = new TextField();
 		root.add(candyNameTF, 0, 5);
+		
+		Text candyPrice = new Text("Candy Price");
+		root.add(candyPrice, 0, 6);
+		
+		TextField candyPriceTF = new TextField();
+		root.add(candyPriceTF, 0, 7);
+		
+		Text candyQuantity = new Text("Candy Quantity");
+		root.add(candyQuantity, 0, 8);
+		
+		TextField candyQuantityTF = new TextField();
+		root.add(candyQuantityTF, 0, 9);
+		
+		Button submit = new Button("Submit");
+		submit.setOnAction(e->{
+			Candy candy = new Candy(
+					Integer.parseInt(candyIDTF.getText()),
+					candyNameTF.getText(),
+					Double.parseDouble(candyPriceTF.getText()),
+					Integer.parseInt(candyQuantityTF.getText()));
+					
+			candyTable.createCandy(candy);
+			
+		});
+		root.add(submit, 0, 10);
 		this.setCenter(root);
 		
 		
