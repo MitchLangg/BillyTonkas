@@ -1,7 +1,7 @@
 package scenes;
-import panes.ConnectPage;
 
 import javafx.scene.Scene;
+import panes.ConnectPage;
 
 public class ConnnectScene extends Scene {
 
