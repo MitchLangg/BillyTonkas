@@ -7,10 +7,15 @@ public class Candy {
  */
 	private int id;
 	private String name;
+	
 	public Candy(int id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
+	}
+	
+	public Candy() {
+		
 	}
 	
 	public int getId() {
