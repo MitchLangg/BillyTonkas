@@ -56,12 +56,19 @@ public class CandyTable implements CandyDAO {
 	
 	@Override
 	public void updateCandy(Candy candy) {
-		String query = "UPDATE " + Const.TABLE_CANDY + " SET " + Const.CANDY_COLUMN_NAME + " " + candy.getName() + ","
-				+ Const.CANDY_COLUMN_PRICE + " " + candy.getPrice() + "," + Const.CANDY_COLUMN_QUANTITY + " "
-				+ candy.getQuantity() + " WHERE " + Const.CANDY_COLUMN_ID + " = " + candy.getId();
+	
+		String query = "UPDATE " + Const.TABLE_CANDY + " SET " +
+		         Const.CANDY_COLUMN_NAME + " = '" + candy.getName() +  "'," +
+		         Const.CANDY_COLUMN_PRICE + " = '" + candy.getPrice() +  "'," +
+		         Const.CANDY_COLUMN_QUANTITY + " = '" + candy.getQuantity() + "'" +
+		         " WHERE " + Const.CANDY_COLUMN_ID + " = '" + candy.getId() + "';";
+		         
 		try {
 			Statement updateCandy = db.getConnection().createStatement();
-			updateCandy.executeQuery(query);
+			
+			updateCandy.executeUpdate(query);
+			System.out.println("Updated Record");
+			//updateCandy.executeQuery(query);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -69,7 +76,7 @@ public class CandyTable implements CandyDAO {
 
 	@Override
 	public void deleteCandy(Candy candy) {
-		String query = "DELETE FROM " + Const.CREATE_TABLE_CANDY + " WHERE " + Const.CANDY_COLUMN_ID + " = " + candy.getId();
+		String query = "DELETE FROM " + Const.TABLE_CANDY + " WHERE " + Const.CANDY_COLUMN_ID + " = " + candy.getId();
 		try {
 			db.getConnection().createStatement().execute(query);
 			System.out.println("Deleted Record");
@@ -82,11 +89,10 @@ public class CandyTable implements CandyDAO {
 	@Override
 	public void createCandy(Candy candy) {
 		String query = "INSERT INTO " + Const.TABLE_CANDY +
-				"(" + Const.CANDY_COLUMN_ID + ", " +
+				"("  +
 				Const.CANDY_COLUMN_NAME + ", " +
 				Const.CANDY_COLUMN_PRICE + ", " + 
 				Const.CANDY_COLUMN_QUANTITY + ") VALUES ('" +
-				candy.getId() + "','" +
 				candy.getName() + "','" + candy.getPrice() + "','" +
 				candy.getQuantity() + "')";
 		try {
