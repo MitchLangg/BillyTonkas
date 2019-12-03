@@ -10,6 +10,10 @@ import database.Const;
 import database.Database;
 import javabeans.Candy;
 
+/*
+ * @author MitchellTodd
+ */
+
 public class CandyTable implements CandyDAO {
 Database db = Database.getInstance();
 ArrayList<Candy> candy;

@@ -10,6 +10,9 @@ import database.Const;
 import database.Database;
 import javabeans.Gummy;
 
+/*
+ * @author MitchellTodd
+ */
 public class GummyTable implements GummyDAO {
 Database db = Database.getInstance();
 ArrayList<Gummy> gummy;

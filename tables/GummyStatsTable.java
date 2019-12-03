@@ -9,6 +9,9 @@ import database.Const;
 import database.Database;
 import javabeans.GummyStats;
 
+/*
+ * @author Mitchell Lang
+ */
 public class GummyStatsTable implements GummyStatsDAO{
 	Database db = Database.getInstance();
 	ArrayList<GummyStats> gummyStats;

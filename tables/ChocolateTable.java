@@ -9,6 +9,9 @@ import database.Const;
 import database.Database;
 import javabeans.Chocolate;
 
+/*
+ * @author MitchellTodd
+ */
 public class ChocolateTable implements ChocolateDAO {
 Database db = Database.getInstance();
 ArrayList<Chocolate> chocolate;

@@ -9,6 +9,10 @@ import database.Const;
 import database.Database;
 import javabeans.CandyStats;
 
+/*
+ * @author Mitchell Lang
+ */
+
 public class CandyStatsTable implements CandyStatsDAO{
 	Database db = Database.getInstance();
 	ArrayList<CandyStats> candyStats;

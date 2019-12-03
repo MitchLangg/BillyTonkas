@@ -25,12 +25,16 @@ import scenes.DisplayScene;
 import scenes.UpdateScene;
 
 public class HomePage extends BorderPane{
+	/**
+	 * @author MitchellTodd
+	 */
 	public HomePage() {
     	Background rootBackground = new Background(
 				new BackgroundFill(Color.TAN, new CornerRadii(0), new Insets(0, 0, 0, 0)));
     	this.setBackground(rootBackground);
 
     	if (MainMenuBar.isPopulated() == false){
+    		//Ignore menu bar "not being used error" if absent wont work
     		MainMenuBar menuBar = new MainMenuBar();
     	}else {
     		
@@ -44,8 +48,8 @@ public class HomePage extends BorderPane{
     	titleBox.setAlignment(Pos.TOP_CENTER);
     	
     	//Creating imageborder to surround our pictures
-    	String style_outter = "-fx-border-color: black;"
-                + "-fx-border-width: 5;";
+    	//String style_outter = "-fx-border-color: black;"
+                //+ "-fx-border-width: 5;";
     	
     	Image gummy = new Image("Images/gummy2.jpg");
     	ImageView gummyView = new ImageView();
@@ -160,6 +164,7 @@ public class HomePage extends BorderPane{
 		buttonBox.setSpacing(40);
 		buttonBox.setAlignment(Pos.CENTER);
     	
+		//@author MitchellTodd
 		//Adding functionality for the exit button
 		exitButtonBox.setOnMouseEntered(e -> {
 			exitButtonBox.setBackground(buttonBackgroundHover);
@@ -238,7 +243,9 @@ public class HomePage extends BorderPane{
     	codersBox.setAlignment(Pos.CENTER);
     	
  		/*-----------------MENU BAR FUNCTIONS----------------------*/
- 		
+    	/**
+    	 * @author MitchTodd/MitchLang
+    	 */
  		//When the exit button is clicked the program is closed
  		MainMenuBar.getFileMenu1().setOnAction(e->{
  			System.exit(0);

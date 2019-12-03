@@ -9,7 +9,9 @@ import database.Const;
 import database.Database;
 import javabeans.Inventory;
 
-
+/*
+ * @author Mitchell Lang
+ */
 public class InventoryTable implements InventoryDAO{
 	Database db = Database.getInstance();
 	ArrayList<Inventory> inventory;

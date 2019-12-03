@@ -1,9 +1,9 @@
 package database;
 
 public class Const {
-
-
-
+	/*
+	 * @author Mitchell Lang
+	 */
 /*--------------CREATING CONSTANTS FOR CHOCOLATE TABLE----------------*/
 public static final String TABLE_CHOCOLATE = "chocolate";
 public static final String CHOCOLATE_COLUMN_ID = "id";
@@ -58,7 +58,9 @@ public static final String CREATE_TABLE_CANDY_STATS =
 		CANDY_STATS_COLUMN_QUANTITY + " VARCHAR(50) NOT NULL" +
 				");";
 
-
+/*
+ * @author Mitchell Todd
+ */
 
 /*--------------CREATING GUMMY FOR CHOCOLATE TABLE----------------*/
 public static final String TABLE_GUMMY = "gummy";

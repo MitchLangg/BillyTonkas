@@ -9,6 +9,9 @@ import database.Const;
 import database.Database;
 import javabeans.Login;
 
+/*
+ * @author Mitchell Lang
+ */
 public class LoginTable implements LoginDAO {
 	Database db = Database.getInstance();
 	ArrayList<Login> login;
