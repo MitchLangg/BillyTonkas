@@ -1,5 +1,10 @@
 package panes;
 
+import javafx.animation.FadeTransition;
+import javafx.animation.SequentialTransition;
+import javafx.animation.Timeline;
+import javafx.geometry.HPos;
+
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
@@ -16,7 +21,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 import main.MainRun;
 import scenes.AddScene;
 import scenes.ConnnectScene;
@@ -39,9 +47,11 @@ public class HomePage extends BorderPane{
     	}else {
     		
     	}
+    	
     	/**
     	 * @author MitchellTodd
     	 */
+    	
     	//Layout of nodes
     	Text title = new Text("Welcome To Billy Tonkas");
     	HBox titleBox = new HBox(title);
@@ -86,7 +96,7 @@ public class HomePage extends BorderPane{
 		Border buttonBorderHover = new Border(
 				new BorderStroke(Color.CHOCOLATE, BorderStrokeStyle.SOLID, new CornerRadii(10), new BorderWidths(2)));
 		//button font
-		 Font buttonFont = Font.font("Ariel", 18);
+		 Font buttonFont = Font.font("Ariel", 20);
 		//logo at top of screen
 		Image image = new Image("Images/newlogo.png");
 	    ImageView logo = new ImageView();
@@ -104,6 +114,13 @@ public class HomePage extends BorderPane{
 		addButtonBox.setSpacing(25);
 		addButtonBox.setBackground(buttonBackground);
 		addButtonBox.setBorder(buttonBorder);
+		addButton.setFont(buttonFont);
+		FadeTransition addFade = new FadeTransition(Duration.millis(100), addButton);
+		addFade.setFromValue(1);
+		addFade.setToValue(0);
+		addFade.setAutoReverse(true);
+		addFade.setCycleCount(2);
+		SequentialTransition addFadeAnim = new SequentialTransition(addFade);
 		
 		//Delete Button
         Text deleteButton = new Text("Delete Item");
@@ -117,6 +134,13 @@ public class HomePage extends BorderPane{
 		deleteButtonBox.setSpacing(25);
 		deleteButtonBox.setBackground(buttonBackground);
 		deleteButtonBox.setBorder(buttonBorder);
+		deleteButton.setFont(buttonFont);
+		FadeTransition deleteFade = new FadeTransition(Duration.millis(100), deleteButton);
+		deleteFade.setFromValue(1);
+		deleteFade.setToValue(0);
+		deleteFade.setAutoReverse(true);
+		deleteFade.setCycleCount(2);
+		SequentialTransition deleteFadeAnim = new SequentialTransition(deleteFade);
 		
 		//Update Button
         Text updateButton = new Text("Update Item");
@@ -130,6 +154,13 @@ public class HomePage extends BorderPane{
 		updateButtonBox.setSpacing(25);
 		updateButtonBox.setBackground(buttonBackground);
 		updateButtonBox.setBorder(buttonBorder);
+		updateButton.setFont(buttonFont);
+		FadeTransition updateFade = new FadeTransition(Duration.millis(100), updateButton);
+		updateFade.setFromValue(1);
+		updateFade.setToValue(0);
+		updateFade.setAutoReverse(true);
+		updateFade.setCycleCount(2);
+		SequentialTransition updateFadeAnim = new SequentialTransition(updateFade);
 		
 		//Display Button
         Text displayButton = new Text("Display Items");
@@ -143,7 +174,14 @@ public class HomePage extends BorderPane{
 		displayButtonBox.setSpacing(25);
 		displayButtonBox.setBackground(buttonBackground);
 		displayButtonBox.setBorder(buttonBorder);
-		
+		displayButton.setFont(buttonFont);
+		FadeTransition displayFade = new FadeTransition(Duration.millis(100), displayButton);
+		displayFade.setFromValue(1);
+		displayFade.setToValue(0);
+		displayFade.setAutoReverse(true);
+		displayFade.setCycleCount(2);
+		SequentialTransition displayFadeAnim = new SequentialTransition(displayFade);
+	
 		//Exit Button
         Text exitButton = new Text("Exit");
         exitButton.setFont(buttonFont);
@@ -156,7 +194,14 @@ public class HomePage extends BorderPane{
 		exitButtonBox.setSpacing(25);
 		exitButtonBox.setBackground(buttonBackground);
 		exitButtonBox.setBorder(buttonBorder);
-		
+    	exitButton.setFont(buttonFont);
+		FadeTransition exitFade = new FadeTransition(Duration.millis(100), exitButton);
+		exitFade.setFromValue(1);
+		exitFade.setToValue(0);
+		exitFade.setAutoReverse(true);
+		exitFade.setCycleCount(2);
+		SequentialTransition exitFadeAnim = new SequentialTransition(exitFade);
+	
 		//Button VBox to hold all buttons and logo in alignment
 		VBox buttonBox = new VBox();
 		buttonBox.getChildren().addAll(logo, addButtonBox, deleteButtonBox, updateButtonBox, displayButtonBox, exitButtonBox);
@@ -169,10 +214,15 @@ public class HomePage extends BorderPane{
 		exitButtonBox.setOnMouseEntered(e -> {
 			exitButtonBox.setBackground(buttonBackgroundHover);
 			exitButtonBox.setBorder(buttonBorderHover);
+			exitFade.setToValue(0);
+			exitFadeAnim.playFromStart();
 		});
 		exitButtonBox.setOnMouseExited(e -> {
 			exitButtonBox.setBackground(buttonBackground);
 			exitButtonBox.setBorder(buttonBorder);
+			exitFade.setToValue(1);
+			exitFadeAnim.stop();
+		
 		});
 
 		exitButtonBox.setOnMouseClicked(e -> {
@@ -183,10 +233,14 @@ public class HomePage extends BorderPane{
 		addButtonBox.setOnMouseEntered(e -> {
 			addButtonBox.setBackground(buttonBackgroundHover);
 			addButtonBox.setBorder(buttonBorderHover);
+			addFade.setToValue(0);
+			addFadeAnim.playFromStart();
 		});
 		addButtonBox.setOnMouseExited(e -> {
 			addButtonBox.setBackground(buttonBackground);
 			addButtonBox.setBorder(buttonBorder);
+			addFade.setToValue(1);
+			addFadeAnim.stop();
 		});
 
 		addButtonBox.setOnMouseClicked(e -> {
@@ -197,10 +251,14 @@ public class HomePage extends BorderPane{
 		deleteButtonBox.setOnMouseEntered(e -> {
 			deleteButtonBox.setBackground(buttonBackgroundHover);
 			deleteButtonBox.setBorder(buttonBorderHover);
+			deleteFade.setToValue(0);
+			deleteFadeAnim.playFromStart();
 		});
 		deleteButtonBox.setOnMouseExited(e -> {
 			deleteButtonBox.setBackground(buttonBackground);
 			deleteButtonBox.setBorder(buttonBorder);
+			deleteFade.setToValue(1);
+			deleteFadeAnim.stop();
 		});
 
 		deleteButtonBox.setOnMouseClicked(e -> {
@@ -211,10 +269,14 @@ public class HomePage extends BorderPane{
 		updateButtonBox.setOnMouseEntered(e -> {
 			updateButtonBox.setBackground(buttonBackgroundHover);
 			updateButtonBox.setBorder(buttonBorderHover);
+			updateFade.setToValue(0);
+			updateFadeAnim.playFromStart();
 		});
 		updateButtonBox.setOnMouseExited(e -> {
 			updateButtonBox.setBackground(buttonBackground);
 			updateButtonBox.setBorder(buttonBorder);
+			updateFade.setToValue(1);
+			updateFadeAnim.stop();
 		});
 
 		updateButtonBox.setOnMouseClicked(e -> {
@@ -225,10 +287,14 @@ public class HomePage extends BorderPane{
 		displayButtonBox.setOnMouseEntered(e -> {
 			displayButtonBox.setBackground(buttonBackgroundHover);
 			displayButtonBox.setBorder(buttonBorderHover);
+			displayFade.setToValue(0);
+			displayFadeAnim.playFromStart();
 		});
 		displayButtonBox.setOnMouseExited(e -> {
 			displayButtonBox.setBackground(buttonBackground);
 			displayButtonBox.setBorder(buttonBorder);
+			displayFade.setToValue(1);
+			displayFadeAnim.stop();
 		});
 
 		displayButtonBox.setOnMouseClicked(e -> {
@@ -241,7 +307,7 @@ public class HomePage extends BorderPane{
     	Text coders = new Text("                  Billy Tonkas Software 2019\nCreated by: Mitch, Izacc, and Mitch - Billy Tonkas");
     	HBox codersBox = new HBox(coders);
     	codersBox.setAlignment(Pos.CENTER);
-    	
+    
  		/*-----------------MENU BAR FUNCTIONS----------------------*/
     	/**
     	 * @author MitchTodd/MitchLang
