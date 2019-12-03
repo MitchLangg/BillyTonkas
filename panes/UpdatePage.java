@@ -21,10 +21,11 @@ public class UpdatePage extends BorderPane{
 				new BackgroundFill(Color.TAN, new CornerRadii(0), new Insets(0, 0, 0, 0)));
     	this.setBackground(rootBackground);
     	
-    	//TO:DO Temporary Delete Later
+    	//Contents of page
     	Text testText = new Text("This is the UpdatePage");
- 		//MENU BAR FUNCTIONS ----------------------------------
  		
+    	
+    	//MENU BAR FUNCTIONS
  		//When the exit button is clicked the program is closed
  		MainMenuBar.getFileMenu1().setOnAction(e->{
  			System.exit(0);
@@ -49,13 +50,11 @@ public class UpdatePage extends BorderPane{
  			ConnectPage.checkbox.setDisable(true);
  		});
  		
- 		
- 		//-----------------------------------------------------
  		//Sets the menu bar  to top (displays it to screen)
  		this.setTop(MainMenuBar.getMenuBar());
- 		//TO:DO Temporary Delete Later
+ 		
+ 		//Layout of items on page
  		this.setCenter(testText);
-		
-		
+	
 	}
 }

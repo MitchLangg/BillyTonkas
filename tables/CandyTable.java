@@ -10,9 +10,14 @@ import database.Const;
 import database.Database;
 import javabeans.Candy;
 
+/*
+ * @author MitchellTodd
+ */
+
 public class CandyTable implements CandyDAO {
 	Database db = Database.getInstance();
 	ArrayList<Candy> candys;
+
 
 	@Override
 	public ArrayList<Candy> getAllCandy() {
@@ -108,5 +113,5 @@ public class CandyTable implements CandyDAO {
 		return count;
 	}
 	
-	
+
 }

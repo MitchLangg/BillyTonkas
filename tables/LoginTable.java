@@ -4,14 +4,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
 import daos.LoginDAO;
 import database.Const;
 import database.Database;
-import javabeans.CandyStats;
-import javabeans.GummyStats;
 import javabeans.Login;
 
+/*
+ * @author Mitchell Lang
+ */
 public class LoginTable implements LoginDAO {
 	Database db = Database.getInstance();
 	ArrayList<Login> login;
@@ -30,7 +30,6 @@ public class LoginTable implements LoginDAO {
 			}
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return login;
@@ -50,7 +49,6 @@ public class LoginTable implements LoginDAO {
 				return login;
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;

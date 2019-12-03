@@ -15,7 +15,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import main.MainRun;
-import scenes.AddScene;
 import scenes.ConnnectScene;
 import scenes.DeleteScene;
 import scenes.DisplayScene;
@@ -34,10 +33,11 @@ public class AddPage extends BorderPane{
 				new BackgroundFill(Color.TAN, new CornerRadii(0), new Insets(0, 0, 0, 0)));
     	this.setBackground(rootBackground);
     	
-    	//TO:DO Temporary Delete Later
+    	//Contents of the page
     	Text testText = new Text("This is the AddPage");
+    	
+    	
  		//MENU BAR FUNCTIONS ----------------------------------
- 		
  		//When the exit button is clicked the program is closed
  		MainMenuBar.getFileMenu1().setOnAction(e->{
  			System.exit(0);
@@ -63,11 +63,10 @@ public class AddPage extends BorderPane{
  		});
  		
  		
- 		
- 		//-----------------------------------------------------
  		//Sets the menu bar  to top (displays it to screen)
  		this.setTop(MainMenuBar.getMenuBar());
- 		//TO:DO Temporary Delete Later
+ 		
+ 		//Layout the contents of screen
  		this.setCenter(testText);
  		
  		CandyTable candyTable = new CandyTable();
