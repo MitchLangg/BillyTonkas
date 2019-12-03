@@ -1,11 +1,15 @@
 package panes;
 
+import java.util.ArrayList;
+
 import javabeans.Candy;
 import javabeans.Chocolate;
 import javabeans.Gummy;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -34,6 +38,7 @@ import tables.LoginTable;
  * @author MitchellTodd/Mitchell Lang
  */
 public class AddPage extends BorderPane{
+	private PieChart chart;
 	public AddPage() {
     	Background rootBackground = new Background(
 				new BackgroundFill(Color.TAN, new CornerRadii(0), new Insets(0, 0, 0, 0)));
@@ -111,7 +116,6 @@ public class AddPage extends BorderPane{
 		Button candySubmit = new Button("Submit");
 		candySubmit.setOnAction(e->{
 			Candy candy = new Candy(
-					Integer.parseInt(candyIDTF.getText()),
 					candyNameTF.getText(),
 					Double.parseDouble(candyPriceTF.getText()),
 					Integer.parseInt(candyQuantityTF.getText()));
@@ -203,10 +207,55 @@ public class AddPage extends BorderPane{
 		root.add(gummyBox, 6, 1);
 		
 		
+		chart = new PieChart();
+		chart.setTitle("All Candies");
+		chart.setLabelsVisible(true);
+		generateChart(root);
+		
+		
 		this.setCenter(root);
+			
+	}
+	public void generateChart(GridPane gridPane){
+		//Get access to the database
+		CandyTable candyTable = new CandyTable();
+		ChocolateTable chocolateTable = new ChocolateTable();
+		GummyTable gummyTable = new GummyTable();
+		InventoryTable invTable = new InventoryTable();
+		//Grab a list of coin types
+		ArrayList<Candy> candys = candyTable.getAllCandy();
+		ArrayList<Chocolate> chocolates = chocolateTable.getAllChocolate();
+		ArrayList<Gummy> gummys = gummyTable.getAllGummy();
+		//Clear the data in the chart 
+		chart.getData().clear();
+		//Build a list of PieChart data
+		ArrayList<PieChart.Data> data = new ArrayList<>();
 		
+		for(Candy candy : candys) {
+			PieChart.Data data1 = new PieChart.Data(candy.getName(), candy.getId());
+			chart.getData().add(data1);
+		}
 		
+		for(Chocolate chocolate : chocolates) {
+				PieChart.Data data2 = new PieChart.Data(chocolate.getName(), chocolate.getId());
+				chart.getData().add(data2);
+			}
+	
+		for(Gummy gummy : gummys) {
+			PieChart.Data data3 = new PieChart.Data(gummy.getName(), gummy.getId());
+			chart.getData().add(data3);
+		}
 		
+		//Wrap the list in an ObservableList
+				ObservableList<PieChart.Data> chartData = 
+						FXCollections.observableArrayList(data);
+				
+				//Populate the chart
+				//chart.setData(chartData);
+				gridPane.add(chart, 7, 1);
+				
+	}
+	
 		
 	}
-}
+
