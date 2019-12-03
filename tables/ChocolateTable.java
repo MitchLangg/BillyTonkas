@@ -32,7 +32,6 @@ public class ChocolateTable implements ChocolateDAO {
 						data.getInt(Const.CHOCOLATE_COLUMN_QUANTITY)));
 			}
 		} catch (SQLException e) {
-// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return chocolates;
@@ -52,7 +51,6 @@ public class ChocolateTable implements ChocolateDAO {
 				return chocolate;
 			}
 		} catch (SQLException e) {
-// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return chocolate;

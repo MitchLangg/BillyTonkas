@@ -1,9 +1,14 @@
 package panes;
 
+import java.util.ArrayList;
 import javabeans.Candy;
 import javabeans.Chocolate;
 import javabeans.Gummy;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Background;
@@ -11,7 +16,9 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import main.MainRun;
 import scenes.ConnnectScene;
@@ -30,6 +37,7 @@ import tables.GummyTable;
  */
 
 public class AddPage extends BorderPane{
+	private PieChart chart;
 	public AddPage() {
     	Background rootBackground = new Background(
 				new BackgroundFill(Color.TAN, new CornerRadii(0), new Insets(0, 0, 0, 0)));
@@ -71,39 +79,31 @@ public class AddPage extends BorderPane{
  		 */
  		
  		GridPane root = new GridPane();
+ 		//Font for text
+ 		Font textFont = Font.font("Ariel", 18);
+ 		Font titleFont = Font.font("Bookman", 24);
+ 		VBox candyBox = new VBox();
  		
  		//CANDY FORM
+ 		//Creating VBox/Text/TextViews
  		Text candyTDisplay = new Text("Add into candy table: ");
- 		root.add(candyTDisplay, 0, 0);
- 		
- 		Text candyID = new Text("ID");
-		root.add(candyID, 0, 2);
-		
-		TextField candyIDTF = new TextField();
-		root.add(candyIDTF, 0, 3);
-		
 		Text candyName = new Text("Candy Name");
-		root.add(candyName, 0, 4);
-		
 		TextField candyNameTF = new TextField();
-		root.add(candyNameTF, 0, 5);
-		
 		Text candyPrice = new Text("Candy Price");
-		root.add(candyPrice, 0, 6);
-		
 		TextField candyPriceTF = new TextField();
-		root.add(candyPriceTF, 0, 7);
-		
 		Text candyQuantity = new Text("Candy Quantity");
-		root.add(candyQuantity, 0, 8);
-		
 		TextField candyQuantityTF = new TextField();
-		root.add(candyQuantityTF, 0, 9);
 		
+		//Setting text fonts
+		candyTDisplay.setFont(titleFont);
+		candyName.setFont(textFont);
+		candyPrice.setFont(textFont);
+		candyQuantity.setFont(textFont);
+		
+		//submit button functionality
 		Button candySubmit = new Button("Submit");
 		candySubmit.setOnAction(e->{
 			Candy candy = new Candy(
-					Integer.parseInt(candyIDTF.getText()),
 					candyNameTF.getText(),
 					Double.parseDouble(candyPriceTF.getText()),
 					Integer.parseInt(candyQuantityTF.getText()));
@@ -111,41 +111,32 @@ public class AddPage extends BorderPane{
 			candyTable.createCandy(candy);
 			
 		});
-		root.add(candySubmit, 0, 10);
-		
-		
+		candyBox.getChildren().addAll(candyTDisplay, candyName, candyNameTF, candyPrice, candyPriceTF, candyQuantity, candyQuantityTF, candySubmit);
+		candyBox.setAlignment(Pos.CENTER);
+		candyBox.setPadding(new Insets(5,5,5,5));
+		root.add(candyBox, 2, 1);
+
 		//CHOCOLATE FORM
+		//Creating Vbox/Text/TextViews
+		VBox chocolateBox = new VBox();
 		Text chocolateTDisplay = new Text("Add into chocolate table: ");
- 		root.add(chocolateTDisplay, 1, 0);
- 		
- 		Text chocolateID = new Text("ID");
-		root.add(chocolateID, 1, 2);
-		
-		TextField chocolateIDTF = new TextField();
-		root.add(chocolateIDTF, 1, 3);
-		
 		Text chocolateName = new Text("Chocolate Name");
-		root.add(chocolateName, 1, 4);
-		
-		TextField chocolateNameTF = new TextField();
-		root.add(chocolateNameTF, 1, 5);
-		
-		Text chocolatePrice = new Text("Chocolate Price");
-		root.add(chocolatePrice, 1, 6);
-		
-		TextField chocolatePriceTF = new TextField();
-		root.add(chocolatePriceTF, 1, 7);
-		
-		Text chocolateQuantity = new Text("Chocolate Quantity");
-		root.add(chocolateQuantity, 1, 8);
-		
+		TextField chocolateNameTF = new TextField();	
+		Text chocolatePrice = new Text("Chocolate Price");	
+		TextField chocolatePriceTF = new TextField();	
+		Text chocolateQuantity = new Text("Chocolate Quantity");	
 		TextField chocolateQuantityTF = new TextField();
-		root.add(chocolateQuantityTF, 1, 9);
 		
+		//Setting text fonts
+		chocolateTDisplay.setFont(titleFont);
+		chocolateName.setFont(textFont);
+		chocolatePrice.setFont(textFont);
+		chocolateQuantity.setFont(textFont);
+		
+		//submit button functionality
 		Button chocolateSubmit = new Button("Submit");
 		chocolateSubmit.setOnAction(e->{
 			Chocolate chocolate = new Chocolate(
-					Integer.parseInt(chocolateIDTF.getText()),
 					chocolateNameTF.getText(),
 					Double.parseDouble(chocolatePriceTF.getText()),
 					Integer.parseInt(chocolateQuantityTF.getText()));
@@ -153,7 +144,10 @@ public class AddPage extends BorderPane{
 			chocolateTable.createChocolate(chocolate);
 			
 		});
-		root.add(chocolateSubmit, 1, 10);
+		chocolateBox.getChildren().addAll(chocolateTDisplay, chocolateName, chocolateNameTF, chocolatePrice, chocolatePriceTF, chocolateQuantity, chocolateQuantityTF, chocolateSubmit);
+		chocolateBox.setAlignment(Pos.CENTER);
+		chocolateBox.setPadding(new Insets(5,5,5,5));
+		root.add(chocolateBox, 4, 1);
 		
 		//GUMMY FORM
 		
@@ -163,37 +157,26 @@ public class AddPage extends BorderPane{
 		 * @date Week 11-15
 		 */
 		
-		Text gummyTDisplay = new Text("Add into gummy table: ");
- 		root.add(gummyTDisplay, 2, 0);
- 		
- 		Text gummyID = new Text("ID");
-		root.add(gummyID, 2, 2);
-		
-		TextField gummyIDTF = new TextField();
-		root.add(gummyIDTF, 2, 3);
-		
-		Text gummyName = new Text("Gummy Name");
-		root.add(gummyName, 2, 4);
-		
-		TextField gummyNameTF = new TextField();
-		root.add(gummyNameTF, 2, 5);
-		
-		Text gummyPrice = new Text("Gummy Price");
-		root.add(gummyPrice, 2, 6);
-		
-		TextField gummyPriceTF = new TextField();
-		root.add(gummyPriceTF, 2, 7);
-		
-		Text gummyQuantity = new Text("Gummy Quantity");
-		root.add(gummyQuantity, 2, 8);
-		
+		//Creating Vbox/Text/TextFields
+		VBox gummyBox = new VBox();
+		Text gummyTDisplay = new Text("Add into gummy table: ");		
+		Text gummyName = new Text("Gummy Name");		
+		TextField gummyNameTF = new TextField();	
+		Text gummyPrice = new Text("Gummy Price");	
+		TextField gummyPriceTF = new TextField();	
+		Text gummyQuantity = new Text("Gummy Quantity");	
 		TextField gummyQuantityTF = new TextField();
-		root.add(gummyQuantityTF, 2, 9);
 		
+		//Setting Fonts for the text
+		gummyTDisplay.setFont(titleFont);
+		gummyName.setFont(textFont);
+		gummyPrice.setFont(textFont);
+		gummyQuantity.setFont(textFont);
+		
+		//Submit button functionality
 		Button gummySubmit = new Button("Submit");
 		gummySubmit.setOnAction(e->{
 			Gummy gummy = new Gummy(
-					Integer.parseInt(gummyIDTF.getText()),
 					gummyNameTF.getText(),
 					Double.parseDouble(gummyPriceTF.getText()),
 					Integer.parseInt(gummyQuantityTF.getText()));
@@ -201,13 +184,60 @@ public class AddPage extends BorderPane{
 			gummyTable.createGummy(gummy);
 			
 		});
-		root.add(gummySubmit, 2, 10);
+		gummyBox.getChildren().addAll(gummyTDisplay, gummyName, gummyNameTF, gummyPrice, gummyPriceTF, gummyQuantity, gummyQuantityTF, gummySubmit);
+		gummyBox.setAlignment(Pos.CENTER);
+		gummyBox.setPadding(new Insets(5,5,5,5));
+		root.add(gummyBox, 6, 1);
+		
+		
+		chart = new PieChart();
+		chart.setTitle("All Candies");
+		chart.setLabelsVisible(true);
+		generateChart(root);
 		
 		
 		this.setCenter(root);
+			
+	}
+	public void generateChart(GridPane gridPane){
+		//Get access to the database
+		CandyTable candyTable = new CandyTable();
+		ChocolateTable chocolateTable = new ChocolateTable();
+		GummyTable gummyTable = new GummyTable();
+		//Grab a list of coin types
+		ArrayList<Candy> candys = candyTable.getAllCandy();
+		ArrayList<Chocolate> chocolates = chocolateTable.getAllChocolate();
+		ArrayList<Gummy> gummys = gummyTable.getAllGummy();
+		//Clear the data in the chart 
+		chart.getData().clear();
+		//Build a list of PieChart data
+		ArrayList<PieChart.Data> data = new ArrayList<>();
 		
+		for(Candy candy : candys) {
+			PieChart.Data data1 = new PieChart.Data(candy.getName(), candy.getQuantity());
+			chart.getData().add(data1);
+		}
 		
+		for(Chocolate chocolate : chocolates) {
+				PieChart.Data data2 = new PieChart.Data(chocolate.getName(), chocolate.getQuantity());
+				chart.getData().add(data2);
+			}
+	
+		for(Gummy gummy : gummys) {
+			PieChart.Data data3 = new PieChart.Data(gummy.getName(), gummy.getQuantity());
+			chart.getData().add(data3);
+		}
 		
+		//Wrap the list in an ObservableList
+				ObservableList<PieChart.Data> chartData = 
+						FXCollections.observableArrayList(data);
+				
+				//Populate the chart
+				//chart.setData(chartData);
+				gridPane.add(chart, 7, 1);
+				
+	}
+	
 		
 	}
-}
+

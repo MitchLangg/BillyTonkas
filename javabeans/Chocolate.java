@@ -18,6 +18,18 @@ public class Chocolate {
 		this.quantity = quantity;
 	}
 	
+	public Chocolate(String name, double price, int quantity) {
+		super();
+		this.name = name;
+		this.price = price;
+		this.quantity = quantity;
+	}
+	
+	public Chocolate(int id) {
+		super();
+		this.id = id;
+	}
+	
 	public Chocolate() {
 		
 	}

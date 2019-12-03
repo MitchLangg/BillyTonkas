@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
 import daos.CandyDAO;
 import database.Const;
 import database.Database;
@@ -32,7 +31,6 @@ public class CandyTable implements CandyDAO {
 				candys.add(new Candy(data.getInt(Const.CANDY_COLUMN_ID), data.getString(Const.CANDY_COLUMN_NAME), data.getDouble(Const.CANDY_COLUMN_PRICE), data.getInt(Const.CANDY_COLUMN_QUANTITY)));
 			}
 		} catch (SQLException e) {
-// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return candys;
@@ -50,7 +48,6 @@ public class CandyTable implements CandyDAO {
 				return candy;
 			}
 		} catch (SQLException e) {
-// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return candy;
@@ -91,11 +88,10 @@ public class CandyTable implements CandyDAO {
 	@Override
 	public void createCandy(Candy candy) {
 		String query = "INSERT INTO " + Const.TABLE_CANDY +
-				"(" + Const.CANDY_COLUMN_ID + ", " +
+				"("  +
 				Const.CANDY_COLUMN_NAME + ", " +
 				Const.CANDY_COLUMN_PRICE + ", " + 
 				Const.CANDY_COLUMN_QUANTITY + ") VALUES ('" +
-				candy.getId() + "','" +
 				candy.getName() + "','" + candy.getPrice() + "','" +
 				candy.getQuantity() + "')";
 		try {
