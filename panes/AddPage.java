@@ -1,7 +1,6 @@
 package panes;
 
 import java.util.ArrayList;
-
 import javabeans.Candy;
 import javabeans.Chocolate;
 import javabeans.Gummy;
@@ -11,7 +10,6 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -31,23 +29,20 @@ import scenes.UpdateScene;
 import tables.CandyTable;
 import tables.ChocolateTable;
 import tables.GummyTable;
-import tables.InventoryTable;
-import tables.LoginTable;
 
-/*
- * @author MitchellTodd/Mitchell Lang
+/**
+ * @author MitchellTodd
+ * @description creating the add pane scene
+ * @date Week 5-7
  */
+
 public class AddPage extends BorderPane{
 	private PieChart chart;
 	public AddPage() {
     	Background rootBackground = new Background(
 				new BackgroundFill(Color.TAN, new CornerRadii(0), new Insets(0, 0, 0, 0)));
     	this.setBackground(rootBackground);
-    	
-    	//Contents of the page
-    	Text testText = new Text("This is the AddPage");
-    	
-    	
+
  		//MENU BAR FUNCTIONS ----------------------------------
  		//When the exit button is clicked the program is closed
  		MainMenuBar.getFileMenu1().setOnAction(e->{
@@ -72,28 +67,24 @@ public class AddPage extends BorderPane{
  			ConnectPage.checkbox.setSelected(true);
  			ConnectPage.checkbox.setDisable(true);
  		});
- 		
- 		
  		//Sets the menu bar  to top (displays it to screen)
  		this.setTop(MainMenuBar.getMenuBar());
- 		
- 		//Layout the contents of screen
- 		this.setCenter(testText);
  		
  		CandyTable candyTable = new CandyTable();
  		ChocolateTable chocolateTable = new ChocolateTable();		
  		GummyTable gummyTable = new GummyTable();
- 		InventoryTable inventoryTable = new InventoryTable();
  
  		/*
  		 * @author Mitchell Lang
  		 */
+ 		
  		GridPane root = new GridPane();
  		//Font for text
  		Font textFont = Font.font("Ariel", 18);
  		Font titleFont = Font.font("Bookman", 24);
  		VBox candyBox = new VBox();
  		
+ 		//CANDY FORM
  		//Creating VBox/Text/TextViews
  		Text candyTDisplay = new Text("Add into candy table: ");
 		Text candyName = new Text("Candy Name");
@@ -124,8 +115,8 @@ public class AddPage extends BorderPane{
 		candyBox.setAlignment(Pos.CENTER);
 		candyBox.setPadding(new Insets(5,5,5,5));
 		root.add(candyBox, 2, 1);
-		
-		//////////////////////////////////////////////////////////////////
+
+		//CHOCOLATE FORM
 		//Creating Vbox/Text/TextViews
 		VBox chocolateBox = new VBox();
 		Text chocolateTDisplay = new Text("Add into chocolate table: ");
@@ -158,11 +149,14 @@ public class AddPage extends BorderPane{
 		chocolateBox.setPadding(new Insets(5,5,5,5));
 		root.add(chocolateBox, 4, 1);
 		
-		////////////////////////////////////////////////////////////////
+		//GUMMY FORM
 		
-		/*
+		/**
 		 * @author MitchellTodd
+		 * @description creating the forms for adding to table
+		 * @date Week 11-15
 		 */
+		
 		//Creating Vbox/Text/TextFields
 		VBox gummyBox = new VBox();
 		Text gummyTDisplay = new Text("Add into gummy table: ");		
@@ -210,7 +204,6 @@ public class AddPage extends BorderPane{
 		CandyTable candyTable = new CandyTable();
 		ChocolateTable chocolateTable = new ChocolateTable();
 		GummyTable gummyTable = new GummyTable();
-		InventoryTable invTable = new InventoryTable();
 		//Grab a list of coin types
 		ArrayList<Candy> candys = candyTable.getAllCandy();
 		ArrayList<Chocolate> chocolates = chocolateTable.getAllChocolate();

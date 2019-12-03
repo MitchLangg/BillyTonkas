@@ -1,7 +1,6 @@
 package panes;
 
 import java.util.ArrayList;
-
 import javabeans.Candy;
 import javabeans.Chocolate;
 import javabeans.Gummy;
@@ -30,8 +29,12 @@ import scenes.HomeScene;
 import tables.CandyTable;
 import tables.ChocolateTable;
 import tables.GummyTable;
-import tables.InventoryTable;
 
+/**
+	 * @author Mitchell Lang
+	 * @description creating form for update items from tables pane
+	 * @date Week 5-7
+	 */
 
 public class UpdatePage extends BorderPane{
 	private PieChart chart;
@@ -43,7 +46,7 @@ public class UpdatePage extends BorderPane{
     	//Contents of page
     	Text testText = new Text("This is the UpdatePage");
  		
-    	 
+
     	//MENU BAR FUNCTIONS
  		//When the exit button is clicked the program is closed
  		MainMenuBar.getFileMenu1().setOnAction(e->{
@@ -74,16 +77,16 @@ public class UpdatePage extends BorderPane{
  		
  		//Layout of items on page
  		this.setCenter(testText);
-	
- 		/*
- 		 * @author Mitchell Lang
- 		 * @desc Creation of the update forms for each kind of candy we sell, with functionality
- 		 */
+
+ 		/**
+ 		 * @author MitchellTodd
+ 		 * @description creating form for updating items from tables
+ 		 * @date Week 13-15
+ 		*/
  		
  		CandyTable candyTable = new CandyTable();
  		ChocolateTable chocolateTable = new ChocolateTable();		
  		GummyTable gummyTable = new GummyTable();
- 		InventoryTable inventoryTable = new InventoryTable();
  
  		GridPane root = new GridPane();
  		Font textFont = Font.font("Ariel", 18);

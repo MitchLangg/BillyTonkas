@@ -9,8 +9,10 @@ import database.Const;
 import database.Database;
 import javabeans.Chocolate;
 
-/*
+/**
  * @author MitchellTodd
+ * @description creating functionality for add/delete/update/pulling from chocolate table
+ * @date Week 13-15
  */
 public class ChocolateTable implements ChocolateDAO {
 
@@ -30,7 +32,6 @@ public class ChocolateTable implements ChocolateDAO {
 						data.getInt(Const.CHOCOLATE_COLUMN_QUANTITY)));
 			}
 		} catch (SQLException e) {
-// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return chocolates;
@@ -50,7 +51,6 @@ public class ChocolateTable implements ChocolateDAO {
 				return chocolate;
 			}
 		} catch (SQLException e) {
-// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return chocolate;

@@ -10,8 +10,10 @@ import database.Const;
 import database.Database;
 import javabeans.Gummy;
 
-/*
+/**
  * @author MitchellTodd
+ * @description creating functionality for add/delete/update/pulling from gummy table
+ * @date Week 13-15
  */
 public class GummyTable implements GummyDAO {
 	Database db = Database.getInstance();

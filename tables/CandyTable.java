@@ -4,15 +4,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
 import daos.CandyDAO;
 import database.Const;
 import database.Database;
 import javabeans.Candy;
 
-/*
- * @author MitchellTodd
- */
+/**
+	 * @author MitchellTodd
+	 * @description creating functionality for add/delete/update/pulling from candy table
+	 * @date Week 13-15
+	 */
 
 public class CandyTable implements CandyDAO {
 	Database db = Database.getInstance();
@@ -30,7 +31,6 @@ public class CandyTable implements CandyDAO {
 				candys.add(new Candy(data.getInt(Const.CANDY_COLUMN_ID), data.getString(Const.CANDY_COLUMN_NAME), data.getDouble(Const.CANDY_COLUMN_PRICE), data.getInt(Const.CANDY_COLUMN_QUANTITY)));
 			}
 		} catch (SQLException e) {
-// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return candys;
@@ -48,7 +48,6 @@ public class CandyTable implements CandyDAO {
 				return candy;
 			}
 		} catch (SQLException e) {
-// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return candy;

@@ -1,14 +1,10 @@
 package panes;
 
-import java.awt.BorderLayout;
-
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-
 import javafx.embed.swing.SwingNode;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Border;
@@ -30,6 +26,12 @@ import scenes.UpdateScene;
 import tables.CandyTable;
 import tables.ChocolateTable;
 import tables.GummyTable;
+
+/**
+	 * @author Izacc
+	 * @description 
+	 * @date Week 13-15
+	 */
 
 public class DisplayPage extends BorderPane{
 	public DisplayPage() {

@@ -11,7 +11,7 @@ import javafx.scene.control.Alert;
 import panes.ConnectPage;
 
 /*
- * @author
+ * @author izacc
  */
 public class Database {
 

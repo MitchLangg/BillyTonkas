@@ -2,9 +2,6 @@ package panes;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.SequentialTransition;
-import javafx.animation.Timeline;
-import javafx.geometry.HPos;
-
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
@@ -21,8 +18,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import main.MainRun;
@@ -34,8 +29,10 @@ import scenes.UpdateScene;
 
 public class HomePage extends BorderPane{
 	/**
-	 * @author MitchellTodd
-	 */
+		 * @author MitchellTodd
+		 * @description creating home page pane. This is our main screen
+		 * @date Week 13-15
+		 */
 	public HomePage() {
     	Background rootBackground = new Background(
 				new BackgroundFill(Color.TAN, new CornerRadii(0), new Insets(0, 0, 0, 0)));
@@ -45,21 +42,13 @@ public class HomePage extends BorderPane{
     		//Ignore menu bar "not being used error" if absent wont work
     		MainMenuBar menuBar = new MainMenuBar();
     	}else {
-    		
+    		//dont do anything
     	}
-    	
-    	/**
-    	 * @author MitchellTodd
-    	 */
-    	
+    
     	//Layout of nodes
     	Text title = new Text("Welcome To Billy Tonkas");
     	HBox titleBox = new HBox(title);
     	titleBox.setAlignment(Pos.TOP_CENTER);
-    	
-    	//Creating imageborder to surround our pictures
-    	//String style_outter = "-fx-border-color: black;"
-                //+ "-fx-border-width: 5;";
     	
     	Image gummy = new Image("Images/gummy2.jpg");
     	ImageView gummyView = new ImageView();
@@ -77,7 +66,6 @@ public class HomePage extends BorderPane{
     	HBox candyBox = new HBox(candyView);
     	candyBox.setAlignment(Pos.CENTER);
     
-    	
     	/**
     	 * @author Mitchell Lang
     	 * @description Creating all the buttons and adding functionality
@@ -209,8 +197,12 @@ public class HomePage extends BorderPane{
 		buttonBox.setSpacing(40);
 		buttonBox.setAlignment(Pos.CENTER);
     	
-		//@author MitchellTodd
-		//Adding functionality for the exit button
+		/**
+ 		 * @author MitchellTodd
+ 		 * @description adding functionality for exit
+ 		 * @date Week 12-13
+ 		 */
+		
 		exitButtonBox.setOnMouseEntered(e -> {
 			exitButtonBox.setBackground(buttonBackgroundHover);
 			exitButtonBox.setBorder(buttonBorderHover);
@@ -301,17 +293,19 @@ public class HomePage extends BorderPane{
 			MainRun.mainStage.setScene(new DisplayScene());
 		});
     	
-    	
-    	
     	//Bottom Text
     	Text coders = new Text("                  Billy Tonkas Software 2019\nCreated by: Mitch, Izacc, and Mitch - Billy Tonkas");
     	HBox codersBox = new HBox(coders);
     	codersBox.setAlignment(Pos.CENTER);
     
  		/*-----------------MENU BAR FUNCTIONS----------------------*/
+    	
     	/**
     	 * @author MitchTodd/MitchLang
+    	 * @description menu buttons for nav
+    	 * @date Week 11-13
     	 */
+    	
  		//When the exit button is clicked the program is closed
  		MainMenuBar.getFileMenu1().setOnAction(e->{
  			System.exit(0);
