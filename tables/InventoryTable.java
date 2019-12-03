@@ -4,12 +4,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
 import daos.InventoryDAO;
 import database.Const;
 import database.Database;
 import javabeans.Inventory;
-import javabeans.Login;
+
 
 public class InventoryTable implements InventoryDAO{
 	Database db = Database.getInstance();

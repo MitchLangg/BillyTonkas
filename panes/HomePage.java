@@ -1,11 +1,7 @@
 package panes;
 
-import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
@@ -16,9 +12,7 @@ import javafx.scene.layout.BorderStroke;
 import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.layout.BorderWidths;
 import javafx.scene.layout.CornerRadii;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -28,7 +22,6 @@ import scenes.AddScene;
 import scenes.ConnnectScene;
 import scenes.DeleteScene;
 import scenes.DisplayScene;
-import scenes.HomeScene;
 import scenes.UpdateScene;
 
 public class HomePage extends BorderPane{
@@ -270,12 +263,10 @@ public class HomePage extends BorderPane{
  			ConnectPage.checkbox.setDisable(true);
  		});
  		
- 		
- 		//-----------------------------------------------------
  		//Sets the menu bar  to top (displays it to screen)
  		this.setTop(MainMenuBar.getMenuBar());
- 		//TO:DO Temporary Delete Later
- 	
+ 		
+ 		//Layout contents of the page
  		this.setRight(candyBox);
  		this.setCenter(buttonBox);
  		this.setLeft(gummyBox);

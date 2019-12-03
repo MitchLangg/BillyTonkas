@@ -4,11 +4,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
 import daos.GummyStatsDAO;
 import database.Const;
 import database.Database;
-import javabeans.CandyStats;
 import javabeans.GummyStats;
 
 public class GummyStatsTable implements GummyStatsDAO{

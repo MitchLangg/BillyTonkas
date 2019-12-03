@@ -4,12 +4,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
 import daos.LoginDAO;
 import database.Const;
 import database.Database;
-import javabeans.CandyStats;
-import javabeans.GummyStats;
 import javabeans.Login;
 
 public class LoginTable implements LoginDAO {

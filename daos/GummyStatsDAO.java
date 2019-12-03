@@ -1,8 +1,6 @@
 package daos;
 
 import java.util.ArrayList;
-
-import javabeans.ChocolateStats;
 import javabeans.GummyStats;
 
 

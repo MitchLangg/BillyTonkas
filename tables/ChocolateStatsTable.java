@@ -4,11 +4,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
 import daos.ChocolateStatsDAO;
 import database.Const;
 import database.Database;
-import javabeans.Chocolate;
 import javabeans.ChocolateStats;
 
 public class ChocolateStatsTable implements ChocolateStatsDAO{
