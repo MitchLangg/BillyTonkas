@@ -21,14 +21,13 @@ public class DeletePage extends BorderPane {
     	this.setBackground(rootBackground);
     	
  		
-    	//TO:DO Temporary Delete Later
+    	//////Contents of the page//////
     	Text testText = new Text("This is the DeletePage");
     	
- 		//MENU BAR FUNCTIONS ----------------------------------
- 		
- 		//When the exit button is clicked the program is closed
     	
     	
+ 		//MENU BAR FUNCTIONS
+ 		//When the exit button is clicked the program is closed	
  		MainMenuBar.getFileMenu1().setOnAction(e->{
  			System.exit(0);
  		});
@@ -52,11 +51,10 @@ public class DeletePage extends BorderPane {
  			ConnectPage.checkbox.setDisable(true);
  		});
  		
- 		
- 		//-----------------------------------------------------
  		//Sets the menu bar  to top (displays it to screen)
  		this.setTop(MainMenuBar.getMenuBar());
- 		//TO:DO Temporary Delete Later
+ 		
+ 		//////Layout of page content//////
  		this.setCenter(testText);
 		
 		

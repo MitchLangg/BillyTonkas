@@ -4,13 +4,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
 import daos.GummyStatsDAO;
 import database.Const;
 import database.Database;
-import javabeans.CandyStats;
 import javabeans.GummyStats;
 
+/*
+ * @author Mitchell Lang
+ */
 public class GummyStatsTable implements GummyStatsDAO{
 	Database db = Database.getInstance();
 	ArrayList<GummyStats> gummyStats;
@@ -28,7 +29,6 @@ public class GummyStatsTable implements GummyStatsDAO{
 			}
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return gummyStats;
@@ -48,7 +48,6 @@ public class GummyStatsTable implements GummyStatsDAO{
 				return gummyStats;
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;

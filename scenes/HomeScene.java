@@ -1,6 +1,5 @@
 package scenes;
 
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import panes.HomePage;
 

@@ -4,11 +4,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
 import daos.ChocolateStatsDAO;
 import database.Const;
 import database.Database;
-import javabeans.Chocolate;
 import javabeans.ChocolateStats;
 
 public class ChocolateStatsTable implements ChocolateStatsDAO{
@@ -27,7 +25,6 @@ public class ChocolateStatsTable implements ChocolateStatsDAO{
 		}
 		
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			}
 			return chocolateStats;
@@ -44,7 +41,6 @@ public class ChocolateStatsTable implements ChocolateStatsDAO{
 		return chocolateStats;
 		}
 		} catch (SQLException e) {
-		// TODO Auto-generated catch block
 		e.printStackTrace();
 		}
 		return null;

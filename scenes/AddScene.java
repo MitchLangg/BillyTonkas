@@ -7,7 +7,6 @@ public class AddScene extends Scene{
 
 	public AddScene() {
 		super(new AddPage(), 1280, 720);
-		// TODO Auto-generated constructor stub
 	}
 
 }

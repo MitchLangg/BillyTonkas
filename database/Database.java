@@ -10,6 +10,9 @@ import java.sql.Statement;
 import javafx.scene.control.Alert;
 import panes.ConnectPage;
 
+/*
+ * @author
+ */
 public class Database {
 
 	private static Database instance = null;

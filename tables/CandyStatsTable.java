@@ -4,12 +4,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
 import daos.CandyStatsDAO;
 import database.Const;
 import database.Database;
 import javabeans.CandyStats;
-import javabeans.ChocolateStats;
+
+/*
+ * @author Mitchell Lang
+ */
 
 public class CandyStatsTable implements CandyStatsDAO{
 	Database db = Database.getInstance();
@@ -28,7 +30,6 @@ public class CandyStatsTable implements CandyStatsDAO{
 			}
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return candyStats;
@@ -48,7 +49,6 @@ public class CandyStatsTable implements CandyStatsDAO{
 				return candyStats;
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
