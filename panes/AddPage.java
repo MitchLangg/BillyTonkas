@@ -8,7 +8,6 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import main.MainRun;
-import scenes.AddScene;
 import scenes.ConnnectScene;
 import scenes.DeleteScene;
 import scenes.DisplayScene;
