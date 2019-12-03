@@ -53,12 +53,14 @@ return gummy;
 
 @Override
 public void updateGummy(Gummy gummy) {
-	String query = "UPDATE " + Const.TABLE_GUMMY + " SET " + Const.GUMMY_COLUMN_NAME + " " + gummy.getName() + ","
-			+ Const.GUMMY_COLUMN_PRICE + " " + gummy.getPrice() + "," + Const.GUMMY_COLUMN_QUANTITY + " "
-			+ gummy.getQuantity() + " WHERE " + Const.GUMMY_COLUMN_ID + " = " + gummy.getId();
+	String query = "UPDATE " + Const.TABLE_GUMMY + " SET " +
+	         Const.GUMMY_COLUMN_NAME + " = '" + gummy.getName() +  "'," +
+	         Const.GUMMY_COLUMN_PRICE + " = '" + gummy.getPrice() +  "'," +
+	         Const.GUMMY_COLUMN_QUANTITY + " = '" + gummy.getQuantity() + "'" +
+	         " WHERE " + Const.CHOCOLATE_COLUMN_ID + " = '" + gummy.getId() + "';";
 	try {
 		Statement updateGummy = db.getConnection().createStatement();
-		updateGummy.executeQuery(query);
+		updateGummy.executeUpdate(query);
 	} catch (SQLException e) {
 		e.printStackTrace();
 	}
@@ -67,7 +69,7 @@ public void updateGummy(Gummy gummy) {
 
 @Override
 public void deleteGummy(Gummy gummy) {
-	String query = "DELETE FROM " + Const.CREATE_TABLE_GUMMY + " WHERE " + Const.GUMMY_COLUMN_ID + " = " + gummy.getId();
+	String query = "DELETE FROM " + Const.TABLE_GUMMY + " WHERE " + Const.GUMMY_COLUMN_ID + " = " + gummy.getId();
 	try {
 		db.getConnection().createStatement().execute(query);
 		System.out.println("Deleted Record");

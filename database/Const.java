@@ -23,8 +23,6 @@ public static final String CREATE_TABLE_CHOCOLATE =
 		");";
 
 
-
-
 /*---------------CREATING CONSTANTS FOR CANDY TABLE-----------------*/
 public static final String TABLE_CANDY = "candy";
 public static final String CANDY_COLUMN_ID = "id";
