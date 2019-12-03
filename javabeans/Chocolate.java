@@ -7,10 +7,19 @@ package javabeans;
 public class Chocolate {
 	private int id;
 	private String name;
-	public Chocolate(int id, String name) {
+	private double price;
+	private int quantity;
+	
+	public Chocolate(int id, String name, double price, int quantity) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.price = price;
+		this.quantity = quantity;
+	}
+	
+	public Chocolate() {
+		
 	}
 	
 	public int getId() {
@@ -24,6 +33,22 @@ public class Chocolate {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 	
 	

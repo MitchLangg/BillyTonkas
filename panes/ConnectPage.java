@@ -199,7 +199,7 @@ public class ConnectPage extends GridPane{
 		//Exit button functionality
 		exitButtonBox.setOnMouseEntered(e -> {
 			exitButtonBox.setBackground(submitBackgroundHover);
-			submitButtonBox.setBorder(submitBorderHover);
+			exitButtonBox.setBorder(submitBorderHover);
 		});
 		exitButtonBox.setOnMouseExited(e -> {
 			exitButtonBox.setBackground(submitBackground);

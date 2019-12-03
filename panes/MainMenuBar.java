@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Scanner;
-
-import database.Credentials;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -64,7 +62,6 @@ public class MainMenuBar{
 							MainMenuBar.getSettingMenu().getItems().add(account);
 							scanner.close();
 						} catch (IOException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 						
@@ -72,10 +69,9 @@ public class MainMenuBar{
 						menuBarLoader = false;
 					}
 				}
-				//DO NO DELETE THIS, REFERENCE CODE FOR ME settingMenu.getItems().get(1).setOnAction(e->{});
+				//DO NO DELETE THIS, REFERENCE CODE FOR ME -- settingMenu.getItems().get(1).setOnAction(e->{});
 	}
-	
-	
+	//get and sets for pages (menu)
 	public static Menu getSettingMenu() {
 		return settingMenu;
 	}

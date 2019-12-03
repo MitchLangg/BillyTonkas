@@ -4,13 +4,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
 import daos.InventoryDAO;
 import database.Const;
 import database.Database;
 import javabeans.Inventory;
-import javabeans.Login;
 
+/*
+ * @author Mitchell Lang
+ */
 public class InventoryTable implements InventoryDAO{
 	Database db = Database.getInstance();
 	ArrayList<Inventory> inventory;
@@ -28,14 +29,12 @@ public class InventoryTable implements InventoryDAO{
 			}
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return inventory;
 	}
 	@Override
 	public Inventory getInventory(int inventoryID) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
