@@ -37,5 +37,22 @@ public class InventoryTable implements InventoryDAO{
 	public Inventory getInventory(int inventoryID) {
 		return null;
 	}
+	
+	public int getInvCount(int candy) {
+		int count = -1;
+		String query = "SELECT * FROM " + Const.TABLE_INVENTORY + " WHERE "
+				+ Const.INVENTORY_COLUMN_NAME + " = '" + candy + ", " +
+				 "';";
+		try {
+			Statement getCount = db.getConnection().createStatement();
+			ResultSet data = getCount.executeQuery(query);
+			data.last();
+			count = data.getRow();
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return count;
+	}
 
 }

@@ -89,11 +89,10 @@ public class CandyTable implements CandyDAO {
 	@Override
 	public void createCandy(Candy candy) {
 		String query = "INSERT INTO " + Const.TABLE_CANDY +
-				"(" + Const.CANDY_COLUMN_ID + ", " +
+				"("  +
 				Const.CANDY_COLUMN_NAME + ", " +
 				Const.CANDY_COLUMN_PRICE + ", " + 
 				Const.CANDY_COLUMN_QUANTITY + ") VALUES ('" +
-				candy.getId() + "','" +
 				candy.getName() + "','" + candy.getPrice() + "','" +
 				candy.getQuantity() + "')";
 		try {

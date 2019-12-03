@@ -17,6 +17,20 @@ public class Gummy {
 		this.price = price;
 		this.quantity = quantity;
 	}
+	
+	public Gummy(String name, double price, int quantity) {
+		super();
+		this.name = name;
+		this.price = price;
+		this.quantity = quantity;
+	}
+	
+	public Gummy(int id) {
+		super();
+		this.id = id;
+		
+	}
+	
 	public Gummy() {
 		
 	}
