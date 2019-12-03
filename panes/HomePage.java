@@ -159,7 +159,7 @@ public class HomePage extends BorderPane{
 		
 		//Button VBox to hold all buttons and logo in alignment
 		VBox buttonBox = new VBox();
-		buttonBox.getChildren().addAll(logo, addButtonBox, deleteButtonBox, updateButtonBox, exitButtonBox);
+		buttonBox.getChildren().addAll(logo, addButtonBox, deleteButtonBox, updateButtonBox, displayButtonBox, exitButtonBox);
 		buttonBox.setPadding(new Insets(10, 10, 10, 10));
 		buttonBox.setSpacing(40);
 		buttonBox.setAlignment(Pos.CENTER);
