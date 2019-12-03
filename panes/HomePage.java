@@ -1,11 +1,7 @@
 package panes;
 
-import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
@@ -16,9 +12,7 @@ import javafx.scene.layout.BorderStroke;
 import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.layout.BorderWidths;
 import javafx.scene.layout.CornerRadii;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -28,16 +22,19 @@ import scenes.AddScene;
 import scenes.ConnnectScene;
 import scenes.DeleteScene;
 import scenes.DisplayScene;
-import scenes.HomeScene;
 import scenes.UpdateScene;
 
 public class HomePage extends BorderPane{
+	/**
+	 * @author MitchellTodd
+	 */
 	public HomePage() {
     	Background rootBackground = new Background(
 				new BackgroundFill(Color.TAN, new CornerRadii(0), new Insets(0, 0, 0, 0)));
     	this.setBackground(rootBackground);
 
     	if (MainMenuBar.isPopulated() == false){
+    		//Ignore menu bar "not being used error" if absent wont work
     		MainMenuBar menuBar = new MainMenuBar();
     	}else {
     		
@@ -51,8 +48,8 @@ public class HomePage extends BorderPane{
     	titleBox.setAlignment(Pos.TOP_CENTER);
     	
     	//Creating imageborder to surround our pictures
-    	String style_outter = "-fx-border-color: black;"
-                + "-fx-border-width: 5;";
+    	//String style_outter = "-fx-border-color: black;"
+                //+ "-fx-border-width: 5;";
     	
     	Image gummy = new Image("Images/gummy2.jpg");
     	ImageView gummyView = new ImageView();
@@ -167,6 +164,7 @@ public class HomePage extends BorderPane{
 		buttonBox.setSpacing(40);
 		buttonBox.setAlignment(Pos.CENTER);
     	
+		//@author MitchellTodd
 		//Adding functionality for the exit button
 		exitButtonBox.setOnMouseEntered(e -> {
 			exitButtonBox.setBackground(buttonBackgroundHover);
@@ -245,7 +243,9 @@ public class HomePage extends BorderPane{
     	codersBox.setAlignment(Pos.CENTER);
     	
  		/*-----------------MENU BAR FUNCTIONS----------------------*/
- 		
+    	/**
+    	 * @author MitchTodd/MitchLang
+    	 */
  		//When the exit button is clicked the program is closed
  		MainMenuBar.getFileMenu1().setOnAction(e->{
  			System.exit(0);
@@ -270,12 +270,10 @@ public class HomePage extends BorderPane{
  			ConnectPage.checkbox.setDisable(true);
  		});
  		
- 		
- 		//-----------------------------------------------------
  		//Sets the menu bar  to top (displays it to screen)
  		this.setTop(MainMenuBar.getMenuBar());
- 		//TO:DO Temporary Delete Later
- 	
+ 		
+ 		//Layout contents of the page
  		this.setRight(candyBox);
  		this.setCenter(buttonBox);
  		this.setLeft(gummyBox);

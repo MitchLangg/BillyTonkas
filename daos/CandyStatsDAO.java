@@ -1,10 +1,11 @@
 package daos;
 
 import java.util.ArrayList;
-
-import javabeans.Candy;
 import javabeans.CandyStats;
 
+/*
+ * @author Mitchell Lang
+ */
 public interface CandyStatsDAO {
 
 	public ArrayList<CandyStats> getAllCandyStats();
