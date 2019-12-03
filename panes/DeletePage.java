@@ -124,7 +124,7 @@ public class DeletePage extends BorderPane {
 			Chocolate chocolate = new Chocolate(
 					Integer.parseInt(chocolateIDTF.getText()));
 			chocolateTable.deleteChocolate(chocolate);
-			
+			 
 		});
 		chocolateBox.getChildren().addAll(chocolateTDisplay, chocolateID, chocolateIDTF, chocolateSubmit);
 		chocolateBox.setAlignment(Pos.CENTER);

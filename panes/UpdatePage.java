@@ -43,7 +43,7 @@ public class UpdatePage extends BorderPane{
     	//Contents of page
     	Text testText = new Text("This is the UpdatePage");
  		
-    	
+    	 
     	//MENU BAR FUNCTIONS
  		//When the exit button is clicked the program is closed
  		MainMenuBar.getFileMenu1().setOnAction(e->{
