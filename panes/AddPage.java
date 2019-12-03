@@ -5,6 +5,7 @@ import javabeans.Chocolate;
 import javabeans.Gummy;
 import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -13,7 +14,9 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import main.MainRun;
 import scenes.ConnnectScene;
@@ -81,34 +84,30 @@ public class AddPage extends BorderPane{
  		 * @author Mitchell Lang
  		 */
  		GridPane root = new GridPane();
+ 		//Font for text
+ 		Font textFont = Font.font("Ariel", 18);
+ 		Font titleFont = Font.font("Bookman", 24);
+ 		VBox candyBox = new VBox();
  		
+ 		//Creating VBox/Text/TextViews
  		Text candyTDisplay = new Text("Add into candy table: ");
- 		root.add(candyTDisplay, 0, 0);
- 		
  		Text candyID = new Text("ID");
-		root.add(candyID, 0, 2);
-		
 		TextField candyIDTF = new TextField();
-		root.add(candyIDTF, 0, 3);
-		
 		Text candyName = new Text("Candy Name");
-		root.add(candyName, 0, 4);
-		
 		TextField candyNameTF = new TextField();
-		root.add(candyNameTF, 0, 5);
-		
 		Text candyPrice = new Text("Candy Price");
-		root.add(candyPrice, 0, 6);
-		
 		TextField candyPriceTF = new TextField();
-		root.add(candyPriceTF, 0, 7);
-		
 		Text candyQuantity = new Text("Candy Quantity");
-		root.add(candyQuantity, 0, 8);
-		
 		TextField candyQuantityTF = new TextField();
-		root.add(candyQuantityTF, 0, 9);
 		
+		//Setting text fonts
+		candyTDisplay.setFont(titleFont);
+		candyID.setFont(textFont);
+		candyName.setFont(textFont);
+		candyPrice.setFont(textFont);
+		candyQuantity.setFont(textFont);
+		
+		//submit button functionality
 		Button candySubmit = new Button("Submit");
 		candySubmit.setOnAction(e->{
 			Candy candy = new Candy(
@@ -120,37 +119,32 @@ public class AddPage extends BorderPane{
 			candyTable.createCandy(candy);
 			
 		});
-		root.add(candySubmit, 0, 10);
+		candyBox.getChildren().addAll(candyTDisplay, candyID, candyIDTF, candyName, candyNameTF, candyPrice, candyPriceTF, candyQuantity, candyQuantityTF, candySubmit);
+		candyBox.setAlignment(Pos.CENTER);
+		candyBox.setPadding(new Insets(5,5,5,5));
+		root.add(candyBox, 2, 1);
 		
 		//////////////////////////////////////////////////////////////////
-		
+		//Creating Vbox/Text/TextViews
+		VBox chocolateBox = new VBox();
 		Text chocolateTDisplay = new Text("Add into chocolate table: ");
- 		root.add(chocolateTDisplay, 1, 0);
- 		
  		Text chocolateID = new Text("ID");
-		root.add(chocolateID, 1, 2);
-		
 		TextField chocolateIDTF = new TextField();
-		root.add(chocolateIDTF, 1, 3);
-		
 		Text chocolateName = new Text("Chocolate Name");
-		root.add(chocolateName, 1, 4);
-		
-		TextField chocolateNameTF = new TextField();
-		root.add(chocolateNameTF, 1, 5);
-		
-		Text chocolatePrice = new Text("Chocolate Price");
-		root.add(chocolatePrice, 1, 6);
-		
-		TextField chocolatePriceTF = new TextField();
-		root.add(chocolatePriceTF, 1, 7);
-		
-		Text chocolateQuantity = new Text("Chocolate Quantity");
-		root.add(chocolateQuantity, 1, 8);
-		
+		TextField chocolateNameTF = new TextField();	
+		Text chocolatePrice = new Text("Chocolate Price");	
+		TextField chocolatePriceTF = new TextField();	
+		Text chocolateQuantity = new Text("Chocolate Quantity");	
 		TextField chocolateQuantityTF = new TextField();
-		root.add(chocolateQuantityTF, 1, 9);
 		
+		//Setting text fonts
+		chocolateTDisplay.setFont(titleFont);
+		chocolateID.setFont(textFont);
+		chocolateName.setFont(textFont);
+		chocolatePrice.setFont(textFont);
+		chocolateQuantity.setFont(textFont);
+		
+		//submit button functionality
 		Button chocolateSubmit = new Button("Submit");
 		chocolateSubmit.setOnAction(e->{
 			Chocolate chocolate = new Chocolate(
@@ -162,41 +156,36 @@ public class AddPage extends BorderPane{
 			chocolateTable.createChocolate(chocolate);
 			
 		});
-		root.add(chocolateSubmit, 1, 10);
+		chocolateBox.getChildren().addAll(chocolateTDisplay, chocolateID, chocolateIDTF, chocolateName, chocolateNameTF, chocolatePrice, chocolatePriceTF, chocolateQuantity, chocolateQuantityTF, chocolateSubmit);
+		chocolateBox.setAlignment(Pos.CENTER);
+		chocolateBox.setPadding(new Insets(5,5,5,5));
+		root.add(chocolateBox, 4, 1);
 		
 		////////////////////////////////////////////////////////////////
 		
 		/*
 		 * @author MitchellTodd
 		 */
-		
+		//Creating Vbox/Text/TextFields
+		VBox gummyBox = new VBox();
 		Text gummyTDisplay = new Text("Add into gummy table: ");
- 		root.add(gummyTDisplay, 2, 0);
- 		
- 		Text gummyID = new Text("ID");
-		root.add(gummyID, 2, 2);
-		
-		TextField gummyIDTF = new TextField();
-		root.add(gummyIDTF, 2, 3);
-		
-		Text gummyName = new Text("Gummy Name");
-		root.add(gummyName, 2, 4);
-		
-		TextField gummyNameTF = new TextField();
-		root.add(gummyNameTF, 2, 5);
-		
-		Text gummyPrice = new Text("Gummy Price");
-		root.add(gummyPrice, 2, 6);
-		
-		TextField gummyPriceTF = new TextField();
-		root.add(gummyPriceTF, 2, 7);
-		
-		Text gummyQuantity = new Text("Gummy Quantity");
-		root.add(gummyQuantity, 2, 8);
-		
+ 		Text gummyID = new Text("ID");		
+		TextField gummyIDTF = new TextField();		
+		Text gummyName = new Text("Gummy Name");		
+		TextField gummyNameTF = new TextField();	
+		Text gummyPrice = new Text("Gummy Price");	
+		TextField gummyPriceTF = new TextField();	
+		Text gummyQuantity = new Text("Gummy Quantity");	
 		TextField gummyQuantityTF = new TextField();
-		root.add(gummyQuantityTF, 2, 9);
 		
+		//Setting Fonts for the text
+		gummyTDisplay.setFont(titleFont);
+		gummyID.setFont(textFont);
+		gummyName.setFont(textFont);
+		gummyPrice.setFont(textFont);
+		gummyQuantity.setFont(textFont);
+		
+		//Submit button functionality
 		Button gummySubmit = new Button("Submit");
 		gummySubmit.setOnAction(e->{
 			Gummy gummy = new Gummy(
@@ -208,7 +197,10 @@ public class AddPage extends BorderPane{
 			gummyTable.createGummy(gummy);
 			
 		});
-		root.add(gummySubmit, 2, 10);
+		gummyBox.getChildren().addAll(gummyTDisplay, gummyID, gummyIDTF, gummyName, gummyNameTF, gummyPrice, gummyPriceTF, gummyQuantity, gummyQuantityTF, gummySubmit);
+		gummyBox.setAlignment(Pos.CENTER);
+		gummyBox.setPadding(new Insets(5,5,5,5));
+		root.add(gummyBox, 6, 1);
 		
 		
 		this.setCenter(root);
