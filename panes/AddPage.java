@@ -221,17 +221,17 @@ public class AddPage extends BorderPane{
 		ArrayList<PieChart.Data> data = new ArrayList<>();
 		
 		for(Candy candy : candys) {
-			PieChart.Data data1 = new PieChart.Data(candy.getName(), candy.getId());
+			PieChart.Data data1 = new PieChart.Data(candy.getName(), candy.getQuantity());
 			chart.getData().add(data1);
 		}
 		
 		for(Chocolate chocolate : chocolates) {
-				PieChart.Data data2 = new PieChart.Data(chocolate.getName(), chocolate.getId());
+				PieChart.Data data2 = new PieChart.Data(chocolate.getName(), chocolate.getQuantity());
 				chart.getData().add(data2);
 			}
 	
 		for(Gummy gummy : gummys) {
-			PieChart.Data data3 = new PieChart.Data(gummy.getName(), gummy.getId());
+			PieChart.Data data3 = new PieChart.Data(gummy.getName(), gummy.getQuantity());
 			chart.getData().add(data3);
 		}
 		
