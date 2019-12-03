@@ -26,8 +26,10 @@ import scenes.UpdateScene;
 
 public class HomePage extends BorderPane{
 	/**
-	 * @author MitchellTodd
-	 */
+		 * @author MitchellTodd
+		 * @description creating home page pane. This is our main screen
+		 * @date Week 13-15
+		 */
 	public HomePage() {
     	Background rootBackground = new Background(
 				new BackgroundFill(Color.TAN, new CornerRadii(0), new Insets(0, 0, 0, 0)));
@@ -37,19 +39,12 @@ public class HomePage extends BorderPane{
     		//Ignore menu bar "not being used error" if absent wont work
     		MainMenuBar menuBar = new MainMenuBar();
     	}else {
-    		
+    		//dont do anything
     	}
-    	/**
-    	 * @author MitchellTodd
-    	 */
     	//Layout of nodes
     	Text title = new Text("Welcome To Billy Tonkas");
     	HBox titleBox = new HBox(title);
     	titleBox.setAlignment(Pos.TOP_CENTER);
-    	
-    	//Creating imageborder to surround our pictures
-    	//String style_outter = "-fx-border-color: black;"
-                //+ "-fx-border-width: 5;";
     	
     	Image gummy = new Image("Images/gummy2.jpg");
     	ImageView gummyView = new ImageView();
@@ -164,8 +159,11 @@ public class HomePage extends BorderPane{
 		buttonBox.setSpacing(40);
 		buttonBox.setAlignment(Pos.CENTER);
     	
-		//@author MitchellTodd
-		//Adding functionality for the exit button
+		/**
+ 		 * @author MitchellTodd
+ 		 * @description adding functionality for exit
+ 		 * @date Week 12-13
+ 		 */
 		exitButtonBox.setOnMouseEntered(e -> {
 			exitButtonBox.setBackground(buttonBackgroundHover);
 			exitButtonBox.setBorder(buttonBorderHover);
@@ -245,6 +243,8 @@ public class HomePage extends BorderPane{
  		/*-----------------MENU BAR FUNCTIONS----------------------*/
     	/**
     	 * @author MitchTodd/MitchLang
+    	 * @description menu buttons for nav
+    	 * @date Week 11-13
     	 */
  		//When the exit button is clicked the program is closed
  		MainMenuBar.getFileMenu1().setOnAction(e->{

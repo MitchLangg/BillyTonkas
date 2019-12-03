@@ -14,6 +14,12 @@ import scenes.DisplayScene;
 import scenes.HomeScene;
 import scenes.UpdateScene;
 
+/**
+	 * @author Izacc
+	 * @description 
+	 * @date Week 13-15
+	 */
+
 public class DisplayPage extends BorderPane{
 	public DisplayPage() {
     	Background rootBackground = new Background(

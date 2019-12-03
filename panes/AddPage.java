@@ -3,10 +3,8 @@ package panes;
 import javabeans.Candy;
 import javabeans.Chocolate;
 import javabeans.Gummy;
-import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -24,22 +22,19 @@ import scenes.UpdateScene;
 import tables.CandyTable;
 import tables.ChocolateTable;
 import tables.GummyTable;
-import tables.InventoryTable;
-import tables.LoginTable;
 
-/*
- * @author MitchellTodd/Mitchell Lang
+/**
+ * @author MitchellTodd
+ * @description creating the add pane scene
+ * @date Week 5-7
  */
+
 public class AddPage extends BorderPane{
 	public AddPage() {
     	Background rootBackground = new Background(
 				new BackgroundFill(Color.TAN, new CornerRadii(0), new Insets(0, 0, 0, 0)));
     	this.setBackground(rootBackground);
-    	
-    	//Contents of the page
-    	Text testText = new Text("This is the AddPage");
-    	
-    	
+
  		//MENU BAR FUNCTIONS ----------------------------------
  		//When the exit button is clicked the program is closed
  		MainMenuBar.getFileMenu1().setOnAction(e->{
@@ -64,24 +59,20 @@ public class AddPage extends BorderPane{
  			ConnectPage.checkbox.setSelected(true);
  			ConnectPage.checkbox.setDisable(true);
  		});
- 		
- 		
  		//Sets the menu bar  to top (displays it to screen)
  		this.setTop(MainMenuBar.getMenuBar());
- 		
- 		//Layout the contents of screen
- 		this.setCenter(testText);
  		
  		CandyTable candyTable = new CandyTable();
  		ChocolateTable chocolateTable = new ChocolateTable();		
  		GummyTable gummyTable = new GummyTable();
- 		InventoryTable inventoryTable = new InventoryTable();
  
  		/*
  		 * @author Mitchell Lang
  		 */
+ 		
  		GridPane root = new GridPane();
  		
+ 		//CANDY FORM
  		Text candyTDisplay = new Text("Add into candy table: ");
  		root.add(candyTDisplay, 0, 0);
  		
@@ -122,8 +113,8 @@ public class AddPage extends BorderPane{
 		});
 		root.add(candySubmit, 0, 10);
 		
-		//////////////////////////////////////////////////////////////////
 		
+		//CHOCOLATE FORM
 		Text chocolateTDisplay = new Text("Add into chocolate table: ");
  		root.add(chocolateTDisplay, 1, 0);
  		
@@ -164,10 +155,12 @@ public class AddPage extends BorderPane{
 		});
 		root.add(chocolateSubmit, 1, 10);
 		
-		////////////////////////////////////////////////////////////////
+		//GUMMY FORM
 		
-		/*
+		/**
 		 * @author MitchellTodd
+		 * @description creating the forms for adding to table
+		 * @date Week 11-15
 		 */
 		
 		Text gummyTDisplay = new Text("Add into gummy table: ");

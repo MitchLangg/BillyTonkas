@@ -22,19 +22,18 @@ import scenes.UpdateScene;
 import tables.CandyTable;
 import tables.ChocolateTable;
 import tables.GummyTable;
-import tables.InventoryTable;
+
+/**
+ * @author Mitchell Lang
+ * @description 
+ * @date Week 
+ */
 
 public class DeletePage extends BorderPane {
 	public DeletePage() {
     	Background rootBackground = new Background(
 				new BackgroundFill(Color.TAN, new CornerRadii(0), new Insets(0, 0, 0, 0)));
     	this.setBackground(rootBackground);
-    	
- 		
-    	//////Contents of the page//////
-    	Text testText = new Text("This is the DeletePage");
-    	
-    	
     	
  		//MENU BAR FUNCTIONS
  		//When the exit button is clicked the program is closed	
@@ -60,21 +59,18 @@ public class DeletePage extends BorderPane {
  			ConnectPage.checkbox.setSelected(true);
  			ConnectPage.checkbox.setDisable(true);
  		});
- 		
  		//Sets the menu bar  to top (displays it to screen)
  		this.setTop(MainMenuBar.getMenuBar());
- 		
- 		//////Layout of page content//////
- 		this.setCenter(testText);
-		
- 		/*
+
+ 		/**
  		 * @author MitchellTodd
+ 		 * @description creating form for deleting items from tables
+ 		 * @date Week 13-15
  		 */
  		
  		CandyTable candyTable = new CandyTable();
  		ChocolateTable chocolateTable = new ChocolateTable();		
  		GummyTable gummyTable = new GummyTable();
- 		InventoryTable inventoryTable = new InventoryTable();
  
  		GridPane root = new GridPane();
  		

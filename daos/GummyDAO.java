@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import javabeans.Candy;
 import javabeans.Gummy;
 
-/*
- * @author Mitchell Todd
+/**
+ * @author MitchellTodd
+ * @description creating the gummy DAO class
+ * @date Week 5-7
  */
 public interface GummyDAO {
 

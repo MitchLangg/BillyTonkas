@@ -9,10 +9,11 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 
 public class MainMenuBar{
-	/**
-	 * @author mitch todd
-	 * Creation of menus. 
-	 */
+		/**
+		 * @author Mitchell Lang / MitchellTodd
+		 * @description creating the menu bar on top of application
+		 * @date Week 5-8
+		 */
 		private static boolean populated = false;
 		//Creates the Menu bar
 		private static MenuBar menuBar = new MenuBar();

@@ -1,10 +1,13 @@
 package javabeans;
 
 public class Gummy {
-/**
- * @author mitch todd
- * Creation of Javabeans gummy Class. 
- */
+	
+	/**
+	 * @author MitchellTodd
+	 * @description creating the gummy class for getters and setters
+	 * @date Week 7-9
+	 */
+	
 	private int id;
 	private String name;
 	private double price;
@@ -44,7 +47,4 @@ public class Gummy {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	
-	
-	
 }

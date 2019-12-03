@@ -10,9 +10,11 @@ import database.Const;
 import database.Database;
 import javabeans.Candy;
 
-/*
- * @author MitchellTodd
- */
+/**
+	 * @author MitchellTodd
+	 * @description creating functionality for add/delete/update/pulling from candy table
+	 * @date Week 13-15
+	 */
 
 public class CandyTable implements CandyDAO {
 	Database db = Database.getInstance();

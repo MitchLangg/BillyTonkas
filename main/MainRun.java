@@ -8,9 +8,13 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import scenes.ConnnectScene;
 import scenes.HomeScene;
-/*
- * @author Izacc/Mitch/Mitch
+
+/**
+ * @author MitchellTodd
+ * @description Java class that contains main and launches application
+ * @date Week 1-9
  */
+
 public class MainRun extends Application {
 	public static Stage mainStage;
 	public static void main(String[] args) {

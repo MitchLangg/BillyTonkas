@@ -40,9 +40,10 @@ public static final String CREATE_TABLE_CANDY =
 		CANDY_COLUMN_QUANTITY + " VARCHAR(50) NOT NULL" +
 				");"; 
 
-
-/*
- * @author Mitchell Todd
+/**
+ * @author MitchellTodd
+ * @description gummy/inv/login table SQL creation
+ * @date Week 6-8
  */
 
 /*--------------CREATING GUMMY FOR GUMMY TABLE----------------*/
@@ -52,7 +53,6 @@ public static final String GUMMY_COLUMN_NAME = "name";
 public static final String GUMMY_COLUMN_PRICE = "price";
 public static final String GUMMY_COLUMN_QUANTITY = "quantity";
 
-
 /*---------------CREATING GUMMY TABLE----------------*/
 public static final String CREATE_TABLE_GUMMY = 
 		"CREATE TABLE " + TABLE_GUMMY + "(" +
@@ -61,9 +61,6 @@ public static final String CREATE_TABLE_GUMMY =
 		GUMMY_COLUMN_PRICE + " VARCHAR(50) NOT NULL, " +
 		GUMMY_COLUMN_QUANTITY + " VARCHAR(50) NOT NULL" +
 		");";
-
-
-
 
 /*---------------CREATING CONSTANTS FOR INVENTORY TABLE---------------*/
 public static final String TABLE_INVENTORY = "inventory";
@@ -76,8 +73,6 @@ public static final String CREATE_TABLE_INVENTORY =
 		INVENTORY_COLUMN_ID + " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
 		INVENTORY_COLUMN_NAME + " VARCHAR(50) NOT NULL" +
 				");";
-
-
 
 /*---------------CREATING CONSTANTS FOR LOGIN TABLE-------------------*/
 public static final String TABLE_LOGIN = "login";

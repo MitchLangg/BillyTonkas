@@ -40,6 +40,11 @@ import javafx.stage.Window;
 import main.MainRun;
 import scenes.HomeScene;
 
+/**
+ * @author MitchellTodd/Mitchell Lang
+ * @description creating the connection page
+ * @date Week 8-13
+ */
 
 public class ConnectPage extends GridPane{
 	//File.io
@@ -99,6 +104,7 @@ public class ConnectPage extends GridPane{
     	Background rootBackground = new Background(
 				new BackgroundFill(Color.TAN, new CornerRadii(0), new Insets(0, 0, 0, 0)));
     	this.setBackground(rootBackground);
+    	
     	//Image view
     	Image image = new Image("Images/newlogo.png");
     	ImageView logo = new ImageView();
@@ -124,7 +130,6 @@ public class ConnectPage extends GridPane{
         TextField dataBaseField = new TextField();
         dataBaseField.setPrefHeight(40);
         gridPane.add(dataBaseField, 1,2);
-
 
         //Username Label
         Label username = new Label("Username : ");
@@ -179,7 +184,6 @@ public class ConnectPage extends GridPane{
 		checkbox = new CheckBox("Save Credentials?");
 		GridPane.setHalignment(checkbox, HPos.LEFT);
 		gridPane.add(checkbox, 1, 6);
-		
 		
 		//Exit Button
         Text exitButton = new Text("Exit");
@@ -257,7 +261,6 @@ public class ConnectPage extends GridPane{
 							} catch (IOException e1) {
 								e1.printStackTrace();
 							}
-							
 						}else {
 							try {
 								Scanner scanner = new Scanner(incrementer);
@@ -269,19 +272,20 @@ public class ConnectPage extends GridPane{
 								printer.close();
 							}catch(Exception e1) {
 								e1.printStackTrace();
-							}
-							
-							
+							}	
 						}
 						FileAccountCreator(fileIncrementer);
-						
 					}
-		 
 	  			Database.getInstance();
 	  			showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Credentials Successful!", "Welcome " + usernameField.getText());
 	  			MainRun.mainStage.setScene(new HomeScene());
 			 }	
 			});
+		/**
+		 * @author MitchellTodd
+		 * @description checking input on connect page
+		 * @date Week 5-8
+		 */
 		
 		//When the enter key is pressed, call the enterButton Function
 	    gridPane.addEventHandler(KeyEvent.KEY_PRESSED, ev -> {
@@ -308,7 +312,6 @@ public class ConnectPage extends GridPane{
 				Credentials.DB_PASS = passwordField.getText();
 				Credentials.SERVER = serverField.getText();
 
-				
 					if (checkbox.isSelected() == true) {
 
 					if(!incrementer.exists()) {
@@ -344,14 +347,12 @@ public class ConnectPage extends GridPane{
 				 }
 			}
 	});
-		     
-
   }
-		
-	
-
-
-
+	/**
+	 * @author MitchellTodd
+	 * @description checking input on connect page
+	 * @date Week 5-8
+	 */
     
  		//enterButtonFunc checks if each textfield is filled and with the correct info, if yes then create the connection.
     	//based on the conditions user recieves specific output
@@ -380,7 +381,6 @@ public class ConnectPage extends GridPane{
 					     }
 
 				   }
-
     public static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);

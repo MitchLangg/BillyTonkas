@@ -24,6 +24,11 @@ import tables.ChocolateTable;
 import tables.GummyTable;
 import tables.InventoryTable;
 
+/**
+	 * @author Mitchell Lang
+	 * @description creating form for update items from tables pane
+	 * @date Week 5-7
+	 */
 
 public class UpdatePage extends BorderPane{
 	public UpdatePage() {
@@ -66,8 +71,10 @@ public class UpdatePage extends BorderPane{
  		//Layout of items on page
  		this.setCenter(testText);
 	
- 		/*
+ 		/**
  		 * @author MitchellTodd
+ 		 * @description creating form for updating items from tables
+ 		 * @date Week 13-15
  		 */
  		
  		CandyTable candyTable = new CandyTable();

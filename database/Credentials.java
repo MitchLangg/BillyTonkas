@@ -1,6 +1,6 @@
 package database;
 /*
- * @author 
+ * @author izacc
  */
 public class Credentials {
 	public static String DB_USER;
