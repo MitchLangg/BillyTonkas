@@ -67,7 +67,7 @@ public void updateGummy(Gummy gummy) {
 
 @Override
 public void deleteGummy(Gummy gummy) {
-	String query = "DELETE FROM " + Const.CREATE_TABLE_GUMMY + " WHERE " + Const.GUMMY_COLUMN_ID + " = " + gummy.getId();
+	String query = "DELETE FROM " + Const.TABLE_GUMMY + " WHERE " + Const.GUMMY_COLUMN_ID + " = " + gummy.getId();
 	try {
 		db.getConnection().createStatement().execute(query);
 		System.out.println("Deleted Record");

@@ -114,12 +114,12 @@ public class UpdatePage extends BorderPane{
 					Double.parseDouble(candyPriceTF.getText()),
 					Integer.parseInt(candyQuantityTF.getText()));
 					
-			candyTable.createCandy(candy);
+			candyTable.updateCandy(candy);
 			
 		});
 		root.add(candySubmit, 0, 10);
 		
-		/////////////////////////////CHOCOLATE UDATE FORM///////////////////////////////////
+		/////////////////////////////CHOCOLATE UPDATE FORM///////////////////////////////////
 		
 		Text chocolateTDisplay = new Text("Update within chocolate table: ");
  		root.add(chocolateTDisplay, 1, 0);
@@ -156,7 +156,7 @@ public class UpdatePage extends BorderPane{
 					Double.parseDouble(chocolatePriceTF.getText()),
 					Integer.parseInt(chocolateQuantityTF.getText()));
 					
-			chocolateTable.createChocolate(chocolate);
+			chocolateTable.updateChocolate(chocolate);
 			
 		});
 		root.add(chocolateSubmit, 1, 10);
@@ -198,7 +198,7 @@ public class UpdatePage extends BorderPane{
 					Double.parseDouble(gummyPriceTF.getText()),
 					Integer.parseInt(gummyQuantityTF.getText()));
 					
-			gummyTable.createGummy(gummy);
+			gummyTable.updateGummy(gummy);
 			
 		});
 		root.add(gummySubmit, 2, 10);

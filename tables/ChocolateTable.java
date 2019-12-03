@@ -72,7 +72,7 @@ public class ChocolateTable implements ChocolateDAO {
 
 	@Override
 	public void deleteChocolate(Chocolate chocolate) {
-		String query = "DELETE FROM " + Const.CREATE_TABLE_CHOCOLATE + " WHERE " + Const.CHOCOLATE_COLUMN_ID + " = " + chocolate.getId();
+		String query = "DELETE FROM " + Const.TABLE_CHOCOLATE + " WHERE " + Const.CHOCOLATE_COLUMN_ID + " = " + chocolate.getId();
 		try {
 			db.getConnection().createStatement().execute(query);
 			System.out.println("Deleted Record");
