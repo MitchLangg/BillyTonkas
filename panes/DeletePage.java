@@ -78,6 +78,8 @@ public class DeletePage extends BorderPane {
  
  		GridPane root = new GridPane();
  		
+ 		/////////////////////////////CANDY DELETE FORM///////////////////////////////////
+ 		
  		Text candyTDisplay = new Text("Delete from candy table: ");
  		root.add(candyTDisplay, 0, 0);
  		
@@ -99,7 +101,7 @@ public class DeletePage extends BorderPane {
 		TextField candyPriceTF = new TextField();
 		root.add(candyPriceTF, 0, 7);
 		
-		Text candyQuantity = new Text("How Many");
+		Text candyQuantity = new Text("Delete Quantity");
 		root.add(candyQuantity, 0, 8);
 		
 		TextField candyQuantityTF = new TextField();
@@ -118,7 +120,7 @@ public class DeletePage extends BorderPane {
 		});
 		root.add(candySubmit, 0, 10);
 		
-		//////////////////////////////////////////////////////////////////
+		/////////////////////////////CHOCOLATE DELETE FORM///////////////////////////////////
 		
 		Text chocolateTDisplay = new Text("Delete from chocolate table: ");
  		root.add(chocolateTDisplay, 1, 0);
@@ -141,7 +143,7 @@ public class DeletePage extends BorderPane {
 		TextField chocolatePriceTF = new TextField();
 		root.add(chocolatePriceTF, 1, 7);
 		
-		Text chocolateQuantity = new Text("How Many");
+		Text chocolateQuantity = new Text("Delete Quantity");
 		root.add(chocolateQuantity, 1, 8);
 		
 		TextField chocolateQuantityTF = new TextField();
@@ -160,7 +162,7 @@ public class DeletePage extends BorderPane {
 		});
 		root.add(chocolateSubmit, 1, 10);
 		
-		////////////////////////////////////////////////////////////////
+		/////////////////////////////GUMMY DELETE FORM///////////////////////////////////
 		
 		Text gummyTDisplay = new Text("Delete from gummy table: ");
  		root.add(gummyTDisplay, 2, 0);
@@ -183,7 +185,7 @@ public class DeletePage extends BorderPane {
 		TextField gummyPriceTF = new TextField();
 		root.add(gummyPriceTF, 2, 7);
 		
-		Text gummyQuantity = new Text("How Many");
+		Text gummyQuantity = new Text("Delete Quantity");
 		root.add(gummyQuantity, 2, 8);
 		
 		TextField gummyQuantityTF = new TextField();
