@@ -58,12 +58,14 @@ public class ChocolateTable implements ChocolateDAO {
 
 	@Override
 	public void updateChocolate(Chocolate chocolate) {
-		String query = "UPDATE " + Const.TABLE_CHOCOLATE + " SET " + Const.CHOCOLATE_COLUMN_NAME + " " + chocolate.getName() + ","
-				+ Const.CHOCOLATE_COLUMN_PRICE + " " + chocolate.getPrice() + "," + Const.CHOCOLATE_COLUMN_QUANTITY + " "
-				+ chocolate.getQuantity() + " WHERE " + Const.CHOCOLATE_COLUMN_ID + " = " + chocolate.getId();
+		String query = "UPDATE " + Const.TABLE_CHOCOLATE + " SET " +
+		         Const.CHOCOLATE_COLUMN_NAME + " = '" + chocolate.getName() +  "'," +
+		         Const.CHOCOLATE_COLUMN_PRICE + " = '" + chocolate.getPrice() +  "'," +
+		         Const.CHOCOLATE_COLUMN_QUANTITY + " = '" + chocolate.getQuantity() + "'" +
+		         " WHERE " + Const.CHOCOLATE_COLUMN_ID + " = '" + chocolate.getId() + "';";
 		try {
 			Statement updateChocolate = db.getConnection().createStatement();
-			updateChocolate.executeQuery(query);
+			updateChocolate.executeUpdate(query);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -53,12 +53,14 @@ return gummy;
 
 @Override
 public void updateGummy(Gummy gummy) {
-	String query = "UPDATE " + Const.TABLE_GUMMY + " SET " + Const.GUMMY_COLUMN_NAME + " " + gummy.getName() + ","
-			+ Const.GUMMY_COLUMN_PRICE + " " + gummy.getPrice() + "," + Const.GUMMY_COLUMN_QUANTITY + " "
-			+ gummy.getQuantity() + " WHERE " + Const.GUMMY_COLUMN_ID + " = " + gummy.getId();
+	String query = "UPDATE " + Const.TABLE_GUMMY + " SET " +
+	         Const.GUMMY_COLUMN_NAME + " = '" + gummy.getName() +  "'," +
+	         Const.GUMMY_COLUMN_PRICE + " = '" + gummy.getPrice() +  "'," +
+	         Const.GUMMY_COLUMN_QUANTITY + " = '" + gummy.getQuantity() + "'" +
+	         " WHERE " + Const.CHOCOLATE_COLUMN_ID + " = '" + gummy.getId() + "';";
 	try {
 		Statement updateGummy = db.getConnection().createStatement();
-		updateGummy.executeQuery(query);
+		updateGummy.executeUpdate(query);
 	} catch (SQLException e) {
 		e.printStackTrace();
 	}

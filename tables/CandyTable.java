@@ -56,12 +56,7 @@ public class CandyTable implements CandyDAO {
 	
 	@Override
 	public void updateCandy(Candy candy) {
-		/*String query = "UPDATE " + Const.TABLE_CANDY + " SET " +
-		         Const.CANDY_COLUMN_NAME + " = " + candy.getName() +  ", " +
-		         Const.CANDY_COLUMN_PRICE + " = " + candy.getPrice() +  ", " +
-		         Const.CANDY_COLUMN_QUANTITY + " = " + candy.getQuantity() + "," +
-		         " WHERE " + Const.CANDY_COLUMN_ID + " = " + candy.getId();
-		         */
+	
 		String query = "UPDATE " + Const.TABLE_CANDY + " SET " +
 		         Const.CANDY_COLUMN_NAME + " = '" + candy.getName() +  "'," +
 		         Const.CANDY_COLUMN_PRICE + " = '" + candy.getPrice() +  "'," +
