@@ -134,7 +134,7 @@ public class HomePage extends BorderPane{
 		deleteButtonBox.setSpacing(25);
 		deleteButtonBox.setBackground(buttonBackground);
 		deleteButtonBox.setBorder(buttonBorder);
-		deleteButton.setFont(buttonFont);
+		deleteButton.setFont(buttonFont); 
 		FadeTransition deleteFade = new FadeTransition(Duration.millis(100), deleteButton);
 		deleteFade.setFromValue(1);
 		deleteFade.setToValue(0);
