@@ -301,7 +301,7 @@ public class HomePage extends BorderPane{
  		/*-----------------MENU BAR FUNCTIONS----------------------*/
     	
     	/**
-    	 * @author MitchTodd/MitchLang
+    	 * @author Izacc
     	 * @description menu buttons for nav
     	 * @date Week 11-13
     	 */

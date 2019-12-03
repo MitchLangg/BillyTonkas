@@ -10,7 +10,7 @@ import javafx.scene.control.MenuItem;
 
 public class MainMenuBar{
 		/**
-		 * @author Mitchell Lang / MitchellTodd
+		 * @author Izacc
 		 * @description creating the menu bar on top of application
 		 * @date Week 5-8
 		 */

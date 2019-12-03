@@ -32,7 +32,7 @@ import tables.GummyTable;
 
 /**
 	 * @author Mitchell Lang
-	 * @description creating form for update items from tables pane
+	 * @description creating form for update items from tables pane/ made pie chart
 	 * @date Week 5-7
 	 */
 
@@ -204,6 +204,11 @@ public class UpdatePage extends BorderPane{
 		
 		
 	}
+	/**
+	 * @author Mitchell Lang
+	 * @param gridPane
+	 * @desc Generate pie chart function
+	 */
 	public void generateChart(GridPane gridPane){
 		//Get access to the database
 		CandyTable candyTable = new CandyTable();

@@ -28,8 +28,8 @@ import tables.GummyTable;
 
 /**
  * @author Mitchell Lang
- * @description 
- * @date Week 
+ * @description Full functionality delete page
+ * @date 02/12/2019
  */
 
 public class DeletePage extends BorderPane {

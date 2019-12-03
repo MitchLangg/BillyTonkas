@@ -35,7 +35,7 @@ import tables.GummyTable;
  * @description creating the add pane scene
  * @date Week 5-7
  */
-
+ 
 public class AddPage extends BorderPane{
 	private PieChart chart;
 	public AddPage() {
