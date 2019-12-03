@@ -25,6 +25,12 @@ public class Gummy {
 		this.quantity = quantity;
 	}
 	
+	public Gummy(int id) {
+		super();
+		this.id = id;
+		
+	}
+	
 	public Gummy() {
 		
 	}

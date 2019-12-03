@@ -25,6 +25,11 @@ public class Chocolate {
 		this.quantity = quantity;
 	}
 	
+	public Chocolate(int id) {
+		super();
+		this.id = id;
+	}
+	
 	public Chocolate() {
 		
 	}
