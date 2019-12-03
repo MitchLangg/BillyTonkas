@@ -2,6 +2,7 @@ package panes;
 
 import javabeans.Candy;
 import javabeans.Chocolate;
+import javabeans.Gummy;
 import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -15,7 +16,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import main.MainRun;
-import scenes.AddScene;
 import scenes.ConnnectScene;
 import scenes.DeleteScene;
 import scenes.DisplayScene;
@@ -27,17 +27,20 @@ import tables.GummyTable;
 import tables.InventoryTable;
 import tables.LoginTable;
 
-
+/*
+ * @author MitchellTodd/Mitchell Lang
+ */
 public class AddPage extends BorderPane{
 	public AddPage() {
     	Background rootBackground = new Background(
 				new BackgroundFill(Color.TAN, new CornerRadii(0), new Insets(0, 0, 0, 0)));
     	this.setBackground(rootBackground);
     	
-    	//TO:DO Temporary Delete Later
+    	//Contents of the page
     	Text testText = new Text("This is the AddPage");
+    	
+    	
  		//MENU BAR FUNCTIONS ----------------------------------
- 		
  		//When the exit button is clicked the program is closed
  		MainMenuBar.getFileMenu1().setOnAction(e->{
  			System.exit(0);
@@ -63,11 +66,10 @@ public class AddPage extends BorderPane{
  		});
  		
  		
- 		
- 		//-----------------------------------------------------
  		//Sets the menu bar  to top (displays it to screen)
  		this.setTop(MainMenuBar.getMenuBar());
- 		//TO:DO Temporary Delete Later
+ 		
+ 		//Layout the contents of screen
  		this.setCenter(testText);
  		
  		CandyTable candyTable = new CandyTable();
@@ -75,7 +77,9 @@ public class AddPage extends BorderPane{
  		GummyTable gummyTable = new GummyTable();
  		InventoryTable inventoryTable = new InventoryTable();
  
- 		
+ 		/*
+ 		 * @author Mitchell Lang
+ 		 */
  		GridPane root = new GridPane();
  		
  		Text candyTDisplay = new Text("Add into candy table: ");
@@ -118,6 +122,8 @@ public class AddPage extends BorderPane{
 		});
 		root.add(candySubmit, 0, 10);
 		
+		//////////////////////////////////////////////////////////////////
+		
 		Text chocolateTDisplay = new Text("Add into chocolate table: ");
  		root.add(chocolateTDisplay, 1, 0);
  		
@@ -158,6 +164,51 @@ public class AddPage extends BorderPane{
 		});
 		root.add(chocolateSubmit, 1, 10);
 		
+		////////////////////////////////////////////////////////////////
+		
+		/*
+		 * @author MitchellTodd
+		 */
+		
+		Text gummyTDisplay = new Text("Add into gummy table: ");
+ 		root.add(gummyTDisplay, 2, 0);
+ 		
+ 		Text gummyID = new Text("ID");
+		root.add(gummyID, 2, 2);
+		
+		TextField gummyIDTF = new TextField();
+		root.add(gummyIDTF, 2, 3);
+		
+		Text gummyName = new Text("Gummy Name");
+		root.add(gummyName, 2, 4);
+		
+		TextField gummyNameTF = new TextField();
+		root.add(gummyNameTF, 2, 5);
+		
+		Text gummyPrice = new Text("Gummy Price");
+		root.add(gummyPrice, 2, 6);
+		
+		TextField gummyPriceTF = new TextField();
+		root.add(gummyPriceTF, 2, 7);
+		
+		Text gummyQuantity = new Text("Gummy Quantity");
+		root.add(gummyQuantity, 2, 8);
+		
+		TextField gummyQuantityTF = new TextField();
+		root.add(gummyQuantityTF, 2, 9);
+		
+		Button gummySubmit = new Button("Submit");
+		gummySubmit.setOnAction(e->{
+			Gummy gummy = new Gummy(
+					Integer.parseInt(gummyIDTF.getText()),
+					gummyNameTF.getText(),
+					Double.parseDouble(gummyPriceTF.getText()),
+					Integer.parseInt(gummyQuantityTF.getText()));
+					
+			gummyTable.createGummy(gummy);
+			
+		});
+		root.add(gummySubmit, 2, 10);
 		
 		
 		this.setCenter(root);

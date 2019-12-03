@@ -1,9 +1,9 @@
 package database;
 
 public class Const {
-
-
-
+	/*
+	 * @author Mitchell Lang
+	 */
 /*--------------CREATING CONSTANTS FOR CHOCOLATE TABLE----------------*/
 public static final String TABLE_CHOCOLATE = "chocolate";
 public static final String CHOCOLATE_COLUMN_ID = "id";
@@ -11,11 +11,7 @@ public static final String CHOCOLATE_COLUMN_NAME = "name";
 public static final String CHOCOLATE_COLUMN_PRICE = "price";
 public static final String CHOCOLATE_COLUMN_QUANTITY = "quantity";
 
-/*--------------CREATING CONSTANTS FOR CHOCOLATE STATS TABLE------------*/
-public static final String TABLE_CHOCOLATE_STATS = "chocolate_stats";
-public static final String CHOCOLATE_STATS_COLUMN_ID = "id";
-public static final String CHOCOLATE_STATS_COLUMN_PRICE = "price";
-public static final String CHOCOLATE_STATS_COLUMN_QUANTITY = "quantity";
+
 
 /*---------------CREATING CHOCOLATE TABLE----------------*/
 public static final String CREATE_TABLE_CHOCOLATE = 
@@ -26,13 +22,6 @@ public static final String CREATE_TABLE_CHOCOLATE =
 		CHOCOLATE_COLUMN_QUANTITY + " VARCHAR(50) NOT NULL" +
 		");";
 
-/*---------------CREATING CHOCOLATE STATS TABLE----------------*/
-public static final String CREATE_TABLE_CHOCOLATE_STATS = 
-		"CREATE TABLE " + TABLE_CHOCOLATE_STATS + "(" +
-		CHOCOLATE_STATS_COLUMN_ID + " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
-		CHOCOLATE_STATS_COLUMN_PRICE + " VARCHAR(50) NOT NULL, " +
-		CHOCOLATE_STATS_COLUMN_QUANTITY + " VARCHAR(50) NOT NULL" +
-				");";
 
 
 
@@ -43,11 +32,6 @@ public static final String CANDY_COLUMN_NAME = "name";
 public static final String CANDY_COLUMN_PRICE = "price";
 public static final String CANDY_COLUMN_QUANTITY = "quantity";
 
-/*---------------CREATING CONSTANTS FOR CANDY STATS TABLE-------------*/
-public static final String TABLE_CANDY_STATS = "candy_stats";
-public static final String CANDY_STATS_COLUMN_ID = "id";
-public static final String CANDY_STATS_COLUMN_PRICE = "price";
-public static final String CANDY_STATS_COLUMN_QUANTITY = "quantity";
 
 /*----------------CREATING CANDY TABLE-------------------*/
 public static final String CREATE_TABLE_CANDY = 
@@ -58,41 +42,28 @@ public static final String CREATE_TABLE_CANDY =
 		CANDY_COLUMN_QUANTITY + " VARCHAR(50) NOT NULL" +
 				");"; 
 
-/*-----------------CREATING CANDY STATS TABLE--------------*/
-public static final String CREATE_TABLE_CANDY_STATS =
-		"CREATE TABLE " + TABLE_CANDY_STATS + "(" +
-		CANDY_STATS_COLUMN_ID + " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
-		CANDY_STATS_COLUMN_PRICE + " VARCHAR(50) NOT NULL, " +
-		CANDY_STATS_COLUMN_QUANTITY + " VARCHAR(50) NOT NULL" +
-				");";
 
+/*
+ * @author Mitchell Todd
+ */
 
-
-/*--------------CREATING GUMMY FOR CHOCOLATE TABLE----------------*/
+/*--------------CREATING GUMMY FOR GUMMY TABLE----------------*/
 public static final String TABLE_GUMMY = "gummy";
 public static final String GUMMY_COLUMN_ID = "id";
 public static final String GUMMY_COLUMN_NAME = "name";
+public static final String GUMMY_COLUMN_PRICE = "price";
+public static final String GUMMY_COLUMN_QUANTITY = "quantity";
 
-/*--------------CREATING GUMMY FOR GUMMY STATS TABLE------------*/
-public static final String TABLE_GUMMY_STATS = "gummy_stats";
-public static final String GUMMY_STATS_COLUMN_ID = "id";
-public static final String GUMMY_STATS_COLUMN_PRICE = "price";
-public static final String GUMMY_STATS_COLUMN_QUANTITY = "quantity";
 
 /*---------------CREATING GUMMY TABLE----------------*/
 public static final String CREATE_TABLE_GUMMY = 
 		"CREATE TABLE " + TABLE_GUMMY + "(" +
 		GUMMY_COLUMN_ID + " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
-		GUMMY_COLUMN_NAME + " VARCHAR(50) NOT NULL" +
+		GUMMY_COLUMN_NAME + " VARCHAR(50) NOT NULL, " +
+		GUMMY_COLUMN_PRICE + " VARCHAR(50) NOT NULL, " +
+		GUMMY_COLUMN_QUANTITY + " VARCHAR(50) NOT NULL" +
 		");";
 
-/*---------------CREATING GUMMY STATS TABLE----------------*/
-public static final String CREATE_TABLE_GUMMY_STATS = 
-		"CREATE TABLE " + TABLE_GUMMY_STATS + "(" +
-		GUMMY_STATS_COLUMN_ID + " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
-		GUMMY_STATS_COLUMN_PRICE + " VARCHAR(50) NOT NULL, " +
-		GUMMY_STATS_COLUMN_QUANTITY + " VARCHAR(50) NOT NULL" +
-				");";
 
 
 
