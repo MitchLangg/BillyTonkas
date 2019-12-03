@@ -1,5 +1,11 @@
 package panes;
 
+import java.awt.BorderLayout;
+
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+
+import javafx.embed.swing.SwingNode;
 import javafx.geometry.Insets;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -13,6 +19,7 @@ import scenes.ConnnectScene;
 import scenes.DisplayScene;
 import scenes.HomeScene;
 import scenes.UpdateScene;
+import tables.CandyTable;
 
 public class DisplayPage extends BorderPane{
 	public DisplayPage() {
@@ -22,7 +29,30 @@ public class DisplayPage extends BorderPane{
     	
  		
     	//Contents of the page
-    	Text testText = new Text("This is the DisplayPage");
+    	String[] candyColumnNames = {"id",
+                "name",
+                "price",
+                "quantity"};
+    	//Initialization of the candy table
+    	CandyTable candyTable = new CandyTable();
+    	Object data[][] = new Object[candyTable.getAllCandy().size()][4];
+    	for (int i = 0; i < candyTable.getAllCandy().size(); i++) {
+    		 data[i][0] = candyTable.getAllCandy().get(i).getId();
+    		 data[i][1] = candyTable.getAllCandy().get(i).getName();
+    		 data[i][2] = candyTable.getAllCandy().get(i).getPrice();
+    		 data[i][3] = candyTable.getAllCandy().get(i).getQuantity();
+        	};
+    	BorderLayout border = new BorderLayout();
+    	
+    	SwingNode swingNode = new SwingNode();
+    	JTable table = new JTable(data ,(Object[]) candyColumnNames);
+    	JScrollPane scrollPane = new JScrollPane(table);
+    	scrollPane.setBackground(java.awt.Color.getHSBColor(34, 33, 82));
+    	scrollPane.setForeground(java.awt.Color.getHSBColor(34, 33, 82));
+    	scrollPane.setEnabled(false);
+    	table.setFillsViewportHeight(true);
+    	table.setDefaultEditor(Object.class, null);
+    	swingNode.setContent(scrollPane);
     	
  		//MENU BAR FUNCTIONS
  		//When the exit button is clicked the program is closed
@@ -54,7 +84,7 @@ public class DisplayPage extends BorderPane{
  		this.setTop(MainMenuBar.getMenuBar());
  		
  		//Layout of content of page
- 		this.setCenter(testText);
+ 		this.setCenter(swingNode);
 		
 		
 	}
