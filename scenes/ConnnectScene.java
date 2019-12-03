@@ -1,4 +1,5 @@
 package scenes;
+
 import javafx.scene.Scene;
 import panes.ConnectPage;
 

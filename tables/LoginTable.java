@@ -30,7 +30,6 @@ public class LoginTable implements LoginDAO {
 			}
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return login;
@@ -50,7 +49,6 @@ public class LoginTable implements LoginDAO {
 				return login;
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;

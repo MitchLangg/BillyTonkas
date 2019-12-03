@@ -27,7 +27,6 @@ try {
 		chocolate.add(new Chocolate(data.getInt(Const.CHOCOLATE_COLUMN_ID), data.getString(Const.CHOCOLATE_COLUMN_NAME)));
 	}
 } catch (SQLException e) {
-// TODO Auto-generated catch block
 e.printStackTrace();
 }
 return chocolate;
@@ -44,7 +43,6 @@ try {
 return chocolate;
 }
 } catch (SQLException e) {
-// TODO Auto-generated catch block
 e.printStackTrace();
 }
 return null;

@@ -28,7 +28,6 @@ public class GummyStatsTable implements GummyStatsDAO{
 			}
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return gummyStats;
@@ -48,7 +47,6 @@ public class GummyStatsTable implements GummyStatsDAO{
 				return gummyStats;
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;

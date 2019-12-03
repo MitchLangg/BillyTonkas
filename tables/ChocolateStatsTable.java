@@ -27,7 +27,6 @@ public class ChocolateStatsTable implements ChocolateStatsDAO{
 		}
 		
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			}
 			return chocolateStats;
@@ -44,7 +43,6 @@ public class ChocolateStatsTable implements ChocolateStatsDAO{
 		return chocolateStats;
 		}
 		} catch (SQLException e) {
-		// TODO Auto-generated catch block
 		e.printStackTrace();
 		}
 		return null;

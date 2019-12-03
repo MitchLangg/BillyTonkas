@@ -25,7 +25,6 @@ try {
 	gummy.add(new Gummy(data.getInt(Const.GUMMY_COLUMN_ID), data.getString(Const.GUMMY_COLUMN_NAME)));
 	}
 } catch (SQLException e) {
-// TODO Auto-generated catch block
 e.printStackTrace();
 }
 return gummy;
@@ -42,7 +41,6 @@ try {
 return gummy;
 }
 } catch (SQLException e) {
-// TODO Auto-generated catch block
 e.printStackTrace();
 }
 return null;

@@ -28,14 +28,12 @@ public class InventoryTable implements InventoryDAO{
 			}
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return inventory;
 	}
 	@Override
 	public Inventory getInventory(int inventoryID) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

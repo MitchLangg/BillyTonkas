@@ -28,7 +28,6 @@ public class CandyStatsTable implements CandyStatsDAO{
 			}
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return candyStats;
@@ -48,7 +47,6 @@ public class CandyStatsTable implements CandyStatsDAO{
 				return candyStats;
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;

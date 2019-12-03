@@ -25,7 +25,6 @@ try {
 	candy.add(new Candy(data.getInt(Const.CANDY_COLUMN_ID), data.getString(Const.CANDY_COLUMN_NAME)));
 	}
 } catch (SQLException e) {
-// TODO Auto-generated catch block
 e.printStackTrace();
 }
 return candy;
@@ -42,7 +41,6 @@ try {
 return candy;
 }
 } catch (SQLException e) {
-// TODO Auto-generated catch block
 e.printStackTrace();
 }
 return null;
