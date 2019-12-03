@@ -1,6 +1,7 @@
 package panes;
 
 import javabeans.Candy;
+import javabeans.Chocolate;
 import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -73,13 +74,10 @@ public class AddPage extends BorderPane{
  		this.setCenter(testText);
  		
  		CandyTable candyTable = new CandyTable();
- 		CandyStatsTable candyStatsTable = new CandyStatsTable();
- 		ChocolateTable chocolateTable = new ChocolateTable();
- 		ChocolateStatsTable chocolateStatsTable = new ChocolateStatsTable();
+ 		ChocolateTable chocolateTable = new ChocolateTable();		
  		GummyTable gummyTable = new GummyTable();
- 		GummyStatsTable gummyStatsTable = new GummyStatsTable();
  		InventoryTable inventoryTable = new InventoryTable();
- 		LoginTable loginTable = new LoginTable();
+ 
  		
  		GridPane root = new GridPane();
  		
@@ -110,8 +108,8 @@ public class AddPage extends BorderPane{
 		TextField candyQuantityTF = new TextField();
 		root.add(candyQuantityTF, 0, 9);
 		
-		Button submit = new Button("Submit");
-		submit.setOnAction(e->{
+		Button candySubmit = new Button("Submit");
+		candySubmit.setOnAction(e->{
 			Candy candy = new Candy(
 					Integer.parseInt(candyIDTF.getText()),
 					candyNameTF.getText(),
@@ -121,7 +119,50 @@ public class AddPage extends BorderPane{
 			candyTable.createCandy(candy);
 			
 		});
-		root.add(submit, 0, 10);
+		root.add(candySubmit, 0, 10);
+		
+		Text chocolateTDisplay = new Text("Add into chocolate table: ");
+ 		root.add(chocolateTDisplay, 1, 0);
+ 		
+ 		Text chocolateID = new Text("ID");
+		root.add(chocolateID, 1, 2);
+		
+		TextField chocolateIDTF = new TextField();
+		root.add(chocolateIDTF, 1, 3);
+		
+		Text chocolateName = new Text("Chocolate Name");
+		root.add(chocolateName, 1, 4);
+		
+		TextField chocolateNameTF = new TextField();
+		root.add(chocolateNameTF, 1, 5);
+		
+		Text chocolatePrice = new Text("Chocolate Price");
+		root.add(chocolatePrice, 1, 6);
+		
+		TextField chocolatePriceTF = new TextField();
+		root.add(chocolatePriceTF, 1, 7);
+		
+		Text chocolateQuantity = new Text("Chocolate Quantity");
+		root.add(chocolateQuantity, 1, 8);
+		
+		TextField chocolateQuantityTF = new TextField();
+		root.add(chocolateQuantityTF, 1, 9);
+		
+		Button chocolateSubmit = new Button("Submit");
+		chocolateSubmit.setOnAction(e->{
+			Chocolate chocolate = new Chocolate(
+					Integer.parseInt(chocolateIDTF.getText()),
+					chocolateNameTF.getText(),
+					Double.parseDouble(chocolatePriceTF.getText()),
+					Integer.parseInt(chocolateQuantityTF.getText()));
+					
+			chocolateTable.createChocolate(chocolate);
+			
+		});
+		root.add(chocolateSubmit, 1, 10);
+		
+		
+		
 		this.setCenter(root);
 		
 		
