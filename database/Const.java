@@ -8,6 +8,8 @@ public class Const {
 public static final String TABLE_CHOCOLATE = "chocolate";
 public static final String CHOCOLATE_COLUMN_ID = "id";
 public static final String CHOCOLATE_COLUMN_NAME = "name";
+public static final String CHOCOLATE_COLUMN_PRICE = "price";
+public static final String CHOCOLATE_COLUMN_QUANTITY = "quantity";
 
 /*--------------CREATING CONSTANTS FOR CHOCOLATE STATS TABLE------------*/
 public static final String TABLE_CHOCOLATE_STATS = "chocolate_stats";
@@ -18,8 +20,10 @@ public static final String CHOCOLATE_STATS_COLUMN_QUANTITY = "quantity";
 /*---------------CREATING CHOCOLATE TABLE----------------*/
 public static final String CREATE_TABLE_CHOCOLATE = 
 		"CREATE TABLE " + TABLE_CHOCOLATE + "(" +
-		CHOCOLATE_COLUMN_ID+ " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
-		CHOCOLATE_COLUMN_NAME + " VARCHAR(50) NOT NULL" +
+		CHOCOLATE_COLUMN_ID + " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
+		CHOCOLATE_COLUMN_NAME + " VARCHAR(50) NOT NULL, " +
+		CHOCOLATE_COLUMN_PRICE + " VARCHAR(50) NOT NULL, " +
+		CHOCOLATE_COLUMN_QUANTITY + " VARCHAR(50) NOT NULL" +
 		");";
 
 /*---------------CREATING CHOCOLATE STATS TABLE----------------*/
@@ -36,6 +40,8 @@ public static final String CREATE_TABLE_CHOCOLATE_STATS =
 public static final String TABLE_CANDY = "candy";
 public static final String CANDY_COLUMN_ID = "id";
 public static final String CANDY_COLUMN_NAME = "name";
+public static final String CANDY_COLUMN_PRICE = "price";
+public static final String CANDY_COLUMN_QUANTITY = "quantity";
 
 /*---------------CREATING CONSTANTS FOR CANDY STATS TABLE-------------*/
 public static final String TABLE_CANDY_STATS = "candy_stats";
@@ -47,8 +53,10 @@ public static final String CANDY_STATS_COLUMN_QUANTITY = "quantity";
 public static final String CREATE_TABLE_CANDY = 
 		"CREATE TABLE " + TABLE_CANDY + "(" +
 		CANDY_COLUMN_ID + " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
-		CANDY_COLUMN_NAME + " VARCHAR(50) NOT NULL" +
-				");";
+		CANDY_COLUMN_NAME + " VARCHAR(50) NOT NULL, " +
+		CANDY_COLUMN_PRICE + " VARCHAR(50) NOT NULL, " +
+		CANDY_COLUMN_QUANTITY + " VARCHAR(50) NOT NULL" +
+				");"; 
 
 /*-----------------CREATING CANDY STATS TABLE--------------*/
 public static final String CREATE_TABLE_CANDY_STATS =
