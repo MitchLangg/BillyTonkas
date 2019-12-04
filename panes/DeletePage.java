@@ -94,7 +94,9 @@ public class DeletePage extends BorderPane {
 		candySubmit.setOnAction(e->{
 			Candy candy = new Candy(
 					Integer.parseInt(candyIDTF.getText()));
+					
 			candyTable.deleteCandy(candy);
+			candyIDTF.setText("");
 			
 		});
 		candyBox.getChildren().addAll(candyTDisplay, candyID, candyIDTF, candySubmit);
@@ -119,7 +121,9 @@ public class DeletePage extends BorderPane {
 		chocolateSubmit.setOnAction(e->{
 			Chocolate chocolate = new Chocolate(
 					Integer.parseInt(chocolateIDTF.getText()));
+					
 			chocolateTable.deleteChocolate(chocolate);
+			chocolateIDTF.setText("");
 			 
 		});
 		chocolateBox.getChildren().addAll(chocolateTDisplay, chocolateID, chocolateIDTF, chocolateSubmit);
@@ -141,7 +145,9 @@ public class DeletePage extends BorderPane {
 		gummySubmit.setOnAction(e->{
 			Gummy gummy = new Gummy(
 					Integer.parseInt(gummyIDTF.getText()));
+					
 			gummyTable.deleteGummy(gummy);
+			gummyIDTF.setText("");
 			
 		});
 		gummyBox.getChildren().addAll(gummyTDisplay, gummyID, gummyIDTF, gummySubmit);

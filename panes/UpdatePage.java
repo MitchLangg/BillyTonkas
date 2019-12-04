@@ -112,8 +112,14 @@ public class UpdatePage extends BorderPane{
 					candyNameTF.getText(),
 					Double.parseDouble(candyPriceTF.getText()),
 					Integer.parseInt(candyQuantityTF.getText()));
+			
 					
 			candyTable.updateCandy(candy);
+			candyIDTF.setText("");
+			candyNameTF.setText("");
+			candyPriceTF.setText("");
+			candyQuantityTF.setText("");
+			generateChart(root);
 			
 		});
 		candyBox.getChildren().addAll(candyTDisplay, candyID, candyIDTF, candyName, candyNameTF, candyPrice, candyPriceTF, candyQuantity, candyQuantityTF, candySubmit);
@@ -147,7 +153,12 @@ public class UpdatePage extends BorderPane{
 					Double.parseDouble(chocolatePriceTF.getText()),
 					Integer.parseInt(chocolateQuantityTF.getText()));
 					
-			chocolateTable.updateChocolate(chocolate);
+				chocolateTable.updateChocolate(chocolate);
+				chocolateIDTF.setText("");
+				chocolateNameTF.setText("");
+				chocolatePriceTF.setText("");
+				chocolateQuantityTF.setText("");
+				generateChart(root);
 			
 		});
 		chocolateBox.getChildren().addAll(chocolateTDisplay, chocolateID, chocolateIDTF, chocolateName, chocolateNameTF, chocolatePrice, chocolatePriceTF, chocolateQuantity, chocolateQuantityTF, chocolateSubmit);
@@ -181,7 +192,13 @@ public class UpdatePage extends BorderPane{
 					Double.parseDouble(gummyPriceTF.getText()),
 					Integer.parseInt(gummyQuantityTF.getText()));
 					
+					
 			gummyTable.updateGummy(gummy);
+			gummyIDTF.setText("");
+			gummyNameTF.setText("");
+			gummyPriceTF.setText("");
+			gummyQuantityTF.setText("");
+			generateChart(root);
 			
 		});
 		gummyBox.getChildren().addAll(gummyTDisplay, gummyID, gummyIDTF, gummyName, gummyNameTF, gummyPrice, gummyPriceTF, gummyQuantity, gummyQuantityTF, gummySubmit);

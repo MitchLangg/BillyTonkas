@@ -81,7 +81,7 @@ public class DisplayPage extends BorderPane{
 		gummyButtonBox.setBackground(buttonBackground);
 		gummyButtonBox.setBorder(buttonBorder);
 		
-		Text chocolateButton = new Text("Chocolate Button");
+		Text chocolateButton = new Text("Chocolate Table");
 		chocolateButton.setFont(buttonFont);
 		chocolateButton.setFill(Color.WHITE);
 		VBox chocolateButtonBox = new VBox();

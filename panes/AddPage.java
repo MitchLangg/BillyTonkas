@@ -109,7 +109,13 @@ public class AddPage extends BorderPane{
 					Double.parseDouble(candyPriceTF.getText()),
 					Integer.parseInt(candyQuantityTF.getText()));
 					
+					
+					
 			candyTable.createCandy(candy);
+			candyNameTF.setText("");
+			candyPriceTF.setText("");
+			candyQuantityTF.setText("");
+			generateChart(root);
 			
 		});
 		candyBox.getChildren().addAll(candyTDisplay, candyName, candyNameTF, candyPrice, candyPriceTF, candyQuantity, candyQuantityTF, candySubmit);
@@ -143,6 +149,10 @@ public class AddPage extends BorderPane{
 					Integer.parseInt(chocolateQuantityTF.getText()));
 					
 			chocolateTable.createChocolate(chocolate);
+			chocolateNameTF.setText("");
+			chocolatePriceTF.setText("");
+			chocolateQuantityTF.setText("");
+			generateChart(root);
 			
 		});
 		chocolateBox.getChildren().addAll(chocolateTDisplay, chocolateName, chocolateNameTF, chocolatePrice, chocolatePriceTF, chocolateQuantity, chocolateQuantityTF, chocolateSubmit);
@@ -183,6 +193,10 @@ public class AddPage extends BorderPane{
 					Integer.parseInt(gummyQuantityTF.getText()));
 					
 			gummyTable.createGummy(gummy);
+			gummyNameTF.setText("");
+			gummyPriceTF.setText("");
+			gummyQuantityTF.setText("");
+			generateChart(root);
 			
 		});
 		gummyBox.getChildren().addAll(gummyTDisplay, gummyName, gummyNameTF, gummyPrice, gummyPriceTF, gummyQuantity, gummyQuantityTF, gummySubmit);
