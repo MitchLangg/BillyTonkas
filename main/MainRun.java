@@ -1,4 +1,5 @@
 package main;
+
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Scanner;
@@ -10,7 +11,7 @@ import scenes.ConnnectScene;
 import scenes.HomeScene;
 
 /**
- * @author MitchellTodd
+ * @author MitchellTodd, IzaccLucas
  * @description Java class that contains main and launches application
  * @date Week 1-9
  */

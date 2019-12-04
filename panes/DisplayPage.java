@@ -2,6 +2,7 @@ package panes;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+
 import javafx.embed.swing.SwingNode;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -28,8 +29,8 @@ import tables.ChocolateTable;
 import tables.GummyTable;
 
 /**
-	 * @author Izacc
-	 * @description 
+	 * @author IzaccLucas
+	 * @description A class containing the information that displays the database information
 	 * @date Week 13-15
 	 */
 

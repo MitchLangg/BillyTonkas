@@ -1,8 +1,9 @@
 package database;
 
 public class Const {
-	/*
-	 * @author Mitchell Lang
+	/**
+	 * @author MitchellLang
+	 * @description Class containing all of the constants
 	 */
 /*--------------CREATING CONSTANTS FOR CHOCOLATE TABLE----------------*/
 public static final String TABLE_CHOCOLATE = "chocolate";

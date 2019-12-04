@@ -29,7 +29,7 @@ import scenes.UpdateScene;
 
 public class HomePage extends BorderPane{
 	/**
-		 * @author MitchellTodd
+		 * @author MitchellTodd, IzaccLucas
 		 * @description creating home page pane. This is our main screen
 		 * @date Week 13-15
 		 */

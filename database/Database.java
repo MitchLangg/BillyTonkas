@@ -8,10 +8,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import javafx.scene.control.Alert;
+import main.MainRun;
 import panes.ConnectPage;
 
-/*
- * @author izacc
+/**
+ * @author IzaccLucas
  */
 public class Database {
 
@@ -31,7 +32,7 @@ public class Database {
 			
 			catch(Exception e) {
 				
-				ConnectPage.showAlert(Alert.AlertType.ERROR, main.MainRun.mainStage.getScene().getWindow(), "Invalid Credentials", "Please Try Again!");
+				ConnectPage.showAlert(Alert.AlertType.ERROR, MainRun.mainStage.getScene().getWindow(), "Invalid Credentials", "Please Try Again!");
 			}
 			try {
 				createTable(Const.TABLE_CHOCOLATE,
